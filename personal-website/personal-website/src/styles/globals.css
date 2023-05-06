@@ -42,3 +42,7 @@ body {
   font-family: "notothin";
   src: url("../../public/NotoSans-Regular.ttf");
 }
+@font-face {
+  font-family: "notomd";
+  src: url("../../public/NotoSans-Bold.ttf");
+}

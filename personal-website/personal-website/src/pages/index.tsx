@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import pfp from '../../public/pfp.jpeg'
+import pfp from '../../public/images/pfp.jpeg'
 
-import { BsList, BsInstagram } from 'react-icons/bs'
+import { BsList, BsInstagram, BsTag } from 'react-icons/bs'
 import { FiMail, FiGithub } from 'react-icons/fi'
-import { FaLinkedinIn } from 'react-icons/fa'
+import { FaLinkedinIn, FaItchIo } from 'react-icons/fa'
 import { IconType } from 'react-icons'
+import { FiExternalLink, FiAward } from 'react-icons/fi'
+import { MdOutlinePhoto } from 'react-icons/md'
 
 // import { Nav } from '../nav'
 import { NavTest } from '../navTest'
@@ -79,7 +81,7 @@ const OutlineButton = (text: string, link: string) => {
 const TextLink = (text: string, link: string) => {
   return (
     <a href={link} target="_blank"
-      className=" whitespace-nowrap relative text-orange text-decoration: none; hover:text-orange 
+      className="whitespace-nowrap relative z-20 text-orange text-decoration: none; hover:text-orange 
       before:content-['']
       before:absolute
       before:block
@@ -146,7 +148,7 @@ export default function Website() {
 
       <main className="px-5 lg:px-20 xl:px-40">
         <section className='min-h-screen w-full flex items-center'>
-        <Wave1 />
+          <Wave1 />
           <div className="w-full flex flex-col lg:flex-row justify-between mt-32 lg:mt-0">
             <div className="lg:w-7/12 max-w-[650px] space-y-6 self-center">
               <h2 className="text-xl xl:text-2xl">Hi, my name is</h2>
@@ -160,7 +162,7 @@ export default function Website() {
             </div>
           </div>
         </section>
-        
+
         <section>
           {SectionHeader("About Me")}
           <div className="flex flex-col space-y-10 my-5 lg:space-y-20 lg:my-10">
@@ -172,7 +174,7 @@ export default function Website() {
                   More information can be found on my {TextLink("resume", "/")}!</p>
               </div>
               <div className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] border-[3px] border-black rounded-[20px] lg:ml-5">
-              
+
               </div>
             </div>
 
@@ -180,11 +182,11 @@ export default function Website() {
               <div className="basis-1/2 max-w-[500px] lg:max-w-full ">
                 <h2 className="text-2xl pb-4 lg:text-right">Experience:</h2>
                 <p className="text-base pb-6 lg:pb- lg:text-right">
-                  I’m currently doing a co-op at {TextLink("Arctic Wolf", "https://arcticwolf.com/")}, where I work on front-end stuff using React. 
+                  I’m currently doing a co-op at {TextLink("Arctic Wolf", "https://arcticwolf.com/")}, where I work on front-end stuff using React.
                   I'm thankful for this opportunity to work at a {TextLink("top rated workplace", "https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces/")}! #jointhepack</p>
               </div>
               <div className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] border-[3px] border-black rounded-[20px] lg:mr-5">
-              
+
               </div>
             </div>
 
@@ -192,11 +194,11 @@ export default function Website() {
               <div className="basis-1/2 max-w-[500px] lg:max-w-full ">
                 <h2 className="text-2xl pb-4">Personal:</h2>
                 <p className="text-base pb-6 lg:pb-0">
-                  When I’m not at school or work, I can be found reading, volunteering with youth, playing the drums, 
+                  When I’m not at school or work, I can be found reading, volunteering with youth, playing the drums,
                   or coding projects of my own!</p>
               </div>
               <div className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] border-[3px] border-black rounded-[20px] lg:ml-5">
-              
+
               </div>
             </div>
           </div>
@@ -204,27 +206,79 @@ export default function Website() {
 
         <section>
           {SectionHeader("Projects")}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-[600px]:bg-sky-300 justify-items-center">
-            <div className="w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] outline outline-[3px] outline-black flex">
-              <Image src={require("../../public/testprojectpic.png")} alt="website" className="basis-1/12 rounded-tl-[20px] rounded-bl-[20px] border-r-[3px] border-black" />
-              
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 justify-items-center">
+            <div className="relative w-full max-w-[500px] lg:aspect-[5/2.22] rounded-[20px] outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)]
+                            group hover:-translate-y-2 hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] transition duration-300 ease-out">
+              <a href="/" className="absolute w-full h-full bg-white opacity-0 z-10"></a>
+              <div className="lg:basis-[39%] w-full aspect-[3/2] lg:aspect-square relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
+                <Image src={require("../../public/images/projects-images/education-data-for-change/education-data-for-change-thumbnail.png")} alt=""
+                  className="absolute w-full h-full rounded-tl-[20px] rounded-tr-[20px] lg:rounded-tr-none lg:rounded-bl-[20px] object-cover" />
+                <Image src={require("../../public/images/projects-images/education-data-for-change/education-data-for-change-icon.png")} alt=""
+                  className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
+              </div>
+              <div className="flex">
+                <div className="basis-[91%] flex flex-col ml-1 my-1">
+                  <h2 className="text-md">
+                    <a className="whitespace-nowrap relative text-black text-decoration: none; group-hover:text-orange 
+                                before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                                before:bottom-0 before:left-0 before:bg-orange before:scale-x-0 before:origin-top-left 
+                                before:transition before:duration-300 before:ease-in-out before:group-hover:scale-x-100 
+                                transition duration-300">
+                      Education Data for Change
+                    </a>
+                  </h2>
+                  <h3 className="font-notothin text-sm text-grey -mt-1">Hackathon & Personal Project</h3>
+                  <p className="font-notothin text-sm my-2 leading-[18px]">
+                    Search for public schools in Ontario to view their EQAO and income data.
+                    Originally created for {TextLink("DeltaHacks IX", "/")} (2023), then improved in the following week.
+                  </p>
+                  <div className="flex mt-auto space-x-1">
+                    <div className="flex rounded-full border-2 border-blue items-center">
+                      {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                      <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">HTML</p>
+                    </div>
+                    <div className="flex rounded-full border-2 border-blue items-center">
+                      {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                      <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">SQL</p>
+                    </div>
+                    <div className="flex rounded-full border-2 border-blue items-center">
+                      {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                      <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">JAVASCRIPT</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-end gap-2 p-2 pl-1">
+                  <a href="https://google.com" target="_blank" className="z-20">
+                    {FiExternalLink({ className: "text-black w-6 h-6 hover:text-orange transition" })}
+                  </a>
+                  <a href="https://google.com" className="z-20">
+                    {MdOutlinePhoto({ className: "text-black w-6 h-6 hover:text-orange transition" })}
+                  </a>
+                  <a href="https://google.com" target="_blank" className="z-20">
+                    {FiGithub({ className: "text-black w-6 h-6 hover:text-orange transition" })}
+                  </a>
+                </div>
+              </div>
+
             </div>
-          </div>
+
+          </div> */}
+          <Projects />
         </section>
 
         <section>
           {SectionHeader("Articles")}
-          
+
         </section>
 
         <section>
           {SectionHeader("Contact")}
-          
+
         </section>
       </main>
 
 
-      
+
     </div>
   )
 }
@@ -232,17 +286,153 @@ export default function Website() {
 
 function Projects() {
   const info = [
-    ["Personal Website"],
-    ["Education Data for Change"],
-    [],[],[],[],[],[],[],
+    {
+      "id": "personal-website",
+      "title": "Personal Website",
+      "subtitle": "Personal Project",
+      "description":
+        <p>
+          Glad you’re here! {TextLink("Let me know", "/contact")} if anything isn’t working properly.
+        </p>,
+      "tags": ["REACT", "TAILWIND", "FIGMA"],
+      "links": {
+        "github": "https://google.com",
+      }
+    },
+    {
+      "id": "education-data-for-change",
+      "title": "Education Data for Change",
+      "subtitle": "Hackathon & Personal Project",
+      "description":
+        <p>
+          Search for public schools in Ontario to view their EQAO and income data.
+          Originally created for {TextLink("DeltaHacks IX", "/")} (2023), then improved in the following week.
+        </p>,
+      "tags": ["HTML", "SQL", "JAVASCRIPT"],
+      "links": {
+        "open": "https://google.com",
+        "photos": "https://google.com",
+        "github": "https://google.com",
+      }
+    },
+    {
+      "id": "triangle-ball",
+      "title": "Triangle Ball",
+      "subtitle": "Personal Project",
+      "description":
+        <p>
+          I learned how to code by creating this game over the span of years.
+          Features highly effective bots that were implemented by applying university level calculus.
+          I also created all the art.
+        </p>,
+      "tags": ["C#", "Unity"],
+      "links": {
+        "open": "https://google.com",
+        "photos": "https://google.com",
+        "github": "https://google.com",
+      }
+    },
+    {
+      "id": "server-insights",
+      "title": "Server Insights",
+      "subtitle": "Hackathon & Personal Project",
+      "description":
+        <p>
+          Discord bot that won my high school’s hackathon (2021), then was improved in the following weeks. 
+          Analyzes messages sent in a discord server and creates graphs.
+        </p>,
+      "tags": ["PYTHON"],
+      "links": {
+        "photos": "https://google.com",
+        "github": "https://google.com",
+        "award": "https://google.com",
+      }
+    },
+    {
+      "id": "tempestuous-turrets",
+      "title": "Tempestuous Turrets",
+      "subtitle": "Hackathon Project",
+      "description":
+        <p>
+          Game created in 32 hours for {TextLink("Hack the North", "https://hackthenorth.com")} (2022). 
+          Clicking the card links to play it in the web, 
+          but it runs more smoothly if you {TextLink("download it here", "/")}.
+        </p>,
+      "tags": ["C#", "UNITY"],
+      "links": {
+        "open": "https://google.com",
+        "photos": "https://google.com",
+        "github": "https://google.com",
+        "itch": "https://google.com",
+      }
+    },
+    {
+      "id": "binary-0101",
+      "title": "Binary 0101",
+      "subtitle": "School Project",
+      "description":
+        <p>
+          Web app that teaches the basics of binary, targeted towards high school students. 
+          Created while following the design thinking process for a software design class.
+        </p>,
+      "tags": ["ELM", "DESIGN THINKING"],
+      "links": {
+        "open": "https://google.com",
+        "photos": "https://google.com",
+        "github": "https://google.com",
+      }
+    },
   ]
-  
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-[600px]:bg-sky-300 justify-items-center">
-      {info.map((project, i) =>
-        <div className={`w-full max-w-[500px] aspect-[5/2.22] border-[3px] border-black rounded-[20px]
-        lg:${i % 2 == 0 ? "justify-self-end" : "justify-self-start"}`}>
+  const nameToIcon = {"open": FiExternalLink, "photos": MdOutlinePhoto, "github": FiGithub, "award": FiAward, "itch": FaItchIo}
 
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center my-5">
+      {info.map((project, i) =>
+        <div key={project.id} className={`relative w-full max-w-[500px] lg:aspect-[5/2.22] rounded-[20px] outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)]
+        group hover:-translate-y-2 hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] transition duration-300 ease-out
+        ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
+          <a href="/" className="absolute w-full h-full bg-white opacity-0 z-10"></a>
+          <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
+            <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt=""
+              className="absolute w-full h-full rounded-tl-[20px] rounded-tr-[20px] lg:rounded-tr-none lg:rounded-bl-[20px] object-cover" />
+            <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt=""
+              className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
+          </div>
+          <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
+            <div className="flex">
+              <div className="basis-[91%] flex flex-col">
+                <h2 className="text-md">
+                  <a className="whitespace-nowrap relative text-black text-decoration: none; group-hover:text-orange 
+            before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+            before:bottom-0 before:left-0 before:bg-orange before:scale-x-0 before:origin-top-left 
+            before:transition before:duration-300 before:ease-in-out before:group-hover:scale-x-100 
+            transition duration-300">
+                    {project.title}
+                  </a>
+                </h2>
+                <h3 className="font-notothin text-sm text-grey -mt-1">{project.subtitle}</h3>
+                <div className="font-notothin text-sm my-2 leading-[18px]">
+                  {project.description}
+                </div>
+              </div>
+              <div className="basis-[9%] flex flex-col items-end gap-2 p-2 pl-1">
+                {Object.keys(project.links).map((link) =>
+                  <a href={project.links[link as keyof typeof project.links]} target="_blank" className="z-20">
+                    {nameToIcon[link as keyof typeof nameToIcon]({ className: "text-black w-6 h-6 hover:text-orange transition" })}
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="flex mt-auto space-x-1">
+              {project.tags.map((tag) =>
+                <div key={tag} className="flex rounded-full border-2 border-blue items-center">
+                  {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                  <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">{tag}</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
@@ -256,7 +446,7 @@ function Projects() {
 
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("up");
-  
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -264,10 +454,10 @@ function useScrollDirection() {
     const updateScrollDirection = () => {
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
-      
+
       const atTopOfPage = scrollY < 50;
       if (atTopOfPage) {
-          setScrollDirection("up");
+        setScrollDirection("up");
       }
       else if (direction !== scrollDirection && (Math.abs(scrollY - lastScrollY) > 1)) {
         setScrollDirection(direction);
@@ -287,17 +477,17 @@ function Nav() {
   const scrollDirection = useScrollDirection();
 
   return (
-      <div>
-          <nav className={`fixed w-full px-10 py-2 z-10 bg-white transition duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"}`}>
-          <div className="flex h-16 items-center justify-between">
-              <LogoButton />
-              <BsList className="lg:hidden stroke-black stroke-1" size={50} />
-              <ul className="hidden lg:flex gap-12">
-                  {NavButtons([["About", "/"], ["Projects", "/"], ["Articles", "/"], ["Contact", "/"]])}
-                  <li key={"Resume"} >{OutlineButton("Resume", "https://google.com")}</li>
-              </ul>
-          </div>
+    <div>
+      <nav className={`fixed w-full px-10 py-2 z-10 bg-white transition duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"}`}>
+        <div className="flex h-16 items-center justify-between">
+          <LogoButton />
+          <BsList className="lg:hidden stroke-black stroke-1" size={50} />
+          <ul className="hidden lg:flex gap-12">
+            {NavButtons([["About", "/"], ["Projects", "/"], ["Articles", "/"], ["Contact", "/"]])}
+            <li key={"Resume"} >{OutlineButton("Resume", "https://google.com")}</li>
+          </ul>
+        </div>
       </nav>
-      </div>
+    </div>
   );
 };

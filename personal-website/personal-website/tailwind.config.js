@@ -18,6 +18,7 @@ module.exports = {
       fontFamily: {
         noto: "noto",
         notothin: "notothin",
+        notomd: "notomd",
       },
     },
     
