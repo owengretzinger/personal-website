@@ -20,8 +20,19 @@ module.exports = {
         notothin: "notothin",
         notomd: "notomd",
       },
+      typography: {
+        default: {
+          css: {
+            a: {
+              target: "new",
+              
+            }
+          }
+        }
+      }
     },
-    
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

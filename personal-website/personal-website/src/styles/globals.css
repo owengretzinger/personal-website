@@ -36,13 +36,13 @@ body {
 
 @font-face {
   font-family: "noto";
-  src: url("../../public/NotoSans-ExtraBold.ttf");
+  src: url("../../public/fonts/NotoSans-ExtraBold.ttf");
 }
 @font-face {
   font-family: "notothin";
-  src: url("../../public/NotoSans-Regular.ttf");
+  src: url("../../public/fonts/NotoSans-Regular.ttf");
 }
 @font-face {
   font-family: "notomd";
-  src: url("../../public/NotoSans-Bold.ttf");
+  src: url("../../public/fonts/NotoSans-Bold.ttf");
 }
