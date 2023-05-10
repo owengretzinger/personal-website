@@ -1,15 +1,18 @@
 import Markdown from 'markdown-to-jsx';
 import ReactMarkdown from 'react-markdown'
-import React, { useState, useEffect } from 'react';
-import Nav from "../../components/nav";
+import React, { useState, useEffect, useContext } from 'react';
+import Nav from "../components/nav";
 import mdFile from 'raw-loader!./articles/a-mission-to-spread-love.md';
 import { getArticlesData } from '../../lib/articles';
+import handleClickScroll from '@/components/clickScroll';
 
 import matter from 'gray-matter';
+import TextLink from '../components/textLink';
 
-import Head from 'next/head'
+import Layout from '../components/layout';
+
 import Image from 'next/image'
-import pfp from '../../public/images/pfp.jpeg'
+// import pfp from '../../public/images/pfp.jpeg'
 
 
 import { BsList, BsInstagram, BsTag, BsX } from 'react-icons/bs'
@@ -22,6 +25,7 @@ import { MdOutlinePhoto } from 'react-icons/md'
 // import { Nav } from '../nav'
 import { NavTest } from '../navTest'
 import { InferGetStaticPropsType } from 'next';
+import { MobileNavIsOpenContext } from './_app';
 
 // import React, { useRef } from 'react';
 
@@ -50,29 +54,6 @@ const OutlineButton = (text: string, link: string) => {
   return (
     <a href={link} target="_blank"
       className='border-2 border-orange px-4 py-2 rounded-lg text-orange hover:bg-light-orange transition'>
-      {text}
-    </a>
-  )
-}
-
-const TextLink = (text: string, link: string) => {
-  return (
-    <a href={link} target="_blank"
-      className="whitespace-nowrap relative z-20 text-orange text-decoration: none; hover:text-orange 
-      before:content-['']
-      before:absolute
-      before:block
-      before:w-full
-      before:h-[2px]
-      before:bottom-0
-      before:left-0
-      before:bg-orange
-      before:scale-x-0
-      before:origin-top-left
-      before:transition 
-      before:duration-300 
-      before:ease-in-out 
-      before:hover:scale-x-100">
       {text}
     </a>
   )
@@ -111,17 +92,24 @@ const SectionHeader = (title: string, id: string) => {
 
 
 export default function Website({ articleData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [, setMobileNavOpen] = useContext(MobileNavIsOpenContext);
+  
   return (
-    <div className="text-black font-noto selection:bg-orange/20">
-      <Head>
-        <title>owengretzinger.com</title>
-        <meta name="description" content="Owen Gretzinger's Personal Website" />
-        <link rel="icon" href="/personal-website-icon-blue.ico" />
-      </Head>
+    <Layout>
 
-      <div className="w-full h-full bg-white fixed -z-20"></div>
-
-      <Nav />
+      <Nav>
+        {["About", "Projects", "Articles", "Contact"].map((text, index) => {
+          return (
+            <li key={text} >
+              <button onClick={() => { handleClickScroll(text); setMobileNavOpen(false) }} className="group flex">
+                <p className="text-orange">{index + 1}.&nbsp;</p>
+                <p className="group-hover:text-orange transition">{text}</p>
+              </button>
+            </li>
+          )
+        })}
+        <li key={"Resume"} >{OutlineButton("Resume", "https://google.com")}</li>
+      </Nav>
 
       <main className="px-5 lg:px-20 xl:px-40">
         <section className='min-h-screen w-full flex items-center' id="home">
@@ -131,12 +119,13 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
               <h2 className="text-xl xl:text-2xl">Hi, my name is</h2>
               <h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1>
               <h2 className="text-xl xl:text-2xl">I’m a software developer on a mission 
-                to {TextLink("spread love", "/articles/a-mission-to-spread-love")}, one line of code at a time.
+                to {TextLink("spread love", "/articles/a-mission-to-spread-love", false)}, one line of code at a time.
                 My priority is producing excellent work while communicating with precision and clarity.</h2>
               {SocialButtons()}
             </div>
             <div className="flex-1 self-center p-10 lg:py-0">
-              <Image src={pfp} alt="Picture of me" className="w-full max-w-[334px] rounded-xl shadow-2xl mx-auto" priority={true} />
+              <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Picture of me" priority={true}
+                     className="w-full max-w-[334px] rounded-xl shadow-2xl mx-auto" />
             </div>
           </div>
         </section>
@@ -220,7 +209,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                 return (
                   <li key={article.id}>
                     <h2 className="text-2xl">
-                      {TextLink(article.title, `/articles/${article.id}`)}
+                      {TextLink(article.title, `/articles/${article.id}`, false)}
                     </h2>
                     <h3 className="text-sm text-grey">{article.subtitle}</h3>
                   </li>
@@ -253,7 +242,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
 
 
 
-    </div>
+      </Layout>
   )
 }
 
