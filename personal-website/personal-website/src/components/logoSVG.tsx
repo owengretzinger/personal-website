@@ -7,3 +7,13 @@ export default function Logo() {
         </svg>
     )
 }
+
+export function FixedLogo() {
+    return (
+        <div className="fixed top-4 left-10">
+            <a className="z-[100]" href="/">
+                <Logo />
+            </a>
+        </div>
+    )
+}

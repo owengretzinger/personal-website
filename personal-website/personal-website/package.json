@@ -14,6 +14,7 @@
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
+    "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
     "markdown-it-anchor": "^8.6.7",
     "markdown-to-jsx": "^7.2.0",
