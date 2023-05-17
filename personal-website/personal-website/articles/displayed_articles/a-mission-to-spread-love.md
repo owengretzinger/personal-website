@@ -1,12 +1,10 @@
 ---
 title: 'A Mission To Spread Love?'
 subtitle: 'More about me and my values'
-dateCreated: '2023-05-08'
-dateModified: '2023-05-08'
+dateCreated: '2023-05-14'
+dateModified: '2023-05-14'
 priority: 100
 ---
-
-# A Mission To Spread Love? 
 
 You may have read my website headline and wondered what I meant by being "on a mission to spread love". Allow me to explain.
 
@@ -24,12 +22,12 @@ In 2021 I decided I loved coding so much that I would pursue computer science in
 
 And if I don't play video games because they are a waste of time (according to me), then it wouldn't make sense for me to continue developing games. Now, as mentioned, I am glad to have created the games I did. It was really fun which gave me the desire and motivation to learn how to code. However, especially over the course of this past school year, I have been focusing on other things that I think are more important. At the time of writing this I just started a co-op at a cybersecurity company [Arctic Wolf](https://arcticwolf.com), where I will be able to make a meaningful impact. Another way this shift is demonstrated is the difference between me [making a game for a hackathon in September](/articles/tempestuous-turrets) versus [making a website to display education data for a hackathon in January](/articles/education-data-for-change).
 
-Another very important aspect of this change for me is my faith. I have been a "christian" my whole life, but over the past year especially, Jesus has transformed my life. Now more than ever, I want to use my passion for coding for things that really matter. If you have any questions about this or are curious to know more, [let me know](/#contact) and I would be happy to explain further!
+Another very important aspect of this change for me is my faith. I have been a "christian" my whole life, but over the past year especially, Jesus has transformed my life. Now more than ever, I want to use my passion for coding for things that really matter. If you have any questions about this or are curious to know more, [let me know](/contact) and I would be happy to explain further!
 
 ## Where I'm Going 
 
-This may all seem like a lot of talk considering there are still multiple games among the projects I list in my [projects section](/#projects). However, moving forward my plan and my commitment is to be thoughtful of what I spend my time doing, and to keep my mission of spreading love at the center of what I do.
+This may all seem like a lot of talk considering there are still multiple games among the projects I list in my [projects section](/projects). However, moving forward my plan and my commitment is to being thoughtful of what I spend my time doing. I want to make the most of my limited time, removing any distractions in order to make a meaningful impact and to keep my mission of spreading love at the center of what I do.
 
 ## Closing Remarks 
 
-Thanks for listening to what I have to say! I really appreciate you checking out my website. Make sure to [reach out](/#contact) if we're not already in contact!
+Thanks for listening to what I have to say! I really appreciate you checking out my website. Make sure to [reach out](/contact) if we're not already in contact!

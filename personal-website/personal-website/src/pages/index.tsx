@@ -36,6 +36,7 @@ import { MobileNavIsOpenContext, PaletteContext } from './_app';
 import { Wave1, Wave2, Wave3, Wave4 } from '../components/waves';
 import FadeInOnScroll from '@/components/fadeInOnScroll';
 import useTimeout from '@/components/useTimeout';
+import websiteSections from '@/utils/websiteSections';
 
 const resumeLink = "/resume.pdf";
 
@@ -92,15 +93,10 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
 
   return (
     <>
-      
-      {<Layout>
-
-
-
+      <Layout>
         <Wave1 />
-
         <Nav>
-          {["About", "Projects", "Articles", "Contact"].map((text, index) => {
+          {websiteSections(false).map((text, index) => {
             return (
               <li key={text} >
                 <FadeInOnScroll delay={index + 8} noDelayOnMobile={true}>
@@ -113,8 +109,6 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
             )
           })}
           <FadeInOnScroll delay={12} noDelayOnMobile={true}>
-            {/* <li key={"Resume"} ><a href={resumeLink} target="_blank" rel="noopener noreferrer">Resume</a></li> */}
-            {/* <li key={"Resume"} ><button onClick={openResume}>Resume</button></li> */}
             <li key={"Resume"} >{OutlineButton("Resume", resumeLink)}</li>
           </FadeInOnScroll>
           <FadeInOnScroll delay={13} noDelayOnMobile={true}>
@@ -298,7 +292,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
 
         <Wave4 />
 
-      </Layout>}
+      </Layout>
     </>
   )
 }
@@ -312,7 +306,7 @@ function Projects() {
       "subtitle": "Personal Project",
       "description":
         <p>
-          Glad you’re here! {ButtonLink("Let me know", () => handleClickScroll("Contact"))} if anything isn’t working properly.
+          Glad you’re here! {ButtonLink("Let me know", () => handleClickScroll("contact"))} if anything isn’t working properly.
         </p>,
       "tags": ["REACT", "TAILWIND", "NEXT.JS"],
       "links": {
@@ -381,7 +375,6 @@ function Projects() {
       "tags": ["C#", "UNITY"],
       "links": {
         "open": "http://tempestuousturrets.tech/",
-        "article": "/articles/tempestuous-turrets",
         "github": "https://github.com/owengretzinger/tempestuous-turrets",
         "itch": "https://owengretzinger.itch.io/tempestuous-turrets",
       }
@@ -419,7 +412,7 @@ function Projects() {
                 className="absolute w-full h-full bg-white opacity-0 z-10"></a>
               <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                 <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt=""
-                  className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover" />
+                  className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
                 <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt=""
                   className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
               </div>

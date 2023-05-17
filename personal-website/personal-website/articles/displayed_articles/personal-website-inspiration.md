@@ -25,10 +25,9 @@ While I was designing this website ([more information here](/articles/personal-w
 ![Imgur](https://i.imgur.com/JkdDrma.png)
 
 
-
 # Crazy Awesome Websites
 
-I also came across some websites that I did not necessarily take inspiration from, but I was so amazed that some of these things were even possible to do with a website so I had to include them.
+I also came across some websites that I did not necessarily take inspiration from, but I was so amazed that some of these things could even run in a web browser so I had to include them.
 
 ## 1. [Bruno Simon](https://bruno-simon.com/) 
 

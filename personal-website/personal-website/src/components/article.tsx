@@ -18,6 +18,7 @@ import { ALL } from 'dns';
 import FadeInOnScroll from './fadeInOnScroll';
 import { format } from 'date-fns'
 import readTime from '@/utils/readTime';
+import websiteSections from '@/utils/websiteSections';
 
 
 export default function Article(articlePathFromRoot: string, articleID: string) {
@@ -75,10 +76,13 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
     );
   }
 
-  var date : string = articleMatter.data.dateCreated;
+  var date : string = articleMatter.data.dateModified;
   if (date) {
     const dateArray = date.split('-');
     date = format(new Date(Number(dateArray[0]), Number(dateArray[1])-1, Number(dateArray[2])), 'MMMM d, y');
+  }
+  if (articleMatter.data.dateModified > articleMatter.data.dateCreated) {
+     date = "Modified " + date;
   }
 
   return (
@@ -104,7 +108,8 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
                           ">
                   <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
                   <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
-                  <p className="text-grey not-prose">{articleMatter.data.subtitle}</p>
+                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> ({TextLink("Link", articleMatter.data.link)})</>}</p>
+                  
                   <hr />
                   
                   <ReactMarkdown
@@ -114,6 +119,15 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
                       h3: addToTOC,
                       h4: addToTOC,
                       a: ({ children, ...props }) => {
+                        props.target = "_blank";
+                        for (const section of websiteSections(true)) {
+                          if (props.href && props.href === `/${section}`) {
+                            props.href = `/?section=${section}`;
+                          }
+                        }
+                        if (props.href && props.href.startsWith("/")) {
+                          props.target = "_self";
+                        }
                         return (
                           TextLinkPassProps({children, ...props})
                         )
@@ -121,7 +135,6 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
 
 
                     }}
-                    linkTarget="_blank"
                     children={`${articleMatter.content}`}
                   />
                 </div>

@@ -6,6 +6,7 @@ import Logo from '@/components/logoSVG';
 import handleClickScroll from './clickScroll';
 import FadeInOnScroll from './fadeInOnScroll';
 
+const topOfPageThreshold = 50;
 
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -17,7 +18,7 @@ function useScrollDirection() {
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
 
-      const atTopOfPage = scrollY < 50;
+      const atTopOfPage = scrollY < topOfPageThreshold;
       if (atTopOfPage) {
         setScrollDirection("up");
       }
@@ -47,7 +48,7 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
       <nav className={`fixed top-0 w-full px-10 py-2 z-30 bg-white change-col-on-start to-bg transition-transform duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"} ${showOnLargeScreens ? "block" : "lg:hidden"}`}>
         <div className="flex h-16 items-center justify-between">
           <FadeInOnScroll delay={7}>
-            <button className="flex z-[100]" onClick={() => router.pathname === "/" ? handleClickScroll("home") : router.push("/")}>
+            <button className="flex z-[100]" onClick={() => router.pathname === "/" ? (window.scrollY < topOfPageThreshold ? router.reload() : handleClickScroll("home")) : router.push("/")}>
               <Logo />
             </button>
           </FadeInOnScroll>

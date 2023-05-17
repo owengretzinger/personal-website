@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const classNames = [
   "group/link text-orange ease-in-out text-left relative z-20",
   "w-fit bg-left-bottom bg-gradient-to-r from-orange to-orange bg-no-repeat bg-[length:100%_2px] lg:bg-[length:0%_2px] lg:group-hover/link:bg-[length:100%_2px] transition-[background-size] duration-300 ease-out",
@@ -26,11 +28,15 @@ export function ButtonLink(text: string, func: () => void, breakWords: boolean =
 }
 
 export function TextLinkPassProps({children, ...props} : any) {
+  // props.href = props.href.startsWith("/#") ? props.href + "?loadinganimation=false" : props.href;
   return (
+    <>
     <a className={`${classNames[0]}`} {...props}>
     <span className={classNames[1]}>
       {children}
     </span>
-  </a>
+    </a>
+    
+    </>
   )
 }
