@@ -9,7 +9,7 @@ import { HeadingProps } from "react-markdown/lib/ast-to-react";
 import Layout from './layout';
 import Nav from "./nav";
 import TextLink, { ButtonLink, TextLinkPassProps } from './textLink';
-import handleClickScroll from '@/components/clickScroll';
+import handleClickScroll from '../../lib/clickScroll';
 import { FixedLogo } from '@/components/logoSVG';
 import { MobileNavIsOpenContext, PaletteContext } from '../pages/_app';
 import ErrorPage from '@/pages/404';
@@ -17,8 +17,8 @@ import ColourPaletteButton from './colourPaletteButton';
 import { ALL } from 'dns';
 import FadeInOnScroll from './fadeInOnScroll';
 import { format } from 'date-fns'
-import readTime from '@/utils/readTime';
-import websiteSections from '@/utils/websiteSections';
+import readTime from '../../lib/readTime';
+import websiteSections from '../../lib/websiteSections';
 
 
 export default function Article(articlePathFromRoot: string, articleID: string) {

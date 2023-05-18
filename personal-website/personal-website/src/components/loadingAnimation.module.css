@@ -1,0 +1,159 @@
+.bulge {
+    r: 0;
+    animation-timing-function: cubic-bezier(0.530, 1.425, 0.380, 0.920); 
+    animation-fill-mode: forwards;
+    transform-origin: 50% 50%;
+    will-change: width, height;
+  }
+  .bulge.first {
+    animation-name: bulge-first;
+    animation-delay: 0.5s;
+    animation-duration: 300ms;
+  }
+  @keyframes bulge-first {
+    0% {
+      r: 0;
+    }
+    100% {
+      r: 13;
+    }
+  }
+  .bulge.second {
+    animation-name: bulge-second;
+    animation-delay: 0.7s;
+    animation-duration: 500ms;
+  }
+  @keyframes bulge-second {
+    0% {
+      r: 0;
+    }
+    100% {
+      r: 28;
+    }
+  }
+  
+  .animateCircle {
+    animation-name: animate-circle;
+    animation-delay: 1.3s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    will-change: stroke-dashoffset;
+    stroke-dashoffset: 194.778744523;
+    stroke-dasharray: 194.778744523 194.778744523;
+  }
+  @keyframes animate-circle {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .scaleOut {
+    width: 300px;
+    height: 30ppx;
+    animation-name: scale-out;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155);
+    animation-fill-mode: forwards;
+    animation-delay: 2.8s;
+    transform-origin: 50% 50%;
+    
+  }
+  @keyframes scale-out {
+    0% {
+      width: 300px;
+      height: 300px;
+    }
+    100% {
+      width: 9000px;
+      height: 9000px;
+    }
+  }
+  
+  .revealPage {
+    visibility: visible;
+    animation-name: reveal-page;
+    animation-duration: 3.2s;
+    animation-fill-mode: forwards;
+    
+  }
+  @keyframes reveal-page {
+    0% {
+      visibility: visible;
+    }
+    100% {
+      visibility: hidden;
+    }
+  }
+  
+  .waitToShowPage {
+    visibility: hidden;
+    animation-name: wait-to-show-page;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 3.2s;
+  }
+  @keyframes wait-to-show-page {
+    0% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+  
+  
+  .changeColOnStart {
+    background-color: #fff;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    /* animation-delay: 3.6s; */
+  }
+  .changeColOnStart.toBg {
+    animation-name: change-col-on-start-to-bg;
+  }
+  @keyframes change-col-on-start-to-bg {
+    0% {
+      background-color: #fff;
+    }
+    100% {
+      background-color: rgb(var(--color-bg));
+    }
+  }
+  .changeColOnStart.toWave {
+    animation-name: change-col-on-start-to-wave;
+  }
+  @keyframes change-col-on-start-to-wave {
+    0% {
+      background-color: #fff;
+    }
+    100% {
+      background-color: rgb(var(--color-wave));
+    }
+  }
+
+  .changeFillOnStartToWave {
+    animation-name: change-fill-on-start;
+    fill: #fff;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    /* animation-delay: 3.6s; */
+  }
+  @keyframes change-fill-on-start {
+    0% {
+      fill: #fff;
+    }
+    30% {
+      fill: rgb(var(--color-bg));
+    }
+    70% {
+      fill: rgb(var(--color-bg));
+    }
+    100% {
+      fill: rgb(var(--color-wave));
+    }
+  }

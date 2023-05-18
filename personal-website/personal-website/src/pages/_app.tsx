@@ -1,4 +1,4 @@
-import { colourPalettes, paletteType } from '@/utils/colourPalettes';
+import { colourPalettes, paletteType } from '../../lib/colourPalettes';
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { SetStateAction, createContext, useEffect, useState } from 'react';

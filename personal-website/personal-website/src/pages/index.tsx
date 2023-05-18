@@ -1,78 +1,29 @@
-import Markdown from 'markdown-to-jsx';
-import ReactMarkdown from 'react-markdown'
-import React, { useState, useEffect, useContext, useRef } from 'react';
-import Nav from "../components/nav";
-import mdFile from 'raw-loader!./articles/a-mission-to-spread-love.md';
-import { getArticlesData } from '../../lib/getArticlesData';
-import handleClickScroll from '@/components/clickScroll';
-
-
-
-import matter from 'gray-matter';
-import TextLink, { ButtonLink } from '../components/textLink';
-
-import Layout from '../components/layout';
-import ColourPaletteButton from '../components/colourPaletteButton';
-
-import Image from 'next/image'
-// import pfp from '../../public/images/pfp.jpeg'
-
-
-import { BsList, BsInstagram, BsTag, BsX, BsChatLeftText } from 'react-icons/bs'
-import { FiMail, FiGithub } from 'react-icons/fi'
-import { FaLinkedinIn, FaItchIo } from 'react-icons/fa'
-import { IconType } from 'react-icons'
-import { FiExternalLink, FiAward } from 'react-icons/fi'
-import { MdOutlineDescription, MdOutlineTextsms } from 'react-icons/md'
-import { GrArticle } from 'react-icons/gr'
-import { RiArticleLine } from 'react-icons/ri'
-import { IoMdPaper } from 'react-icons/io'
-
-// import { Nav } from '../nav'
-import { NavTest } from '../navTest'
+import React, { useState, useContext } from 'react';
 import { InferGetStaticPropsType } from 'next';
+import Image from 'next/image'
+
 import { MobileNavIsOpenContext, PaletteContext } from './_app';
 
-import { Wave1, Wave2, Wave3, Wave4 } from '../components/waves';
+import Layout from '../components/layout';
+import Nav from "../components/nav";
+import TextLink, { ButtonLink } from '../components/textLink';
+import OutlineButton from '../components/outlineButton';
+import SocialButtons from '../components/socialButtons';
 import FadeInOnScroll from '@/components/fadeInOnScroll';
-import useTimeout from '@/components/useTimeout';
-import websiteSections from '@/utils/websiteSections';
+import ColourPaletteButton from '../components/colourPaletteButton';
+import { Wave1, Wave2, Wave3, Wave4 } from '../components/waves';
+
+import websiteSections from '../../lib/websiteSections';
+import handleClickScroll from '../../lib/clickScroll';
+import { getArticlesData } from '../../lib/getArticlesData';
+
+import { BsTag } from 'react-icons/bs'
+import { FiGithub } from 'react-icons/fi'
+import { FaItchIo } from 'react-icons/fa'
+import { FiExternalLink, FiAward } from 'react-icons/fi'
+import { RiArticleLine } from 'react-icons/ri'
 
 const resumeLink = "/resume.pdf";
-
-// import React, { useRef } from 'react';
-
-
-
-const OutlineButton = (text: string, link: string) => {
-  return (
-    <a href={link} target="_blank"
-      className='border-2 border-orange px-4 py-2 rounded-lg text-orange hover:bg-orange/10 transition'>
-      {text}
-    </a>
-  )
-}
-
-const SocialButton = (icon: IconType, link: string) => {
-  return (
-    <li key={link} className="w-14 h-14 rounded-full border-[3px] border-orange hover:bg-orange/10 transition grid content-center">
-      <a href={link} target="_blank" className="grid content-center">
-        {icon({ className: "text-orange w-5/6 h-5/6 mx-auto my-auto" })}
-      </a>
-    </li>
-  )
-}
-
-function SocialButtons() {
-  return (
-    <ul className="flex gap-12 justify-center">
-      {SocialButton(FiMail, "mailto:owengretzinger@gmail.com/")}
-      {SocialButton(FaLinkedinIn, "https://www.linkedin.com/in/owengretzinger")}
-      {SocialButton(BsInstagram, "https://www.instagram.com/prowengramming")}
-      {SocialButton(FiGithub, "https://github.com/owengretzinger")}
-    </ul>
-  )
-}
 
 const SectionHeader = (title: string, id: string) => {
   return (
@@ -85,7 +36,6 @@ const SectionHeader = (title: string, id: string) => {
     </FadeInOnScroll>
   )
 }
-
 
 export default function Website({ articleData }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [, setMobileNavOpen] = useContext(MobileNavIsOpenContext);
@@ -117,7 +67,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
         </Nav>
 
         <main className="px-5 lg:px-20 xl:px-40 relative">
-          <section className='min-h-screen w-full flex items-center show-on-scroll' id="home">
+          <section className='min-h-screen w-full flex items-center' id="home">
             <div className="w-full flex flex-col lg:flex-row justify-between mt-32 lg:mt-0">
               <div className="lg:w-7/12 max-w-[650px] space-y-6 self-center">
                 <FadeInOnScroll delay={5}><h2 className="text-xl xl:text-2xl">Hi, my name is</h2></FadeInOnScroll>
@@ -191,7 +141,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   </FadeInOnScroll>
                   <FadeInOnScroll delay={3}>
                     <p className="text-base pb-6 lg:pb- lg:text-right">
-                      I’m currently doing a co-op at {TextLink("Arctic Wolf", "https://arcticwolf.com/", true, false)}, where I work on front-end stuff using React.
+                      I’m currently doing a co-op at {TextLink("Arctic Wolf", "https://arcticwolf.com/", true, false)}, where I work on the security services triage team.
                       I'm thankful for this opportunity to work at a {TextLink("top rated workplace", "https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces/", true, false)}! #jointhepack
                     </p>
                   </FadeInOnScroll>
@@ -458,9 +408,6 @@ function Projects() {
     </div>
   );
 }
-
-
-
 
 export async function getStaticProps() {
   const articleData = getArticlesData();

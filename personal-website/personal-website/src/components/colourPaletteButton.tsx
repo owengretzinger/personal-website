@@ -1,6 +1,6 @@
 import { PaletteContext } from "@/pages/_app";
 import { SetStateAction, useContext, useState } from "react";
-import { colourPalettes } from "../utils/colourPalettes";
+import { colourPalettes } from "../../lib/colourPalettes";
 
 
 

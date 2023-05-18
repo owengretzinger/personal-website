@@ -24,14 +24,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* @layer utilities {
-  .trans {
-      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 300ms;
-  }
-} */
-
 @font-face {
   font-family: "noto";
   src: url("../../public/fonts/NotoSans-ExtraBold.ttf");
@@ -106,14 +98,6 @@ body {
 }
 
 
-@keyframes loading-animation {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
 .loading-animation {
   animation-name: loading-animation;
   animation-duration: 1s;
@@ -122,210 +106,11 @@ body {
   animation-fill-mode: forwards;
   will-change: transform;
 }
-
-
-.progress-ring__circle {
-  transition: 0.35s stroke-dashoffset;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
-
-
-
-.bulge {
-  r: 0;
-  animation-timing-function: cubic-bezier(0.530, 1.425, 0.380, 0.920); 
-  animation-fill-mode: forwards;
-  transform-origin: 50% 50%;
-  will-change: width, height;
-}
-.bulge.first {
-  animation-name: bulge-first;
-  animation-delay: 0.5s;
-  animation-duration: 300ms;
-}
-@keyframes bulge-first {
+@keyframes loading-animation {
   0% {
-    r: 0;
+    transform: translateY(0);
   }
   100% {
-    r: 13;
-  }
-}
-.bulge.second {
-  animation-name: bulge-second;
-  animation-delay: 0.7s;
-  animation-duration: 500ms;
-}
-@keyframes bulge-second {
-  0% {
-    r: 0;
-  }
-  100% {
-    r: 28;
-  }
-}
-
-.animate-circle {
-  animation-name: animate-circle;
-  animation-delay: 1.3s;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  will-change: stroke-dashoffset;
-}
-/* .animate-circle.r-13 {
-  stroke-dashoffset: 81.6814089933;
-  stroke-dasharray: 81.6814089933 81.6814089933;
-}
-.animate-circle.r-28 {
-  stroke-dashoffset: 175.929188601;
-  stroke-dasharray: 175.929188601 175.929188601;
-} */
-.animate-circle.r-31 {
-  stroke-dashoffset: 194.778744523;
-  stroke-dasharray: 194.778744523 194.778744523;
-}
-@keyframes animate-circle {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-.scale-out {
-  width: 300px;
-  height: 30ppx;
-  animation-name: scale-out;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155);
-  animation-fill-mode: forwards;
-  animation-delay: 2.8s;
-  transform-origin: 50% 50%;
-  
-}
-@keyframes scale-out {
-  0% {
-    width: 300px;
-    height: 300px;
-  }
-  100% {
-    width: 9000px;
-    height: 9000px;
-  }
-}
-
-.reveal-page {
-  visibility: hidden;
-  animation-name: reveal-page;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155);
-  animation-fill-mode: forwards;
-  animation-delay: 2.8s;
-  transform-origin: 50% 50%;
-  
-}
-@keyframes reveal-page {
-  0% {
-    r: 41;
-    visibility: hidden;
-  }
-  40% {
-    visibility: visible;
-  }
-  100% {
-    r: 1230;
-    visibility: visible;
-  }
-}
-
-.wait-to-show-page {
-  visibility: hidden;
-  animation-name: wait-to-show-page;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-delay: 3.2s;
-}
-@keyframes wait-to-show-page {
-  0% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-
-
-.change-col-on-start {
-  background-color: #fff;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  /* animation-delay: 3.6s; */
-}
-.change-col-on-start.to-bg {
-  animation-name: change-col-on-start-to-bg;
-}
-@keyframes change-col-on-start-to-bg {
-  0% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: rgb(var(--color-bg));
-  }
-}
-.change-col-on-start.to-wave {
-  animation-name: change-col-on-start-to-wave;
-}
-@keyframes change-col-on-start-to-wave {
-  0% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: rgb(var(--color-wave));
-  }
-}
-
-.change-fill-on-start-to-wave {
-  animation-name: change-fill-on-start;
-  fill: #fff;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  /* animation-delay: 3.6s; */
-}
-@keyframes change-fill-on-start {
-  0% {
-    fill: #fff;
-  }
-  30% {
-    fill: rgb(var(--color-bg));
-  }
-  70% {
-    fill: rgb(var(--color-bg));
-  }
-  100% {
-    fill: rgb(var(--color-wave));
-  }
-}
-
-
-.image-flip {
-  animation-name: image-flip;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  transform-origin: 50% 50%;
-}
-@keyframes image-flip {
-  0% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
+    transform: translateY(100%);
   }
 }

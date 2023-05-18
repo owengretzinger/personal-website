@@ -3,8 +3,9 @@ import { BsList, BsX } from 'react-icons/bs'
 import { MobileNavIsOpenContext } from '../pages/_app';
 import { useRouter } from 'next/router';
 import Logo from '@/components/logoSVG';
-import handleClickScroll from './clickScroll';
+import handleClickScroll from '../../lib/clickScroll';
 import FadeInOnScroll from './fadeInOnScroll';
+import animations from './loadingAnimation.module.css';
 
 const topOfPageThreshold = 50;
 
@@ -45,7 +46,7 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
   return (
     <>
       {/* nav bar */}
-      <nav className={`fixed top-0 w-full px-10 py-2 z-30 bg-white change-col-on-start to-bg transition-transform duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"} ${showOnLargeScreens ? "block" : "lg:hidden"}`}>
+      <nav className={`fixed top-0 w-full px-10 py-2 z-30 bg-white transition-transform duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"} ${showOnLargeScreens ? "block" : "lg:hidden"} ${animations.changeColOnStart} ${animations.toBg}`}>
         <div className="flex h-16 items-center justify-between">
           <FadeInOnScroll delay={7}>
             <button className="flex z-[100]" onClick={() => router.pathname === "/" ? (window.scrollY < topOfPageThreshold ? router.reload() : handleClickScroll("home")) : router.push("/")}>
