@@ -1,24 +1,26 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { HeadingProps } from "react-markdown/lib/ast-to-react";
 
-import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
+import { format } from 'date-fns'
 
-import { HeadingProps } from "react-markdown/lib/ast-to-react";
+import { MobileNavIsOpenContext, PaletteContext } from '../pages/_app';
+
+import ErrorPage from '@/pages/404';
 
 import Layout from './layout';
 import Nav from "./nav";
 import TextLink, { ButtonLink, TextLinkPassProps } from './textLink';
-import handleClickScroll from '../../lib/clickScroll';
-import { FixedLogo } from '@/components/logoSVG';
-import { MobileNavIsOpenContext, PaletteContext } from '../pages/_app';
-import ErrorPage from '@/pages/404';
+import { FixedLogo } from './logoSVG';
 import ColourPaletteButton from './colourPaletteButton';
-import { ALL } from 'dns';
 import FadeInOnScroll from './fadeInOnScroll';
-import { format } from 'date-fns'
+
+import handleClickScroll from '../../lib/clickScroll';
 import readTime from '../../lib/readTime';
 import websiteSections from '../../lib/websiteSections';
+
+import animations from './loadingAnimation.module.css';
 
 
 export default function Article(articlePathFromRoot: string, articleID: string) {
@@ -87,7 +89,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
 
   return (
     article === '' ? <ErrorPage /> :
-      <Layout bgClass="bg-blue change-col-on-start to-wave">
+      <Layout bgClass={`bg-blue ${animations.changeColOnStart} ${animations.toWave}`}>
         <div className="max-w-full mx-auto">
           <div className="w-full px-4 lg:pl-[21rem]">
             <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">

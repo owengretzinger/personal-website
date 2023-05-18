@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { BsList, BsX } from 'react-icons/bs'
-import { MobileNavIsOpenContext } from '../pages/_app';
 import { useRouter } from 'next/router';
-import Logo from '@/components/logoSVG';
-import handleClickScroll from '../../lib/clickScroll';
+
+import { MobileNavIsOpenContext } from '../pages/_app';
+
+import { BsList, BsX } from 'react-icons/bs'
+
+import Logo from './logoSVG';
 import FadeInOnScroll from './fadeInOnScroll';
+
+import handleClickScroll from '../../lib/clickScroll';
+
 import animations from './loadingAnimation.module.css';
 
 const topOfPageThreshold = 50;
