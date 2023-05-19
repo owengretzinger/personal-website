@@ -1,8 +1,8 @@
 ---
 title: 'A Mission To Spread Love?'
 subtitle: 'More about me and my values'
-dateCreated: '2023-05-14'
-dateModified: '2023-05-14'
+dateCreated: '2023-05-18'
+dateModified: '2023-05-18'
 priority: 100
 ---
 

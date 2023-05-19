@@ -1,9 +1,13 @@
 ---
 title: 'Favourite Faith Resources'
 subtitle: 'Resources of various categories that have helped me grow in my faith tremendously'
-dateCreated: '2023-05-08'
-dateModified: '2023-05-08'
+dateCreated: '2023-05-18'
+dateModified: '2023-05-18'
 priority: 0
+---
+
+⚠️ This article is not finished ⚠️
+
 ---
 
 I have purposely kept the amount of resources in each category very low. Only the best of the best are included!
@@ -16,7 +20,7 @@ I have purposely kept the amount of resources in each category very low. Only th
 
 ## Books 
 
-If you commit to reading any of these books, I'll happily pay. Just [let me know](/#contact)!
+If you commit to reading any of these books, I'll happily pay. Just [let me know](/contact)!
 
 [Purpose Driven Life by Rick Warren]() 
 

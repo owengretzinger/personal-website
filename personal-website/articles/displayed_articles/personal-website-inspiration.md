@@ -1,8 +1,8 @@
 ---
 title: 'Personal Website Inspiration'
 subtitle: 'A list of the coolest websites I found while designing this one'
-dateCreated: '2023-05-08'
-dateModified: '2023-05-08'
+dateCreated: '2023-05-18'
+dateModified: '2023-05-18'
 priority: 0
 ---
 
