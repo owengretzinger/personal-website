@@ -83,7 +83,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
               </div>
               <FadeInOnScroll delay={13}>
                 <div className={`flex-1 self-center p-10 lg:py-0`}>
-                  <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Picture of me" priority={true}
+                  <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Picture of me" priority
                     className={`w-full max-w-[334px] rounded-xl shadow-2xl mx-auto`} />
                 </div>
               </FadeInOnScroll>
@@ -167,7 +167,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                 </div>
 
                 <FadeInOnScroll className="relative basis-1/2 w-full max-w-[500px] aspect-[5/2.22] lg:ml-5 drop-shadow-xl">
-                  <div className="absolute w-full h-5/6 right-0 top-0 flex justify-end">
+                  {/* <div className="absolute w-full h-5/6 right-0 top-0 flex justify-end">
                     <Image src={require("../../public/images/personal-3.png")} alt=""
                       className="w-fit rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
@@ -180,6 +180,20 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   <div className="absolute w-full h-5/6 left-0 bottom-0 flex justify-start">
                     <Image src={require("../../public/images/personal-1.png")} alt=""
                       className="w-fit rounded-[20px] outline outline-[3px] outline-black" />
+                  </div> */}
+                  <div className="absolute w-full h-full flex justify-end items-start">
+                    <Image src={require("../../public/images/personal-3.png")} alt=""
+                      className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
+                  </div>
+
+                  <div className="absolute w-full h-full flex justify-center items-center">
+                    <Image src={require("../../public/images/personal-2.png")} alt=""
+                      className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
+                  </div>
+
+                  <div className="absolute w-full h-full flex justify-start items-end">
+                    <Image src={require("../../public/images/personal-1.png")} alt=""
+                      className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
                 </FadeInOnScroll>
 
