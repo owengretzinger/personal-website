@@ -1,36 +1,64 @@
 .bulge {
-    r: 0;
+    stroke-linecap: round;
     animation-timing-function: cubic-bezier(0.530, 1.425, 0.380, 0.920); 
     animation-fill-mode: forwards;
     transform-origin: 50% 50%;
     will-change: width, height;
   }
   .bulge.first {
-    animation-name: bulge-first;
+    stroke-width: 0;
     animation-delay: 0.5s;
     animation-duration: 300ms;
   }
-  @keyframes bulge-first {
-    0% {
-      r: 0;
+    .bulge.first.sw19 {
+      animation-name: bulge-first-sw19;
     }
-    100% {
-      r: 13;
+    @keyframes bulge-first-sw19 {
+      0% {
+        stroke-width: 0;
+      }
+      100% {
+        stroke-width: 19;
+      }
     }
-  }
-  .bulge.second {
-    animation-name: bulge-second;
-    animation-delay: 0.7s;
-    animation-duration: 500ms;
-  }
-  @keyframes bulge-second {
-    0% {
-      r: 0;
+    .bulge.first.sw33 {
+      animation-name: bulge-first-sw33;
     }
-    100% {
-      r: 28;
+    @keyframes bulge-first-sw33 {
+      0% {
+        stroke-width: 0;
+      }
+      100% {
+        stroke-width: 33;
+      }
     }
-  }
+    .bulge.second {
+      stroke-width: 0;
+      animation-delay: 0.7s;
+      animation-duration: 500ms;
+    }
+      .bulge.second.sw49 {
+        animation-name: bulge-first-sw49;
+      }
+      @keyframes bulge-first-sw49 {
+        0% {
+          stroke-width: 0;
+        }
+        100% {
+          stroke-width: 49;
+        }
+      }
+      .bulge.second.sw63 {
+        animation-name: bulge-first-sw63;
+      }
+      @keyframes bulge-first-sw63 {
+        0% {
+          stroke-width: 0;
+        }
+        100% {
+          stroke-width: 63;
+        }
+      }
   
   .animateCircle {
     animation-name: animate-circle;
@@ -59,7 +87,6 @@
     animation-fill-mode: forwards;
     animation-delay: 2.8s;
     transform-origin: 50% 50%;
-    
   }
   @keyframes scale-out {
     0% {
@@ -77,7 +104,6 @@
     animation-name: reveal-page;
     animation-duration: 3.2s;
     animation-fill-mode: forwards;
-    
   }
   @keyframes reveal-page {
     0% {
