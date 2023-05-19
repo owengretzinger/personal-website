@@ -12,20 +12,36 @@ export function Wave1() {
 
 export function Wave2() {
     return (
-        <div className="absolute w-screen max-w-full h-fit left-0 -z-10 flex justify-end -translate-y-36">
-            <svg viewBox="0 0 414 1134" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[414px] max-w-[70%] h-full ${animations.changeFillOnStartToWave}`}>
-                <path d="M0 365C0 193.743 273.833 50.3333 413.5 0V1133.5C410.3 1123.1 196.5 1048 196.5 890C196.5 771.7 236.936 760.5 215 645.5C198.5 559 -3.241e-07 514.5 0 365Z" />
-            </svg>
+        <div className="absolute right-0 -z-10 -translate-y-36 flex flex-col items-center">
+            <div className="max-w-screen h-fit flex justify-end">
+                <svg viewBox="0 0 414 1134" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[414px] max-w-[70%] h-full ${animations.changeFillOnStartToWave}`}>
+                    <path d="M0 365C0 193.743 273.833 50.3333 413.5 0V1133.5C410.3 1123.1 196.5 1048 196.5 890C196.5 771.7 236.936 760.5 215 645.5C198.5 559 -3.241e-07 514.5 0 365Z" />
+                </svg>
+            </div>
         </div>
+        // <div className="absolute -z-10">
+        //     <div className="w-screen h-fit flex justify-end">
+        //         <svg viewBox="0 0 414 1134" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[414px] max-w-[70%] h-full ${animations.changeFillOnStartToWave}`}>
+        //             <path d="M0 365C0 193.743 273.833 50.3333 413.5 0V1133.5C410.3 1123.1 196.5 1048 196.5 890C196.5 771.7 236.936 760.5 215 645.5C198.5 559 -3.241e-07 514.5 0 365Z" />
+        //         </svg>
+        //     </div>
+        // </div>
+        // <div className="absolute w-screen max-w-full h-fit left-0 -z-10 flex justify-end -translate-y-36">
+        //     <svg viewBox="0 0 414 1134" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[414px] max-w-[70%] h-full ${animations.changeFillOnStartToWave}`}>
+        //         <path d="M0 365C0 193.743 273.833 50.3333 413.5 0V1133.5C410.3 1123.1 196.5 1048 196.5 890C196.5 771.7 236.936 760.5 215 645.5C198.5 559 -3.241e-07 514.5 0 365Z" />
+        //     </svg>
+        // </div>
     )
 }
 
 export function Wave3() {
     return (
-        <div className="absolute w-screen max-w-full h-fit left-0 -z-10 -translate-y-96">
-            <svg viewBox="0 0 364 1936" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[364px] max-w-[50%] h-full ${animations.changeFillOnStartToWave}`}>
-                <path d="M364 1312.59C364 1605.09 122.947 1850.03 0 1936V0.00012207C2.81693 17.7631 269.235 180.998 269.235 450.859C269.235 652.913 233.639 672.043 252.949 868.461C267.474 1016.2 364 1057.24 364 1312.59Z" />
-            </svg>
+        <div className="absolute left-0 -z-10 -translate-y-96 flex flex-col items-center">
+            <div className="max-w-screen h-fit">
+                <svg viewBox="0 0 364 1936" xmlns="http://www.w3.org/2000/`vg" className={`fill-blue w-[364px] max-w-[50%] h-full ${animations.changeFillOnStartToWave}`}>
+                    <path d="M364 1312.59C364 1605.09 122.947 1850.03 0 1936V0.00012207C2.81693 17.7631 269.235 180.998 269.235 450.859C269.235 652.913 233.639 672.043 252.949 868.461C267.474 1016.2 364 1057.24 364 1312.59Z" />
+                </svg>
+            </div>
         </div>
     )
 }
