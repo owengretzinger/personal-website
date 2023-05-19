@@ -83,7 +83,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
               </div>
               <FadeInOnScroll delay={13}>
                 <div className={`flex-1 self-center p-10 lg:py-0`}>
-                  <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Picture of me" priority
+                  <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Me" priority placeholder='blur'
                     className={`w-full max-w-[334px] rounded-xl shadow-2xl mx-auto`} />
                 </div>
               </FadeInOnScroll>
@@ -147,7 +147,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   </FadeInOnScroll>
                 </div>
                 <FadeInOnScroll delay={"calculate"} className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] outline outline-[3px] outline-black rounded-[20px] lg:mr-5 overflow-hidden drop-shadow-xl">
-                  <Image src={require("../../public/images/arctic-wolf.png")} alt="Arctic Wolf Image"
+                  <Image src={require("../../public/images/arctic-wolf.png")} alt="Arctic Wolf 'I've joined the pack' Image"
                     className="rounded-[20px]" />
                 </FadeInOnScroll>
               </div>
@@ -167,32 +167,18 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                 </div>
 
                 <FadeInOnScroll className="relative basis-1/2 w-full max-w-[500px] aspect-[5/2.22] lg:ml-5 drop-shadow-xl">
-                  {/* <div className="absolute w-full h-5/6 right-0 top-0 flex justify-end">
-                    <Image src={require("../../public/images/personal-3.png")} alt=""
-                      className="w-fit rounded-[20px] outline outline-[3px] outline-black" />
-                  </div>
-
-                  <div className="absolute top-[8.333%] w-full h-5/6 flex justify-center">
-                    <Image src={require("../../public/images/personal-2.png")} alt=""
-                      className="w-fit rounded-[20px] outline outline-[3px] outline-black" />
-                  </div>
-
-                  <div className="absolute w-full h-5/6 left-0 bottom-0 flex justify-start">
-                    <Image src={require("../../public/images/personal-1.png")} alt=""
-                      className="w-fit rounded-[20px] outline outline-[3px] outline-black" />
-                  </div> */}
                   <div className="absolute w-full h-full flex justify-end items-start">
-                    <Image src={require("../../public/images/personal-3.png")} alt=""
+                    <Image src={require("../../public/images/personal-3.png")} alt="Me playing the drums with a band"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
 
                   <div className="absolute w-full h-full flex justify-center items-center">
-                    <Image src={require("../../public/images/personal-2.png")} alt=""
+                    <Image src={require("../../public/images/personal-2.png")} alt="Me getting pied in the face by a youth"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
 
                   <div className="absolute w-full h-full flex justify-start items-end">
-                    <Image src={require("../../public/images/personal-1.png")} alt=""
+                    <Image src={require("../../public/images/personal-1.png")} alt="Me singing and leading youth"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
                 </FadeInOnScroll>
@@ -375,9 +361,9 @@ function Projects() {
                 onMouseOver={() => setCardHovered(project.id)} onMouseLeave={() => setCardHovered("")}
                 className="absolute w-full h-full bg-white opacity-0 z-10"></a>
               <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
-                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt=""
+                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt={`${project.id} thumbnail`}
                   className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
-                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt=""
+                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt={`${project.id} icon`}
                   className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
               </div>
               <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
