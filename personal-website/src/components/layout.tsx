@@ -30,7 +30,7 @@ export default function Layout({ bgClass = `bg-white ${animations.changeColOnSta
           <link rel="icon" href="/personal-website-icon-blue.ico" />
         </Head>
         {
-          <div className={`fixed w-screen max-w-full h-screen z-50 flex justify-center items-center pointer-events-none`}>
+          <div className={`fixed w-screen max-w-full h-screen z-50 flex justify-center items-center ${showingLoadingAnimation ? "pointer-events-auto" : "pointer-events-none"}`}>
             <svg className="fixed w-full h-full">
               <rect className={`w-full h-full ${animations.revealPage}`} fill="white" />
             </svg>
