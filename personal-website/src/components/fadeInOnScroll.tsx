@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-export default function FadeInOnScroll({delay=2, noDelayOnMobile: noAnimationOnMobile=false, className="", ...props} : {delay?: number|string, noDelayOnMobile?:boolean, className?:string, children: React.ReactNode}) {
+export default function FadeInOnScroll({delay=2, noDelayOnMobile: noAnimationOnMobile=false, waitForLoad=false, className="", ...props} : {delay?: number|string, noDelayOnMobile?:boolean, waitForLoad?:boolean, className?:string, children: React.ReactNode}) {
   const [isVisible, setVisible] = useState(false);
 
   const domRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export default function FadeInOnScroll({delay=2, noDelayOnMobile: noAnimationOnM
   const delayClass = "delay-" + (delay !== "calculate" ? delay : (domRef.current ? Math.round(domRef.current.getBoundingClientRect().left / screen.width * 5) : ''));
 
   return (
-    <div ref={ domRef } className={`${noAnimationOnMobile ? "lg:fade-in" : "fade-in"} ${delayClass} ${ isVisible ? 'is-visible' : '' } ${className}`}>
+    <div ref={ domRef } className={`${noAnimationOnMobile ? "lg:fade-in" : "fade-in"} ${waitForLoad?"wait-for-load":""} ${delayClass} ${ isVisible ? 'is-visible' : '' } ${className}`}>
       { props.children }
     </div>
   )

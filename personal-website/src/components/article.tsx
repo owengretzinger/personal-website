@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import { format } from 'date-fns'
 
-import { MobileNavIsOpenContext, PaletteContext } from '../pages/_app';
+import { mobileNavOpenContext, PaletteContext } from '../pages/_app';
 
 import ErrorPage from '@/pages/404';
 
@@ -24,7 +24,7 @@ import animations from './loadingAnimation.module.css';
 
 
 export default function Article(articlePathFromRoot: string, articleID: string) {
-  const [, setMobileNavOpen] = useContext(MobileNavIsOpenContext);
+  const [, setMobileNavOpen] = useContext(mobileNavOpenContext);
   const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
 
   const [article, setArticle] = useState('')
@@ -93,7 +93,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
         <div className="max-w-full mx-auto">
           <div className="w-full px-4 lg:pl-[21rem]">
             <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
-              <FadeInOnScroll delay={11} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
+              <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
                   
                   
                 <div className="prose mx-auto px-4
@@ -143,7 +143,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
               </FadeInOnScroll>
             </div>
           </div>
-          <FadeInOnScroll delay={9} className="hidden lg:flex fixed top-0 left-0 bottom-0 w-80 py-10 pl-4 lg:items-center">
+          <FadeInOnScroll delay={9} waitForLoad={true} className="hidden lg:flex fixed top-0 left-0 bottom-0 w-80 py-10 pl-4 lg:items-center">
             <nav className="relative bg-white rounded-[20px] p-4 w-[304px] shadow-xl">
               <h2 className="text-2xl text-center w-full">Table of Contents</h2>
               <TableOfContents />
@@ -153,7 +153,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
         
           
           <div className="hidden lg:block">
-            <FadeInOnScroll delay={7} className="fixed top-0 left-0">
+            <FadeInOnScroll delay={7} waitForLoad={true} className="fixed top-0 left-0">
             <FixedLogo />
             </FadeInOnScroll>
             </div>
@@ -161,7 +161,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
           
         
         <div className="hidden lg:block">
-          <FadeInOnScroll delay={13} className="fixed top-4 right-10">
+          <FadeInOnScroll delay={13} waitForLoad={true} className="fixed top-4 right-10">
             {ColourPaletteButton(paletteIndex, setPaletteIndex)}
           </FadeInOnScroll>
         </div>

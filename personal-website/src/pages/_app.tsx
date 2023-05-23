@@ -3,14 +3,17 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { SetStateAction, createContext, useEffect, useState } from 'react';
 
-export const MobileNavIsOpenContext = createContext([false, () => { }] as [boolean, (value: SetStateAction<boolean>) => void]);
+export const mobileNavOpenContext = createContext([false, () => { }] as [boolean, (value: SetStateAction<boolean>) => void]);
+export const loadingAnimationPlayingContext = createContext([false, () => { }] as [boolean, (value: SetStateAction<boolean>) => void]);
 export const PaletteContext = createContext([0, () => { }] as [number, (value: SetStateAction<number>) => void]);
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [loadingAnimationPlaying, setLoadingAnimationPlaying] = useState(true);
+  
   useEffect(() => {
-    document.body.style.overflow = mobileNavOpen ? "hidden" : "visible";
-  }, [mobileNavOpen]);
+    document.body.style.overflow = mobileNavOpen || loadingAnimationPlaying ? "hidden" : "visible";
+  }, [mobileNavOpen, loadingAnimationPlaying]);
 
   const localPalette = typeof window !== 'undefined' ? window.localStorage.getItem('palette') : null;
   const [paletteIndex, setPalette] = useState(localPalette ? JSON.parse(localPalette) : 0);
@@ -30,10 +33,12 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [paletteIndex]);
 
   return (
-    <MobileNavIsOpenContext.Provider value={[mobileNavOpen, setMobileNavOpen]}>
-      <PaletteContext.Provider value={[paletteIndex, setPalette]}>
-        <Component {...pageProps} />
-      </PaletteContext.Provider>
-    </MobileNavIsOpenContext.Provider>
+    <loadingAnimationPlayingContext.Provider value={[loadingAnimationPlaying, setLoadingAnimationPlaying]}>
+      <mobileNavOpenContext.Provider value={[mobileNavOpen, setMobileNavOpen]}>
+        <PaletteContext.Provider value={[paletteIndex, setPalette]}>
+          <Component {...pageProps} />
+        </PaletteContext.Provider>
+      </mobileNavOpenContext.Provider>
+    </loadingAnimationPlayingContext.Provider>
   )
 }

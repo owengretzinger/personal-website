@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image'
 
-import { MobileNavIsOpenContext, PaletteContext } from './_app';
+import { mobileNavOpenContext, PaletteContext } from './_app';
 
 import Layout from '../components/layout';
 import Nav from "../components/nav";
@@ -38,7 +38,7 @@ const SectionHeader = (title: string, id: string) => {
 }
 
 export default function Website({ articleData }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [, setMobileNavOpen] = useContext(MobileNavIsOpenContext);
+  const [, setMobileNavOpen] = useContext(mobileNavOpenContext);
   const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
 
   return (
@@ -49,8 +49,8 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
           {websiteSections(false).map((text, index) => {
             return (
               <li key={text} >
-                <FadeInOnScroll delay={index + 8} noDelayOnMobile={true}>
-                  <button onClick={() => { handleClickScroll(text.toLowerCase()); setMobileNavOpen(false) }} className="group flex">
+                <FadeInOnScroll delay={index + 8} waitForLoad={true} noDelayOnMobile={true}>
+                  <button onClick={() => { handleClickScroll(text.toLowerCase()); setMobileNavOpen(false); }} className="group flex">
                     <p className="text-orange">{index + 1}.&nbsp;</p>
                     <p className="group-hover:text-orange transition">{text}</p>
                   </button>
@@ -58,10 +58,10 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
               </li>
             )
           })}
-          <FadeInOnScroll delay={12} noDelayOnMobile={true}>
+          <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
             <li key={"Resume"} >{OutlineButton("Resume", resumeLink)}</li>
           </FadeInOnScroll>
-          <FadeInOnScroll delay={13} noDelayOnMobile={true}>
+          <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
             <li key="Colour Palette">{ColourPaletteButton(paletteIndex, setPaletteIndex)}</li>
           </FadeInOnScroll>
         </Nav>
@@ -70,18 +70,18 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
           <section className='min-h-screen w-full flex items-center' id="home">
             <div className="w-full flex flex-col lg:flex-row justify-between mt-32 lg:mt-0">
               <div className="lg:w-7/12 max-w-[650px] space-y-6 self-center">
-                <FadeInOnScroll delay={5}><h2 className="text-xl xl:text-2xl">Hi, my name is</h2></FadeInOnScroll>
-                <FadeInOnScroll delay={7}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
-                <FadeInOnScroll delay={9}>
+                <FadeInOnScroll delay={5} waitForLoad={true}><h2 className="text-xl xl:text-2xl">Hi, my name is</h2></FadeInOnScroll>
+                <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
+                <FadeInOnScroll delay={9} waitForLoad={true}>
                   <h2 className="text-xl xl:text-2xl">I’m a software developer on a mission
                     to {TextLink("spread love", "/articles/a-mission-to-spread-love", false, false)}, one line of code at a time.
                     My priority is producing excellent work while communicating with precision and clarity.</h2>
                 </FadeInOnScroll>
-                <FadeInOnScroll delay={11}>
+                <FadeInOnScroll delay={11} waitForLoad={true}>
                   {SocialButtons()}
                 </FadeInOnScroll>
               </div>
-              <FadeInOnScroll delay={13}>
+              <FadeInOnScroll delay={13} waitForLoad={true}>
                 <div className={`flex-1 self-center p-10 lg:py-0`}>
                   <Image src={require("../../public/images/pfp_standing_outdoors.png")} alt="Me" priority placeholder='blur'
                     className={`w-full max-w-[334px] rounded-xl shadow-2xl mx-auto`} />
