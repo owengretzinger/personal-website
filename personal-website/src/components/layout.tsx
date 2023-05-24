@@ -36,7 +36,7 @@ export default function Layout({ bgClass = `bg-white ${animations.changeColOnSta
             </svg>
             <div className="w-[1000vw] h-[1000vh] flex justify-center items-center">
               <svg width="300" height="300" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${animations.scaleOut} z-[199]`}>
-                <circle cx="35" cy="35" r="31" strokeWidth="7" stroke="rgb(239,89,34)" className={`${animations.animateCircle}`} />
+                <circle cx="35" cy="35" r="31" strokeWidth="7" stroke="rgb(239,89,34)" className={`${showingLoadingAnimation ? "block" : "hidden"} ${animations.animateCircle}`} />
                 {/* <circle cx="35" cy="35" r="28" strokeWidth="7" stroke="rgb(14,45,49)" className={`${animations.bulge} ${animations.second}`} /> */}
                 {/* <circle cx="35" cy="35" r="13" strokeWidth="7" stroke="rgb(14,45,49)" /> */}
 

@@ -109,7 +109,9 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   </FadeInOnScroll>
                 </div>
 
-                <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] outline outline-[3px] outline-black rounded-[20px] overflow-hidden lg:ml-5 bg-white flex drop-shadow-xl">
+
+                <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-xl lg:ml-5 bg-white">
+                  <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden flex">
                   <div className="basis-[40%] lg:basis-[30%] min-[1100px]:basis-[40%] border-r-[3px] border-black flex justify-center items-center bg-[#69143B]">
                     <Image src={require("../../public/images/mcmaster-logo.png")} alt="McMaster University Logo"
                       className="w-3/4" />
@@ -128,7 +130,9 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                       <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
                     </div>
                   </div>
+                  </div>
                 </FadeInOnScroll>
+
 
               </div>
 
@@ -146,9 +150,11 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                     </p>
                   </FadeInOnScroll>
                 </div>
-                <FadeInOnScroll delay={"calculate"} className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] outline outline-[3px] outline-black rounded-[20px] lg:mr-5 overflow-hidden drop-shadow-xl">
+                <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-2xl lg:mr-5 ">
+                  <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden">
                   <Image src={require("../../public/images/arctic-wolf.png")} alt="Arctic Wolf 'I've joined the pack' Image"
-                    className="rounded-[20px]" />
+                    className="" />
+                  </div>
                 </FadeInOnScroll>
               </div>
 
@@ -166,18 +172,17 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   </FadeInOnScroll>
                 </div>
 
+
                 <FadeInOnScroll className="relative basis-1/2 w-full max-w-[500px] aspect-[5/2.22] lg:ml-5 drop-shadow-xl">
-                  <div className="absolute w-full h-full flex justify-end items-start">
+                  <div className="absolute w-full h-full flex justify-end items-start rounded-[20px] drop-shadow-xl">
                     <Image src={require("../../public/images/personal-3.png")} alt="Me playing the drums with a band"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
-
-                  <div className="absolute w-full h-full flex justify-center items-center">
+                  <div className="absolute w-full h-full flex justify-center items-center rounded-[20px] drop-shadow-xl">
                     <Image src={require("../../public/images/personal-2.png")} alt="Me getting pied in the face by a youth"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
-
-                  <div className="absolute w-full h-full flex justify-start items-end">
+                  <div className="absolute w-full h-full flex justify-start items-end rounded-[20px] drop-shadow-xl">
                     <Image src={require("../../public/images/personal-1.png")} alt="Me singing and leading youth"
                       className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                   </div>
@@ -353,52 +358,53 @@ function Projects() {
       {projectInfo.map((project, i) =>
         <div key={project.id}>
           <FadeInOnScroll delay={"calculate"}>
-            <div
-              className={`relative w-full max-w-[500px] lg:aspect-[5/2.22] rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)]
-                         hover:-translate-y-2 hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] transition-[box-shadow,_transform,_filter] duration-300 ease-out
+            <div className="drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
+              <div
+                className={`relative w-full max-w-[500px] lg:aspect-[5/2.22] rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-              <a href={"open" in project.links ? project.links["open"] : project.links["github"]} target="_blank"
-                onMouseOver={() => setCardHovered(project.id)} onMouseLeave={() => setCardHovered("")}
-                className="absolute w-full h-full bg-white opacity-0 z-10"></a>
-              <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
-                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt={`${project.id} thumbnail`}
-                  className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
-                <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt={`${project.id} icon`}
-                  className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
-              </div>
-              <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
-                <div className="flex">
-                  <div className="basis-[91%] flex flex-col">
-                    <h2 className="text-md">
-                      <a className={`whitespace-nowrap relative  text-decoration: none; ${cardHovered == project.id ? "text-orange" : "text-black"} 
+                <a href={"open" in project.links ? project.links["open"] : project.links["github"]} target="_blank"
+                  onMouseOver={() => setCardHovered(project.id)} onMouseLeave={() => setCardHovered("")}
+                  className="absolute w-full h-full bg-white opacity-0 z-10"></a>
+                <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
+                  <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt={`${project.id} thumbnail`}
+                    className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
+                  <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-icon.png`)} alt={`${project.id} icon`}
+                    className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
+                </div>
+                <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
+                  <div className="flex">
+                    <div className="basis-[91%] flex flex-col">
+                      <h2 className="text-md">
+                        <a className={`whitespace-nowrap relative  text-decoration: none; ${cardHovered == project.id ? "text-orange" : "text-black"} 
                                 before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                                 before:bottom-0 before:left-0 before:bg-orange before:origin-top-left 
                                 before:transition before:duration-300 before:ease-in-out ${cardHovered == project.id ? "before:scale-x-100" : "before:scale-x-0"}
                                 transition duration-300`}>
-                        {project.title}
-                      </a>
-                    </h2>
-                    <h3 className="font-notothin text-sm text-grey -mt-1">{project.subtitle}</h3>
-                    <div className="font-notothin text-sm my-2 leading-[18px]">
-                      {project.description}
+                          {project.title}
+                        </a>
+                      </h2>
+                      <h3 className="font-notothin text-sm text-grey -mt-1">{project.subtitle}</h3>
+                      <div className="font-notothin text-sm my-2 leading-[18px]">
+                        {project.description}
+                      </div>
+                    </div>
+                    <div className="basis-[9%] flex flex-col items-end gap-2 p-2 pl-1">
+                      {Object.keys(project.links).map((link) =>
+                        <a key={link} href={project.links[link as keyof typeof project.links]} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                          {nameToIcon[link as keyof typeof nameToIcon]({ className: "w-6 h-6 text-orange lg:text-black lg:hover:text-orange lg:transition" })}
+                        </a>
+                      )}
                     </div>
                   </div>
-                  <div className="basis-[9%] flex flex-col items-end gap-2 p-2 pl-1">
-                    {Object.keys(project.links).map((link) =>
-                      <a key={link} href={project.links[link as keyof typeof project.links]} target={link==="article"?"_self":"_blank"} className="z-20">
-                        {nameToIcon[link as keyof typeof nameToIcon]({ className: "text-black w-6 h-6 hover:text-orange transition" })}
-                      </a>
+
+                  <div className="flex mt-auto space-x-1">
+                    {project.tags.map((tag) =>
+                      <div key={tag} className="flex rounded-full border-2 border-blue items-center">
+                        {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                        <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">{tag}</p>
+                      </div>
                     )}
                   </div>
-                </div>
-
-                <div className="flex mt-auto space-x-1">
-                  {project.tags.map((tag) =>
-                    <div key={tag} className="flex rounded-full border-2 border-blue items-center">
-                      {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
-                      <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">{tag}</p>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
