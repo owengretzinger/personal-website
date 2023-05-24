@@ -11,12 +11,15 @@ import { loadingAnimationPlayingContext } from '@/pages/_app';
 export default function Layout({ bgClass = `bg-white ${animations.changeColOnStart} ${animations.toBg}`, ...props }) {
   const router = useRouter();
   const linkedSection = router.query.section ? router.query.section as string : null;
+  setTimeout(() => {
+    linkedSection ? handleClickScroll(linkedSection) : {};
+  }, 4000);
 
   const [showingLoadingAnimation, setShowingLoadingAnimation] = useContext(loadingAnimationPlayingContext);
   useEffect(() => {
+    setShowingLoadingAnimation(true);
     setTimeout(() => {
       setShowingLoadingAnimation(false);
-      linkedSection ? handleClickScroll(linkedSection) : {};
     }, 3800);
   }, []);
 
