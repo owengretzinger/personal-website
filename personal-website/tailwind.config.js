@@ -15,9 +15,7 @@ module.exports = {
         'orange': 'rgb(var(--color-link) / <alpha-value>)',
       },
       fontFamily: {
-        noto: "noto",
-        notothin: "notothin",
-        notomd: "notomd",
+        noto: ['var(--font-inter)'],
       },
       typography: {
         default: {

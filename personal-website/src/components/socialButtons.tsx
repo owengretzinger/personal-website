@@ -1,3 +1,5 @@
+'use client';
+
 import { IconType } from 'react-icons'
 import { BsInstagram } from 'react-icons/bs'
 import { FiMail, FiGithub } from 'react-icons/fi'

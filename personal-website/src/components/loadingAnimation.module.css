@@ -136,7 +136,7 @@
     animation-duration: 0.3s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 3.9s;
+    animation-delay: 0s;
   }
   .changeColOnStart.toBg {
     animation-name: change-col-on-start-to-bg;
@@ -167,7 +167,7 @@
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 3.9s;
+    animation-delay: 0.5s;
   }
   @keyframes change-fill-on-start {
     0% {

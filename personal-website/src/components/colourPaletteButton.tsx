@@ -1,5 +1,6 @@
-import { PaletteContext } from "@/pages/_app";
-import { SetStateAction, useContext, useState } from "react";
+'use client';
+
+import { SetStateAction } from "react";
 import { colourPalettes } from "../../lib/colourPalettes";
 
 

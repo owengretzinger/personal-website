@@ -4,9 +4,9 @@ import Image from 'next/image'
 
 import { mobileNavOpenContext, PaletteContext } from './_app';
 
-import Layout from '../components/layout';
+import Layout from '../components/old_layout';
 import Nav from "../components/nav";
-import TextLink, { ButtonLink } from '../components/textLink';
+import TextLink, { ButtonLinkScrollOnClick } from '../components/textLink';
 import OutlineButton from '../components/outlineButton';
 import SocialButtons from '../components/socialButtons';
 import FadeInOnScroll from '@/components/fadeInOnScroll';
@@ -261,7 +261,7 @@ function Projects() {
       "subtitle": "Personal Project",
       "description":
         <p>
-          Glad you’re here! {ButtonLink("Let me know", () => handleClickScroll("contact"))} if anything isn’t working properly.
+          Glad you’re here! {ButtonLinkScrollOnClick("Let me know", () => handleClickScroll("contact"))} if anything isn’t working properly.
         </p>,
       "tags": ["REACT", "TAILWIND", "NEXT.JS"],
       "links": {

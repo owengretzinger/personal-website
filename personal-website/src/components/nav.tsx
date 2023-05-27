@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useContext } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { mobileNavOpenContext } from '../pages/_app';
 
@@ -45,6 +47,8 @@ function useScrollDirection() {
 
 export default function Nav({ showOnLargeScreens = true, ...props }) {
   const router = useRouter();
+  const pathname = usePathname();
+  
   const scrollDirection = useScrollDirection();
   const [mobileNavOpen, setMobileNavOpen] = useContext(mobileNavOpenContext);
 
@@ -54,7 +58,7 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
       <nav className={`fixed top-0 w-full px-10 py-2 z-30 bg-white transition-transform duration-500 ${scrollDirection === "up" ? "translate-y-0" : "-translate-y-20"} ${showOnLargeScreens ? "block" : "lg:hidden"} ${animations.changeColOnStart} ${animations.toBg}`}>
         <div className="flex h-16 items-center justify-between">
           <FadeInOnScroll delay={7} waitForLoad={true}>
-            <button className="flex z-[100]" onClick={() => router.pathname === "/" ? (window.scrollY < topOfPageThreshold ? router.reload() : handleClickScroll("home")) : router.push("/")}>
+            <button className="flex z-[100]" onClick={() => pathname === "/" ? (window.scrollY < topOfPageThreshold ? router.refresh() : handleClickScroll("home")) : router.push("/")}>
               <Logo />
             </button>
           </FadeInOnScroll>

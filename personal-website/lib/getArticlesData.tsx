@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = path.join(process.cwd(), 'articles/displayed_articles');
+const postsDirectory = path.join(process.cwd(), 'public/articles/displayed_articles');
 
 export function getArticlesData() {
   // Get file names under /posts

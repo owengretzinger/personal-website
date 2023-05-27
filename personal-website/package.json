@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
+    "@next/font": "^13.4.4",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -18,7 +19,7 @@
     "gray-matter": "^4.0.3",
     "markdown-it-anchor": "^8.6.7",
     "markdown-to-jsx": "^7.2.0",
-    "next": "13.4.2",
+    "next": "^13.4.3",
     "next-usequerystate": "^1.7.2",
     "path": "^0.12.7",
     "react": "18.2.0",

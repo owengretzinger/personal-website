@@ -6,8 +6,9 @@ import animations from './loadingAnimation.module.css';
 import { loadingAnimationPlayingContext } from '@/pages/_app';
 
 
-export default function Layout({ bgClass = `bg-white ${animations.changeColOnStart} ${animations.toBg}`, ...props }) {
+export default function Old_Layout({ bgClass = `bg-white ${animations.changeColOnStart} ${animations.toBg}`, ...props }) {
   const router = useRouter();
+  
   const linkedSection = router.query.section ? router.query.section as string : null;
   setTimeout(() => {
     linkedSection ? handleClickScroll(linkedSection) : {};
