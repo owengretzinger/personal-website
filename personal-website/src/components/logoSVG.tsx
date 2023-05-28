@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Logo() {
     return (
         <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,9 +13,9 @@ export default function Logo() {
 export function FixedLogo() {
     return (
         <div className="fixed top-4 left-10">
-            <a className="z-[100]" href="/">
+            <Link className="z-[100]" href="/">
                 <Logo />
-            </a>
+            </Link>
         </div>
     )
 }
