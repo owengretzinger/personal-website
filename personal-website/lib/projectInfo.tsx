@@ -30,7 +30,7 @@ export default function projectInfo() {
                 <p>
                     Glad you’re here! {<ButtonLinkScrollOnClick text="Let me know" scrollTo="contact" />} if anything isn’t working properly.
                 </p>,
-            "tags": ["REACT", "TAILWIND", "NEXT.JS"],
+            "tags": ["REACT", "NEXT.JS", "TAILWIND"],
             "links": {
                 "github": "https://github.com/owengretzinger/personal-website",
                 "article": "/articles/personal-website"
@@ -47,7 +47,7 @@ export default function projectInfo() {
                     Search for public schools in Ontario to view their EQAO and income data.
                     Originally created for {<TextLink text="DeltaHacks IX" href="https://deltahacks.com" />} (2023), then improved in the following week.
                 </p>,
-            "tags": ["HTML", "SQL", "JAVASCRIPT"],
+            "tags": ["HTML", "JAVASCRIPT", "SQL"],
             "links": {
                 "open": "https://owengretzinger.github.io/education-data-for-change/",
                 "article": "/articles/education-data-for-change",

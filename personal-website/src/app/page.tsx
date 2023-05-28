@@ -23,6 +23,7 @@ import { BsTag } from 'react-icons/bs'
 import Link from 'next/link';
 import NavButton from '@/components/navButton';
 import projectInfo, { NameToIcon } from '../../lib/projectInfo';
+import RevealPage from '@/components/revealPage';
 
 const resumeLink = "/resume.pdf";
 
@@ -47,6 +48,7 @@ export default async function Page() {
 
   return (
     <>
+      <RevealPage />
       <Wave1 />
       <Nav>
         {websiteSections(false).map((text, index) => {
@@ -148,8 +150,8 @@ export default async function Page() {
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb- lg:text-right">
-                    I’m currently doing a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I work on the security services triage team.
-                    I'm thankful for this opportunity to work at a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords="false" />}! #jointhepack
+                    I’m currently doing a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I work on the security services "Fast Track" team.
+                    I'm thankful for this opportunity to be at a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords="false" />}! #jointhepack
                   </p>
                 </FadeInOnScroll>
               </div>

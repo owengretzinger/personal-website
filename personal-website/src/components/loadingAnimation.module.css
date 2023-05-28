@@ -100,6 +100,21 @@
       height: 0px; */
     }
   }
+
+  .revealPage {
+    animation-name: reveal-page;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes reveal-page {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
   
   /* .revealPage {
     visibility: visible;

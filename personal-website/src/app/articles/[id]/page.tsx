@@ -1,5 +1,4 @@
 import Article from "@/components/article"
-import ArticleBackground from "@/components/articleBackground";
 import fs, { existsSync } from 'fs';
 import path from 'path'
 
@@ -16,9 +15,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
     return (
         <main>
-            <ArticleBackground>
-                <Article articlePathFromRoot={pathToArticle} />
-            </ArticleBackground>
+            <Article articlePathFromRoot={pathToArticle} />
         </main>
     )
 }
@@ -28,7 +25,7 @@ export async function generateStaticParams() {
     const displayedDir = path.resolve(articleDirectory, 'displayed_articles');
     const hiddenDir = path.resolve(articleDirectory, 'hidden_articles');
 
-    
+
 
     const filenames = fs.readdirSync(displayedDir).concat(fs.readdirSync(hiddenDir));
 

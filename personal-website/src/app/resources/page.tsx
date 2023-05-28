@@ -1,5 +1,4 @@
 import Article from "@/components/article"
-import ArticleBackground from "@/components/articleBackground";
 
 import path from 'path'
 const articleDirectory = path.join(process.cwd(), 'public/articles');
@@ -11,9 +10,7 @@ export default function ArticlePage() {
 
     return (
         <main>
-            <ArticleBackground>
-                <Article articlePathFromRoot={pathToArticle} />
-            </ArticleBackground>
+            <Article articlePathFromRoot={pathToArticle} />
         </main>
     )
 }

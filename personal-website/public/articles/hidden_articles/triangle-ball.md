@@ -2,7 +2,7 @@
 title: 'Triangle Ball'
 subtitle: 'Project Overview'
 dateCreated: '2023-05-18'
-dateModified: '2023-05-18'
+dateModified: '2023-05-28'
 priority: -5
 link: https://owengretzinger.itch.io/triangle-ball
 ---
@@ -17,7 +17,7 @@ At first, I didn't even know how to write a for-loop, but after a few years of w
 
 ![](https://i.imgur.com/iUg5mFb.png)
 
-I learned a tremendous amount over the course of making Triangle Ball, including [completion of the Unity Junior Programmer pathway](https://www.credly.com/badges/13fe0e9d-c5ea-4e5a-bc1d-30aec8ce410d/) (link to certification) and the creation of many other projects. I also created all of the art for the game, which was a great experience!
+Over the course of making Triangle Ball, I also [completed the Unity Junior Programmer pathway (link to certification)](https://www.credly.com/badges/13fe0e9d-c5ea-4e5a-bc1d-30aec8ce410d/) and created many other projects. I learned so much throughout the entire process.
 
 ## Bots 
 
@@ -28,3 +28,7 @@ I am especially proud of the bots I programmed, as I used calculus that I was le
 ## Technologies 
 
 The game was created using [Unity](https://unity.com) and C#.
+
+### Graphics 
+
+I also created all of the art for the game myself! I love to use a website called [Photopea](https://www.photopea.com/), which is basically Photoshop but free and can be used on a web browser.

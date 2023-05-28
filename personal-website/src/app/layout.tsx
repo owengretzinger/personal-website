@@ -8,6 +8,7 @@ import HandleSectionSearchParam from '@/components/handleSectionSearchParam';
 import { Suspense } from 'react';
 import LoadingAnimationProvider from './loading-animation-provider';
 import LoadingAnimation from '@/components/loadingAnimation';
+import RevealPage from '@/components/revealPage';
 
 
 export const metadata: Metadata = {

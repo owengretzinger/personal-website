@@ -2,7 +2,7 @@
 title: 'Education Data for Change'
 subtitle: 'Project Overview'
 dateCreated: '2023-05-18'
-dateModified: '2023-05-18'
+dateModified: '2023-05-28'
 priority: -5
 link: https://owengretzinger.github.io/education-data-for-change
 ---
@@ -23,9 +23,11 @@ The website allows users to search for schools in Ontario (pictured above) and v
 
 ![](https://i.imgur.com/189AuEt.png)
 
+The data used for analysis is publically available on [data.ontario.ca](https://data.ontario.ca/en/dataset/school-information-and-student-demographics), more information about low income households can be found on [statcan.gc.ca](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1110024101), and more information about EQAO provincial standards can be found on [eqao.com](https://www.eqao.com/explanation-of-terms/).
+
 ## Technologies 
 
-The website was created using HTML, CSS, and JavaScript (with [DaisyUI](https://daisyui.com/) and [Tailwind CSS](https://tailwindcss.com/)), in addition to using Python (with MatPlotLib) and SQL (with MongoDB) to create the graphs (pictured above). 
+The website was created using HTML, CSS, and JavaScript (with [DaisyUI](https://daisyui.com/) and [TailwindCSS](https://tailwindcss.com/)), in addition to using Python (with MatPlotLib) and SQL (with MongoDB) to create the graphs (pictured above). 
 
 ## Conclusion + Bonus Picture 
 
@@ -33,4 +35,4 @@ The hackathon was a great learning experience because we used many different tec
 
 ![](https://i.imgur.com/DN2K9fg.jpg)
 
-Thanks for reading! You can check out the website at [https://owengretzinger.github.io/education-data-for-change](https://owengretzinger.github.io/education-data-for-change).
+Thanks for reading! You can check out the website [here](https://owengretzinger.github.io/education-data-for-change).

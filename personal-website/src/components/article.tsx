@@ -22,6 +22,7 @@ import { PaletteContext } from '@/app/palette-provider';
 import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';
 import React from "react";
 import fs from 'fs';
+import RevealPage from "./revealPage";
 
 
 export default function Article({...props}/*, articleID: string*/) {
@@ -96,7 +97,8 @@ export default function Article({...props}/*, articleID: string*/) {
 
   return (
       <>
-        <div className="max-w-full mx-auto">
+      <RevealPage />
+        <div className="max-w-full mx-auto bg-blue">
           <div className="w-full px-4 lg:pl-[21rem]">
             <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
               <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
