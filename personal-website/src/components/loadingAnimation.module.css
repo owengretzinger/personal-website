@@ -7,7 +7,7 @@
   }
   .bulge.first {
     stroke-width: 0;
-    /* animation-delay: 1.5s; */
+    animation-delay: 0.3s;
     animation-duration: 300ms;
   }
     .bulge.first.sw19 {
@@ -34,7 +34,7 @@
     }
     .bulge.second {
       stroke-width: 0;
-      animation-delay: 0.2s;
+      animation-delay: 0.5s;
       animation-duration: 500ms;
     }
       .bulge.second.sw49 {
@@ -62,7 +62,7 @@
   
   .animateCircle {
     animation-name: animate-circle;
-    animation-delay: 0.8s;
+    animation-delay: 1.1s;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -78,14 +78,14 @@
     }
   }
   
-  .scaleOut {
+  .fadeOut {
     width: 300px;
     height: 30ppx;
     animation-name: scale-out;
     animation-duration: 0.5s;
     /* animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155); */
     animation-fill-mode: forwards;
-    animation-delay: 2.3s;
+    animation-delay: 2.6s;
     transform-origin: 50% 50%;
   }
   @keyframes scale-out {

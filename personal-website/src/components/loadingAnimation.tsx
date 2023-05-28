@@ -13,7 +13,7 @@ export default function LoadingAnimation() {
         <>
             {loadingAnimationPlaying === true &&
                 <div className="fixed z-[199] w-screen max-w-full h-screen flex justify-center items-center bg-white">
-                    <svg width="300" height="300" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${animations.scaleOut} z-[199]`}>
+                    <svg width="300" height="300" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className={`${animations.fadeOut} z-[199]`}>
                         <circle cx="35" cy="35" r="31" strokeWidth="7" stroke="rgb(239,89,34)" className={`${animations.animateCircle}`} />
 
                         <line x1="35" y1="35" x2="35" y2="35" strokeWidth="63" stroke="rgb(14,45,49)" strokeLinecap='round' className={`${animations.bulge} ${animations.second} ${animations.sw63}`} />

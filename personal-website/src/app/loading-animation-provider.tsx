@@ -11,7 +11,7 @@ export default function LoadingAnimationProvider({ children }: any) {
         setLoadingAnimationPlaying(true);
         setTimeout(() => {
             setLoadingAnimationPlaying(false);
-        }, 2800);
+        }, 3100);
     }, []);
 
     return <LoadingAnimationPlayingContext.Provider value={[loadingAnimationPlaying, setLoadingAnimationPlaying]}>{children}</LoadingAnimationPlayingContext.Provider>;
