@@ -235,9 +235,9 @@ export default async function Page() {
                         </div>
                         <div className="basis-[9%] flex flex-col items-end gap-2 p-2 pl-1">
                           {Object.keys(project.links).map((link) =>
-                            <a key={link} href={project.links[link as keyof typeof project.links]} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                            <Link key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
                               <NameToIcon name={link} />
-                            </a>
+                            </Link>
                           )}
                         </div>
                       </div>
