@@ -6,6 +6,8 @@ import '@/styles/globals.css';
 import ScrollingDisabledProvider from './scrolling-disabled-provider';
 import HandleSectionSearchParam from '@/components/handleSectionSearchParam';
 import { Suspense } from 'react';
+import LoadingAnimationProvider from './loading-animation-provider';
+import LoadingAnimation from '@/components/loadingAnimation';
 
 
 export const metadata: Metadata = {
@@ -20,19 +22,20 @@ const inter = Noto_Sans_Georgian({
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
 
-    
+
 
 
     return (
         <html lang="en">
             <body className={`text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative`}>
-                <ScrollingDisabledProvider>
+                <ScrollingDisabledProvider><LoadingAnimationProvider>
                     <div id="home"></div>
                     <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
+                    <LoadingAnimation />
                     <div>
                         {children}
                     </div>
-                </ScrollingDisabledProvider>
+                </LoadingAnimationProvider></ScrollingDisabledProvider>
             </body>
         </html>
     );

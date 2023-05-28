@@ -7,7 +7,7 @@
   }
   .bulge.first {
     stroke-width: 0;
-    animation-delay: 0.5s;
+    animation-delay: 1s;
     animation-duration: 300ms;
   }
     .bulge.first.sw19 {
@@ -34,7 +34,7 @@
     }
     .bulge.second {
       stroke-width: 0;
-      animation-delay: 0.7s;
+      animation-delay: 1.2s;
       animation-duration: 500ms;
     }
       .bulge.second.sw49 {
@@ -62,7 +62,7 @@
   
   .animateCircle {
     animation-name: animate-circle;
-    animation-delay: 1.3s;
+    animation-delay: 1.8s;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -85,7 +85,7 @@
     animation-duration: 1s;
     animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155);
     animation-fill-mode: forwards;
-    animation-delay: 2.8s;
+    animation-delay: 3.3s;
     transform-origin: 50% 50%;
   }
   @keyframes scale-out {
@@ -99,7 +99,7 @@
     }
   }
   
-  .revealPage {
+  /* .revealPage {
     visibility: visible;
     animation-name: reveal-page;
     animation-duration: 3.8s;
@@ -129,14 +129,13 @@
       visibility: visible;
     }
   }
-  
+   */
   
   .changeColOnStart {
     background-color: #fff;
     animation-duration: 0.3s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 0s;
   }
   .changeColOnStart.toBg {
     animation-name: change-col-on-start-to-bg;
@@ -164,10 +163,9 @@
   .changeFillOnStartToWave {
     animation-name: change-fill-on-start;
     fill: #fff;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 0.5s;
   }
   @keyframes change-fill-on-start {
     0% {

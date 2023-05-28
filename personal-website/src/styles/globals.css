@@ -65,6 +65,42 @@
   .fade-in.delay-13 {
     transition-delay: 1.3s;
   }
+  .fade-in.delay-14 {
+    transition-delay: 1.4s;
+  }
+  .fade-in.delay-15 {
+    transition-delay: 1.5s;
+  }
+  .fade-in.delay-16 {
+    transition-delay: 1.6s;
+  }
+  .fade-in.delay-17 {
+    transition-delay: 1.7s;
+  }
+  .fade-in.delay-18 {
+    transition-delay: 1.8s;
+  }
+  .fade-in.delay-19 {
+    transition-delay: 1.9s;
+  }
+  .fade-in.delay-20 {
+    transition-delay: 2s;
+  }
+  .fade-in.delay-21 {
+    transition-delay: 2.1s;
+  }
+  .fade-in.delay-22 {
+    transition-delay: 2.2s;
+  }
+  .fade-in.delay-23 {
+    transition-delay: 2.3s;
+  }
+  .fade-in.delay-24 {
+    transition-delay: 2.4s;
+  }
+  .fade-in.delay-25 {
+    transition-delay: 2.5s;
+  }
   .fade-in.no-transform {
     transform: translateY(0);
   }
@@ -113,7 +149,7 @@
 }
 
 
-.loading-animation {
+/* .loading-animation {
   animation-name: loading-animation;
   animation-duration: 1s;
   animation-delay: 1s;
@@ -128,7 +164,7 @@
   100% {
     transform: translateY(100%);
   }
-}
+} */
 
 
 
