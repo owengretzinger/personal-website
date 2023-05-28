@@ -1,8 +1,5 @@
 import { Metadata } from 'next';
-import HomePage from './home-page';
 import { getArticlesData } from '../../lib/getArticlesData';
-
-
 
 import Image from 'next/image'
 import pfp from "../../public/images/pfp_standing_outdoors.png";
@@ -11,10 +8,6 @@ import arcticWolf from "../../public/images/arctic-wolf.png";
 import personal1 from "../../public/images/personal-1.png";
 import personal2 from "../../public/images/personal-2.png";
 import personal3 from "../../public/images/personal-3.png";
-
-
-import { PaletteContext } from './palette-provider';
-import { ScrollingDisabledContext } from './scrolling-disabled-provider';
 
 import Nav from "../components/nav";
 import TextLink from '../components/textLink';
@@ -70,9 +63,9 @@ export default async function Page() {
             <OutlineButton text={"Resume"} href={resumeLink} />
           </li>
         </FadeInOnScroll>
-        <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
-          {/* <li key="Colour Palette">{ColourPaletteButton(paletteIndex, setPaletteIndex)}</li> */}
-        </FadeInOnScroll>
+        {/* <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
+          <li key="Colour Palette">{ColourPaletteButton(paletteIndex, setPaletteIndex)}</li>
+        </FadeInOnScroll> */}
       </Nav>
 
       <main className="px-5 lg:px-20 xl:px-40 relative">
@@ -83,7 +76,7 @@ export default async function Page() {
               <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
               <FadeInOnScroll delay={9} waitForLoad={true}>
                 <h2 className="text-xl xl:text-2xl">I’m a software developer on a mission
-                  to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow="false" breakWords="false" />}, one line of code at a time.
+                  to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
                   My priority is producing excellent work while communicating with precision and clarity.</h2>
               </FadeInOnScroll>
               <FadeInOnScroll delay={11} waitForLoad={true}>
@@ -212,9 +205,11 @@ export default async function Page() {
             {projectInfo().map((project, i) =>
               <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
                 <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
-                  <Link href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
-                    className={`w-full h-full rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
+                  <div className={`w-full h-full rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
+                    <Link href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
+
+                      className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                     <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                       <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
                         className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
@@ -225,12 +220,12 @@ export default async function Page() {
                       <div className="flex">
                         <div className="basis-[91%] flex flex-col">
                           <h2 className="text-md">
-                            <a className={`whitespace-nowrap relative  text-decoration:none; text-black hover:text-orange
+                            <a className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
                                 before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                                 before:bottom-0 before:left-0 before:bg-orange before:origin-top-left 
-                                before:transition before:duration-300 before:ease-in-out
+                                before:transition before:duration-300 before:ease-in-out before:scale-x-0 group-hover:before:scale-x-100
                                 transition duration-300`}>
-                              hehe
+                              {project.title}
                             </a>
                           </h2>
                           <h3 className="font-medium text-sm text-grey -mt-1">{project.subtitle}</h3>
@@ -256,7 +251,7 @@ export default async function Page() {
                         )}
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </FadeInOnScroll>
             )}
@@ -272,7 +267,7 @@ export default async function Page() {
                   <li key={article.id}>
                     <FadeInOnScroll delay={index * 2 + 2}>
                       <h2 className="text-2xl">
-                        {<TextLink text={article.title} href={`/articles/${article.id}`} newWindow="false" />}
+                        <TextLink text={article.title} href={`/articles/${article.id}`} newWindow={false} />
                       </h2>
                       <h3 className="text-sm text-grey">{article.subtitle}</h3>
                     </FadeInOnScroll>
@@ -303,6 +298,7 @@ export default async function Page() {
             </div>
 
           </section>
+          {/* no fade in bc if moves the bottom lower */}
           <footer className="text-grey text-center my-10">Designed & Built by Owen Gretzinger</footer>
         </div>
 

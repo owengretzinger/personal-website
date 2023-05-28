@@ -4,7 +4,7 @@ import { SetStateAction, createContext, useEffect, useState } from 'react';
 
 export const ScrollingDisabledContext = createContext([false, () => { }] as [boolean, (value: SetStateAction<boolean>) => void]);
 
-export default function MobileNavOpenProvider({ children }: any) {
+export default function ScrollingDisabledProvider({ children }: any) {
     const [scrollingDisabled, setScrollingDisabled] = useState(false);
 
     useEffect(() => {

@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { mobileNavOpenContext } from '../pages/_app';
+// import { mobileNavOpenContext } from '../pages/_app';
+import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';
 
 import { BsList, BsX } from 'react-icons/bs'
 
@@ -50,7 +51,11 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
   const pathname = usePathname();
   
   const scrollDirection = useScrollDirection();
-  const [mobileNavOpen, setMobileNavOpen] = useContext(mobileNavOpenContext);
+  const [scrollingDisabled, setScrollingDisabled] = useContext(ScrollingDisabledContext);
+
+  useEffect(() => {
+    scrollingDisabled ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
+  }, [scrollingDisabled]);
 
   return (
     <>
@@ -63,7 +68,7 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
             </button>
           </FadeInOnScroll>
           <FadeInOnScroll delay={9} waitForLoad={true}>
-            <button className="lg:hidden" onClick={() => setMobileNavOpen(true)}>
+            <button className="lg:hidden" onClick={() => setScrollingDisabled(true)}>
               <BsList className="stroke-black stroke-1" size={50} />
             </button>
           </FadeInOnScroll>
@@ -73,13 +78,13 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
         </div>
       </nav>
       {/* mobile drawer */}
-      <div className={`top-0 lg:hidden fixed z-50 w-screen h-screen ${mobileNavOpen ? "backdrop-blur-sm pointer-events-auto" : "backdrop-blur-none pointer-events-none"} transition-[--tw-backdrop-blur] duration-500`}>
+      <div className={`top-0 lg:hidden fixed z-50 w-screen h-screen ${scrollingDisabled ? "backdrop-blur-sm pointer-events-auto" : "backdrop-blur-none pointer-events-none"} transition-[--tw-backdrop-blur] duration-500`}>
         <button className={`fixed h-screen w-screen`}
-          onClick={() => setMobileNavOpen(false)}>
+          onClick={() => setScrollingDisabled(false)}>
         </button>
-        <ul className={`fixed right-0 top-0 w-[304px] max-w-[75%] ${mobileNavOpen ? "translate-x-0" : "translate-x-full"} h-full 
+        <ul className={`fixed right-0 top-0 w-[304px] max-w-[75%] ${scrollingDisabled ? "translate-x-0" : "translate-x-full"} h-full 
                           flex flex-col justify-center items-center text-center bg-white gap-12 transition-transform duration-500`}>
-          <button className="fixed top-0 right-0 mr-10 mt-2" onClick={() => setMobileNavOpen(false)}>
+          <button className="fixed top-0 right-0 mr-10 mt-2" onClick={() => setScrollingDisabled(false)}>
             <BsX className="stroke-black stroke-1" size={60} />
           </button>
           {props.children}

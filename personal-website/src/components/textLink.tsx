@@ -1,6 +1,8 @@
 'use client';
 import Link from "next/link";
 import handleClickScroll from "../../lib/clickScroll";
+import { useContext } from "react";
+import { ScrollingDisabledContext } from "@/app/scrolling-disabled-provider";
 
 const classNames = [
   "group/link text-orange ease-in-out text-left relative z-20 font-bold",
@@ -11,7 +13,7 @@ const classNames = [
 export default function TextLink({...props} : any) {
   return (
     <Link className={`${classNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
-          href={props.href} target={props.newWindow ? "_blank" : "_self"}>
+          href={props.href} target={props.newWindow === false ? "_self" : "_blank"}>
       <span className={classNames[1]}>
         {props.text}
       </span>
@@ -20,9 +22,11 @@ export default function TextLink({...props} : any) {
 }
 //text: string, func: () => void, breakWords: boolean = true
 export function ButtonLinkScrollOnClick({ ...props }: any) {
+  const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
+
   return (
     <button className={`${classNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
-      onClick={() => handleClickScroll(props.scrollTo)}>
+      onClick={() => {handleClickScroll(props.scrollTo); props.closeMobileNav ? setScrollingDisabled(false) : {}}}>
       <span className={classNames[1]}>
         {props.text}
       </span>

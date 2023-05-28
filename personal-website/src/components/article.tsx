@@ -5,8 +5,6 @@ import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import { format } from 'date-fns'
 
-import ErrorPage from '@/pages/404';
-
 // import Layout from './old_layout';
 import Nav from "./nav";
 import TextLink, { ButtonLinkScrollOnClick, TextLinkPassProps } from './textLink';
@@ -26,7 +24,7 @@ import React from "react";
 import fs from 'fs';
 
 
-export default function Article(articlePathFromRoot: string/*, articleID: string*/) {
+export default function Article({...props}/*, articleID: string*/) {
   // const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
   
   // const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
@@ -44,7 +42,7 @@ export default function Article(articlePathFromRoot: string/*, articleID: string
   // }, [articleID]);
 
   // const article = tryRequire(articlePathFromRoot);
-  const article = fs.readFileSync(articlePathFromRoot, 'utf8');
+  const article = fs.readFileSync(props.articlePathFromRoot, 'utf8');
 
   const articleMatter = matter(article);
 
@@ -72,7 +70,7 @@ export default function Article(articlePathFromRoot: string/*, articleID: string
         <ul className="list-disc">
           {tableOfContentsData.map(({ level, id, text }) => (
             <li key={id} className={`${getHeadingClass(level)} ${level === 1 ? "list-none" : ""}`}>
-              <ButtonLinkScrollOnClick text={text} scrollTo={id} />
+              <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} />
               {/* {ButtonLink(text, ()=>{handleClickScroll(id); setScrollingDisabled(false)})} */}
             </li>
           ))}
@@ -97,7 +95,7 @@ export default function Article(articlePathFromRoot: string/*, articleID: string
   }
 
   return (
-    article === '' ? <ErrorPage /> :
+    
       // <Layout bgClass={`bg-blue ${animations.changeColOnStart} ${animations.toWave}`}>
       <>
         <div className="max-w-full mx-auto">
