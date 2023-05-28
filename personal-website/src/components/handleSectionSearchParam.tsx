@@ -10,9 +10,5 @@ export default function HandleSectionSearchParam() {
     if (typeof window !== "undefined" && searchParams.has('section')) {
         setTimeout(() => { handleClickScroll(searchParams.get('section')!); }, 1000);
     }
-    return (<Suspense fallback={<Fallback/>}></Suspense>)
+    return (<></>)
 }
-
-function Fallback() {
-    return <></>
-  }

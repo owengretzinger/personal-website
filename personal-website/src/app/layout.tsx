@@ -5,6 +5,7 @@ import '@/styles/globals.css';
 
 import ScrollingDisabledProvider from './scrolling-disabled-provider';
 import HandleSectionSearchParam from '@/components/handleSectionSearchParam';
+import { Suspense } from 'react';
 
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
             <body className={`text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative`}>
                 <ScrollingDisabledProvider>
                     <div id="home"></div>
-                    <HandleSectionSearchParam />
+                    <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
                     <div>
                         {children}
                     </div>
