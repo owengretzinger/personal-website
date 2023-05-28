@@ -95,15 +95,11 @@ export default function Article({...props}/*, articleID: string*/) {
   }
 
   return (
-    
-      // <Layout bgClass={`bg-blue ${animations.changeColOnStart} ${animations.toWave}`}>
       <>
         <div className="max-w-full mx-auto">
           <div className="w-full px-4 lg:pl-[21rem]">
             <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
               <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
-                  
-                  
                 <div className="prose mx-auto px-4
                           font-semibold prose-strong:font-black
                           prose-h1:font-extrabold prose-h2:font-extrabold prose-h3:font-extrabold prose-h4:font-extrabold
@@ -118,7 +114,7 @@ export default function Article({...props}/*, articleID: string*/) {
                           ">
                   <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
                   <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
-                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <TextLink text="Link" href={articleMatter.data.link} />}</p>
+                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> (<TextLink text="Link" href={articleMatter.data.link} />)</>}</p>
                   
                   <hr />
                   
