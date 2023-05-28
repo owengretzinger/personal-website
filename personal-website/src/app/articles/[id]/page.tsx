@@ -7,8 +7,10 @@ const articleDirectory = path.join(process.cwd(), 'public/articles');
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
 
-    const pathIfDisplayed = path.resolve(articleDirectory, "displayed_articles", `${params.id}.md`);
-    const pathIfHidden = path.resolve(articleDirectory, "hidden_articles", `${params.id}.md`);
+    const fileName = params.id.endsWith(".md") ? params.id : `${params.id}.md`;
+
+    const pathIfDisplayed = path.resolve(articleDirectory, "displayed_articles", fileName);
+    const pathIfHidden = path.resolve(articleDirectory, "hidden_articles", fileName);
     const pathToArticle = existsSync(pathIfDisplayed) ? pathIfDisplayed : pathIfHidden;
 
 
@@ -26,6 +28,9 @@ export async function generateStaticParams() {
 
     const displayedDir = path.resolve(articleDirectory, 'displayed_articles');
     const hiddenDir = path.resolve(articleDirectory, 'hidden_articles');
+
+    
+
     const filenames = fs.readdirSync(displayedDir).concat(fs.readdirSync(hiddenDir));
 
     return filenames.map((name: string) => ({
