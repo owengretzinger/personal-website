@@ -7,7 +7,7 @@
   }
   .bulge.first {
     stroke-width: 0;
-    animation-delay: 0.5s;
+    /* animation-delay: 1.5s; */
     animation-duration: 300ms;
   }
     .bulge.first.sw19 {
@@ -34,7 +34,7 @@
     }
     .bulge.second {
       stroke-width: 0;
-      animation-delay: 0.7s;
+      animation-delay: 0.2s;
       animation-duration: 500ms;
     }
       .bulge.second.sw49 {
@@ -62,7 +62,7 @@
   
   .animateCircle {
     animation-name: animate-circle;
-    animation-delay: 1.3s;
+    animation-delay: 0.8s;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -82,24 +82,26 @@
     width: 300px;
     height: 30ppx;
     animation-name: scale-out;
-    animation-duration: 1s;
-    animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155);
+    animation-duration: 0.5s;
+    /* animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155); */
     animation-fill-mode: forwards;
-    animation-delay: 2.8s;
+    animation-delay: 2.3s;
     transform-origin: 50% 50%;
   }
   @keyframes scale-out {
     0% {
-      width: 300px;
-      height: 300px;
+      /* width: 300px;
+      height: 300px; */
+      opacity: 1;
     }
     100% {
-      width: 9000px;
-      height: 9000px;
+      opacity: 0;
+      /* width: 0px;
+      height: 0px; */
     }
   }
   
-  .revealPage {
+  /* .revealPage {
     visibility: visible;
     animation-name: reveal-page;
     animation-duration: 3.8s;
@@ -129,14 +131,13 @@
       visibility: visible;
     }
   }
-  
+   */
   
   .changeColOnStart {
     background-color: #fff;
-    animation-duration: 0.3s;
+    animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 3.9s;
   }
   .changeColOnStart.toBg {
     animation-name: change-col-on-start-to-bg;
@@ -167,7 +168,6 @@
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-delay: 3.9s;
   }
   @keyframes change-fill-on-start {
     0% {

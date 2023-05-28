@@ -8,16 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'white': 'rgb(var(--color-bg) / <alpha-value>)',
-        'blue': 'rgb(var(--color-wave) / <alpha-value>)',
-        'black': 'rgb(var(--color-text) / <alpha-value>)',
-        'grey': 'rgb(var(--color-text-light) / <alpha-value>)',
-        'orange': 'rgb(var(--color-link) / <alpha-value>)',
+        'white': 'rgb(255 255 255 / <alpha-value>)',
+        'blue': 'rgb(157 217 243 / <alpha-value>)',
+        'black': 'rgb(14 45 49 / <alpha-value>)',
+        'grey': 'rgb(93 108 110 / <alpha-value>)',
+        'orange': 'rgb(239 89 34 / <alpha-value>)',
       },
       fontFamily: {
-        noto: "noto",
-        notothin: "notothin",
-        notomd: "notomd",
+        noto: ['var(--font-inter)'],
       },
       typography: {
         default: {

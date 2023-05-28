@@ -1,42 +1,45 @@
+'use client';
 import Link from "next/link";
+import handleClickScroll from "../../lib/clickScroll";
+import { useContext } from "react";
+import { ScrollingDisabledContext } from "@/app/scrolling-disabled-provider";
 
 const classNames = [
-  "group/link text-orange ease-in-out text-left relative z-20",
+  "group/link text-orange ease-in-out text-left relative z-20 font-bold",
   "w-fit bg-left-bottom bg-gradient-to-r from-orange to-orange bg-no-repeat bg-[length:100%_2px] lg:bg-[length:0%_2px] lg:group-hover/link:bg-[length:100%_2px] transition-[background-size] duration-300 ease-out",
 ]
 
-export default function TextLink(text: string, link: string, newWindow: boolean = true, breakWords: boolean = true) {
+// text: string, link: string, newWindow: boolean = true, breakWords: boolean = true
+export default function TextLink({...props} : any) {
   return (
-    <a className={`${classNames[0]} ${breakWords ? "break-words" : "whitespace-nowrap"}`}
-      href={link} target={newWindow ? "_blank" : "_self"}>
+    <Link className={`${classNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
+          href={props.href} target={props.newWindow === false ? "_self" : "_blank"}>
       <span className={classNames[1]}>
-        {text}
+        {props.text}
       </span>
-    </a>
+    </Link>
   )
 }
+//text: string, func: () => void, breakWords: boolean = true
+export function ButtonLinkScrollOnClick({ ...props }: any) {
+  const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
 
-export function ButtonLink(text: string, func: () => void, breakWords: boolean = true) {
   return (
-    <button className={`${classNames[0]} ${breakWords ? "break-words" : "whitespace-nowrap"}`}
-      onClick={func}>
+    <button className={`${classNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
+      onClick={() => {handleClickScroll(props.scrollTo); props.closeMobileNav ? setScrollingDisabled(false) : {}}}>
       <span className={classNames[1]}>
-        {text}
+        {props.text}
       </span>
     </button>
   )
 }
 
-export function TextLinkPassProps({children, ...props} : any) {
-  // props.href = props.href.startsWith("/#") ? props.href + "?loadinganimation=false" : props.href;
+export function TextLinkPassProps({ ...props }: any) {
   return (
-    <>
-    <a className={`${classNames[0]}`} {...props}>
-    <span className={classNames[1]}>
-      {children}
-    </span>
-    </a>
-    
-    </>
+    <Link className={`${classNames[0]}`} {...props}>
+      <span className={classNames[1]}>
+        {props.children}
+      </span>
+    </Link>
   )
 }

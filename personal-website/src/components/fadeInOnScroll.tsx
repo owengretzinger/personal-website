@@ -1,9 +1,21 @@
-import React, {useState, useRef, useEffect} from 'react';
+'use client';
+
+import { LoadingAnimationPlayingContext } from '@/app/loading-animation-provider';
+import React, {useState, useRef, useEffect, useContext} from 'react';
 
 export default function FadeInOnScroll({delay=2, noDelayOnMobile: noAnimationOnMobile=false, waitForLoad=false, className="", ...props} : {delay?: number|string, noDelayOnMobile?:boolean, waitForLoad?:boolean, className?:string, children: React.ReactNode}) {
   const [isVisible, setVisible] = useState(false);
 
   const domRef = useRef<HTMLDivElement>(null);
+
+
+
+  const [loadingAnimationPlaying, setLoadingAnimationPlaying] = useContext(LoadingAnimationPlayingContext);
+  
+
+  // useEffect(() => {
+  //   console.log(loadingAnimationPlaying);
+  // }, [loadingAnimationPlaying]);
 
   useEffect(() => {
     if (!domRef.current) return;
@@ -25,12 +37,15 @@ export default function FadeInOnScroll({delay=2, noDelayOnMobile: noAnimationOnM
     observer.observe(domRefCurrent);
     
     return () => observer.disconnect();
-  }, []);
+  }, [loadingAnimationPlaying]);
 
-  const delayClass = "delay-" + (delay !== "calculate" ? delay : (domRef.current ? Math.round(domRef.current.getBoundingClientRect().left / screen.width * 5) : ''));
+  const delayClass = "delay-" + (delay !== "calculate" ? (typeof delay == "number" && waitForLoad ? delay+5 : delay) : (domRef.current ? Math.round(domRef.current.getBoundingClientRect().left / screen.width * 5) : ''));
 
   return (
-    <div ref={ domRef } className={`${noAnimationOnMobile ? "lg:fade-in" : "fade-in"} ${waitForLoad?"wait-for-load":""} ${delayClass} ${ isVisible ? 'is-visible' : '' } ${className}`}>
+    // <div ref={ domRef } className={`${noAnimationOnMobile ? "lg:fade-in" : "fade-in"} ${waitForLoad?"":""} ${delayClass} ${ isVisible ? 'is-visible' : '' } ${className}`}>
+    //   { props.children }
+    // </div>
+    <div ref={ domRef } className={`${noAnimationOnMobile ? "lg:fade-in" : "fade-in"} ${delayClass} ${ isVisible && !loadingAnimationPlaying ? 'is-visible' : '' } ${className}`}>
       { props.children }
     </div>
   )

@@ -1,12 +1,13 @@
+'use client';
+
 import React, { useState, useContext } from 'react';
-import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image'
 
-import { mobileNavOpenContext, PaletteContext } from './_app';
+import { PaletteContext } from './palette-provider';
+import { ScrollingDisabledContext } from './scrolling-disabled-provider';
 
-import Layout from '../components/layout';
 import Nav from "../components/nav";
-import TextLink, { ButtonLink } from '../components/textLink';
+import TextLink, { ButtonLinkScrollOnClick } from '../components/textLink';
 import OutlineButton from '../components/outlineButton';
 import SocialButtons from '../components/socialButtons';
 import FadeInOnScroll from '@/components/fadeInOnScroll';
@@ -15,13 +16,13 @@ import { Wave1, Wave2, Wave3, Wave4 } from '../components/waves';
 
 import websiteSections from '../../lib/websiteSections';
 import handleClickScroll from '../../lib/clickScroll';
-import { getArticlesData } from '../../lib/getArticlesData';
 
 import { BsTag } from 'react-icons/bs'
 import { FiGithub } from 'react-icons/fi'
 import { FaItchIo } from 'react-icons/fa'
 import { FiExternalLink, FiAward } from 'react-icons/fi'
 import { RiArticleLine } from 'react-icons/ri'
+import Link from 'next/link';
 
 const resumeLink = "/resume.pdf";
 
@@ -37,20 +38,20 @@ const SectionHeader = (title: string, id: string) => {
   )
 }
 
-export default function Website({ articleData }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [, setMobileNavOpen] = useContext(mobileNavOpenContext);
+
+export default function Website({ articleData }: { articleData: { id: string; title: string; subtitle: any; dateCreated: any; dateModified: any; priority: number; }[] }) {
+  const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
   const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
 
   return (
     <>
-      <Layout>
         <Wave1 />
         <Nav>
           {websiteSections(false).map((text, index) => {
             return (
               <li key={text} >
                 <FadeInOnScroll delay={index + 8} waitForLoad={true} noDelayOnMobile={true}>
-                  <button onClick={() => { handleClickScroll(text.toLowerCase()); setMobileNavOpen(false); }} className="group flex">
+                  <button onClick={() => { handleClickScroll(text.toLowerCase()); setScrollingDisabled(false); }} className="group flex">
                     <p className="text-orange">{index + 1}.&nbsp;</p>
                     <p className="group-hover:text-orange transition">{text}</p>
                   </button>
@@ -59,7 +60,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
             )
           })}
           <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
-            <li key={"Resume"} >{OutlineButton("Resume", resumeLink)}</li>
+            {/* <li key={"Resume"} >{OutlineButton("Resume", resumeLink)}</li> */}
           </FadeInOnScroll>
           <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
             <li key="Colour Palette">{ColourPaletteButton(paletteIndex, setPaletteIndex)}</li>
@@ -74,7 +75,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                 <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
                 <FadeInOnScroll delay={9} waitForLoad={true}>
                   <h2 className="text-xl xl:text-2xl">I’m a software developer on a mission
-                    to {TextLink("spread love", "/articles/a-mission-to-spread-love", false, false)}, one line of code at a time.
+                    to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow="false" breakWords="false" />}, one line of code at a time.
                     My priority is producing excellent work while communicating with precision and clarity.</h2>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={11} waitForLoad={true}>
@@ -104,7 +105,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   <FadeInOnScroll delay={3}>
                     <p className="text-base pb-6 lg:pb-0">
                       I take computer science at McMaster University, where I’m a Year Representative for the Computer Science Society.
-                      More information can be found on my {TextLink("resume", resumeLink)}!
+                      More information can be found on my {<TextLink text="resume" href={resumeLink} />}!
                     </p>
                   </FadeInOnScroll>
                 </div>
@@ -112,24 +113,24 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
 
                 <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-xl lg:ml-5 bg-white">
                   <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden flex">
-                  <div className="basis-[40%] lg:basis-[30%] min-[1100px]:basis-[40%] border-r-[3px] border-black flex justify-center items-center bg-[#69143B]">
-                    <Image src={require("../../public/images/mcmaster-logo.png")} alt="McMaster University Logo"
-                      className="w-3/4" />
-                  </div>
-                  <div className="flex flex-col justify-between basis-[60%] lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
-                    <div className="flex flex-col">
-                      <h3 className="text-lg min-[475px]:text-2xl">McMaster University</h3>
-                      <p className="text-xs min-[475px]:text-base text-grey">Hamilton, ON</p>
+                    <div className="basis-[40%] lg:basis-[30%] min-[1100px]:basis-[40%] border-r-[3px] border-black flex justify-center items-center bg-[#69143B]">
+                      <Image src={require("../../public/images/mcmaster-logo.png")} alt="McMaster University Logo"
+                        className="w-3/4" />
                     </div>
-                    <div className="flex flex-col">
-                      <h4 className="text-base min-[475px]:text-lg">Computer Science Co-op</h4>
-                      <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
+                    <div className="flex flex-col justify-between basis-[60%] lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
+                      <div className="flex flex-col">
+                        <h3 className="text-lg min-[475px]:text-2xl">McMaster University</h3>
+                        <p className="text-xs min-[475px]:text-base text-grey">Hamilton, ON</p>
+                      </div>
+                      <div className="flex flex-col">
+                        <h4 className="text-base min-[475px]:text-lg">Computer Science Co-op</h4>
+                        <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
+                      </div>
+                      <div className="flex flex-col">
+                        <h4 className="text-base min-[475px]:text-lg">Level II</h4>
+                        <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <h4 className="text-base min-[475px]:text-lg">Level II</h4>
-                      <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
-                    </div>
-                  </div>
                   </div>
                 </FadeInOnScroll>
 
@@ -145,15 +146,15 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                   </FadeInOnScroll>
                   <FadeInOnScroll delay={3}>
                     <p className="text-base pb-6 lg:pb- lg:text-right">
-                      I’m currently doing a co-op at {TextLink("Arctic Wolf", "https://arcticwolf.com/", true, false)}, where I work on the security services triage team.
-                      I'm thankful for this opportunity to work at a {TextLink("top rated workplace", "https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces/", true, false)}! #jointhepack
+                      I’m currently doing a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I work on the security services triage team.
+                      I'm thankful for this opportunity to work at a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords="false" />}! #jointhepack
                     </p>
                   </FadeInOnScroll>
                 </div>
                 <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-2xl lg:mr-5 ">
                   <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden">
-                  <Image src={require("../../public/images/arctic-wolf.png")} alt="Arctic Wolf 'I've joined the pack' Image"
-                    className="" />
+                    <Image src={require("../../public/images/arctic-wolf.png")} alt="Arctic Wolf 'I've joined the pack' Image"
+                      className="" />
                   </div>
                 </FadeInOnScroll>
               </div>
@@ -209,7 +210,7 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
                     <li key={article.id}>
                       <FadeInOnScroll delay={index * 2 + 2}>
                         <h2 className="text-2xl">
-                          {TextLink(article.title, `/articles/${article.id}`, false)}
+                          {<TextLink text={article.title} href={`/articles/${article.id}`} newWindow="false" />}
                         </h2>
                         <h3 className="text-sm text-grey">{article.subtitle}</h3>
                       </FadeInOnScroll>
@@ -246,8 +247,6 @@ export default function Website({ articleData }: InferGetStaticPropsType<typeof 
         </main>
 
         <Wave4 />
-
-      </Layout>
     </>
   )
 }
@@ -261,7 +260,7 @@ function Projects() {
       "subtitle": "Personal Project",
       "description":
         <p>
-          Glad you’re here! {ButtonLink("Let me know", () => handleClickScroll("contact"))} if anything isn’t working properly.
+          Glad you’re here! {<ButtonLinkScrollOnClick text="Let me know" scrollTo="contact" func={handleClickScroll("contact")} />} if anything isn’t working properly.
         </p>,
       "tags": ["REACT", "TAILWIND", "NEXT.JS"],
       "links": {
@@ -276,7 +275,7 @@ function Projects() {
       "description":
         <p>
           Search for public schools in Ontario to view their EQAO and income data.
-          Originally created for {TextLink("DeltaHacks IX", "https://deltahacks.com/")} (2023), then improved in the following week.
+          Originally created for {<TextLink text="DeltaHacks IX" href="https://deltahacks.com" />} (2023), then improved in the following week.
         </p>,
       "tags": ["HTML", "SQL", "JAVASCRIPT"],
       "links": {
@@ -323,9 +322,9 @@ function Projects() {
       "subtitle": "Hackathon Project",
       "description":
         <p>
-          Game created in 32 hours for {TextLink("Hack the North", "https://hackthenorth.com")} (2022).
+          Game created in 32 hours for {<TextLink text="Hack the North" href="https://hackthenorth.com" />} (2022).
           Clicking the card links to play it in the web,
-          but it runs more smoothly if you {TextLink("download it on itch.io", "https://owengretzinger.itch.io/tempestuous-turrets")}.
+          but it runs more smoothly if you {<TextLink text="download it on itch.io" href="https://owengretzinger.itch.io/tempestuous-turrets" />}.
         </p>,
       "tags": ["C#", "UNITY"],
       "links": {
@@ -356,15 +355,14 @@ function Projects() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center my-5">
       {projectInfo.map((project, i) =>
-        <div key={project.id}>
-          <FadeInOnScroll delay={"calculate"}>
-            <div className="drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
+          <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
+            <div className="relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
               <div
-                className={`relative w-full max-w-[500px] lg:aspect-[5/2.22] rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
+                className={`w-full h-full rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-                <a href={"open" in project.links ? project.links["open"] : project.links["github"]} target="_blank"
+                <Link href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
                   onMouseOver={() => setCardHovered(project.id)} onMouseLeave={() => setCardHovered("")}
-                  className="absolute w-full h-full bg-white opacity-0 z-10"></a>
+                  className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                 <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                   <Image src={require(`../../public/images/projects-images/${project.id}/${project.id}-thumbnail.png`)} alt={`${project.id} thumbnail`}
                     className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
@@ -383,8 +381,8 @@ function Projects() {
                           {project.title}
                         </a>
                       </h2>
-                      <h3 className="font-notothin text-sm text-grey -mt-1">{project.subtitle}</h3>
-                      <div className="font-notothin text-sm my-2 leading-[18px]">
+                      <h3 className="font-medium text-sm text-grey -mt-1">{project.subtitle}</h3>
+                      <div className="font-normal text-sm my-2 leading-[18px]">
                         {project.description}
                       </div>
                     </div>
@@ -401,7 +399,7 @@ function Projects() {
                     {project.tags.map((tag) =>
                       <div key={tag} className="flex rounded-full border-2 border-blue items-center">
                         {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
-                        <p className="font-notomd text-xs text-blue py-0.5 pr-1.5">{tag}</p>
+                        <p className="font-bold text-xs text-blue py-0.5 pr-1.5">{tag}</p>
                       </div>
                     )}
                   </div>
@@ -409,17 +407,7 @@ function Projects() {
               </div>
             </div>
           </FadeInOnScroll>
-        </div>
       )}
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const articleData = getArticlesData();
-  return {
-    props: {
-      articleData
-    },
-  };
 }

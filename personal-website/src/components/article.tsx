@@ -1,17 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+// import React, { useContext, useEffect, useState } from 'react';
 import { HeadingProps } from "react-markdown/lib/ast-to-react";
 
 import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import { format } from 'date-fns'
 
-import { mobileNavOpenContext, PaletteContext } from '../pages/_app';
-
-import ErrorPage from '@/pages/404';
-
-import Layout from './layout';
+// import Layout from './old_layout';
 import Nav from "./nav";
-import TextLink, { ButtonLink, TextLinkPassProps } from './textLink';
+import TextLink, { ButtonLinkScrollOnClick, TextLinkPassProps } from './textLink';
 import { FixedLogo } from './logoSVG';
 import ColourPaletteButton from './colourPaletteButton';
 import FadeInOnScroll from './fadeInOnScroll';
@@ -22,22 +18,31 @@ import websiteSections from '../../lib/websiteSections';
 
 import animations from './loadingAnimation.module.css';
 
+import { PaletteContext } from '@/app/palette-provider';
+import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';
+import React from "react";
+import fs from 'fs';
 
-export default function Article(articlePathFromRoot: string, articleID: string) {
-  const [, setMobileNavOpen] = useContext(mobileNavOpenContext);
-  const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
 
-  const [article, setArticle] = useState('')
-  useEffect(() => {
-    if (articleID && tryRequire(articlePathFromRoot)) {
-      (async () => {
-        import(`raw-loader!../../${articlePathFromRoot}.md`)
-          .then(res => {
-            setArticle(res.default)
-          })
-      })();
-    }
-  }, [articleID]);
+export default function Article({...props}/*, articleID: string*/) {
+  // const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
+  
+  // const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
+
+  // const [article, setArticle] = useState('')
+  // useEffect(() => {
+  //   if (articleID && tryRequire(articlePathFromRoot)) {
+  //     (async () => {
+  //       import(`raw-loader!../../${articlePathFromRoot}.md`)
+  //         .then(res => {
+  //           setArticle(res.default)
+  //         })
+  //     })();
+  //   }
+  // }, [articleID]);
+
+  // const article = tryRequire(articlePathFromRoot);
+  const article = fs.readFileSync(props.articlePathFromRoot, 'utf8');
 
   const articleMatter = matter(article);
 
@@ -65,14 +70,16 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
         <ul className="list-disc">
           {tableOfContentsData.map(({ level, id, text }) => (
             <li key={id} className={`${getHeadingClass(level)} ${level === 1 ? "list-none" : ""}`}>
-              {ButtonLink(text, ()=>{handleClickScroll(id); setMobileNavOpen(false)})}
+              <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} />
+              {/* {ButtonLink(text, ()=>{handleClickScroll(id); setScrollingDisabled(false)})} */}
             </li>
           ))}
         </ul>
         <div className="py-2">
           <div className="flex-grow border border-grey my-4"></div>
         </div>
-        {TextLink("Home", "/", false)}
+        {/* {TextLink("Home", "/", false)} */}
+        <TextLink text="Home" href="/" newWindow={false} />
       </>
 
     );
@@ -88,18 +95,15 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
   }
 
   return (
-    article === '' ? <ErrorPage /> :
-      <Layout bgClass={`bg-blue ${animations.changeColOnStart} ${animations.toWave}`}>
+      <>
         <div className="max-w-full mx-auto">
           <div className="w-full px-4 lg:pl-[21rem]">
             <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
               <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
-                  
-                  
                 <div className="prose mx-auto px-4
-                          font-notomd prose-strong:font-noto
-                          prose-h1:font-noto prose-h2:font-noto prose-h3:font-noto prose-h4:font-noto
-                          prose-a:no-underline 
+                          font-semibold prose-strong:font-black
+                          prose-h1:font-extrabold prose-h2:font-extrabold prose-h3:font-extrabold prose-h4:font-extrabold
+                          prose-a:no-underline prose-a:font-semibold
                           prose-img:shadow-xl
                           
                           prose-img:rounded-[20px]
@@ -110,7 +114,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
                           ">
                   <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
                   <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
-                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> ({TextLink("Link", articleMatter.data.link)})</>}</p>
+                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> (<TextLink text="Link" href={articleMatter.data.link} />)</>}</p>
                   
                   <hr />
                   
@@ -120,7 +124,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
                       h2: addToTOC,
                       h3: addToTOC,
                       h4: addToTOC,
-                      a: ({ children, ...props }) => {
+                      a: ({ ...props }) => {
                         props.target = "_blank";
                         for (const section of websiteSections(true)) {
                           if (props.href && props.href === `/${section}`) {
@@ -131,9 +135,11 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
                           props.target = "_self";
                         }
                         return (
-                          TextLinkPassProps({children, ...props})
+                          <TextLinkPassProps {...props}></TextLinkPassProps>
+                          // TextLinkPassProps({children, ...props})
                         )
                       }
+                      
 
 
                     }}
@@ -162,7 +168,7 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
         
         <div className="hidden lg:block">
           <FadeInOnScroll delay={13} waitForLoad={true} className="fixed top-4 right-10">
-            {ColourPaletteButton(paletteIndex, setPaletteIndex)}
+            {/* {ColourPaletteButton(paletteIndex, setPaletteIndex)} */}
           </FadeInOnScroll>
         </div>
 
@@ -170,10 +176,10 @@ export default function Article(articlePathFromRoot: string, articleID: string) 
           <div className="text-left relative bg-white p-4 w-full">
             <TableOfContents />
           </div>
-          {ColourPaletteButton(paletteIndex, setPaletteIndex)}
+          {/* {ColourPaletteButton(paletteIndex, setPaletteIndex)} */}
         </Nav>
-      </Layout>
-
+      {/* </Layout> */}
+</>
   );
 }
 
@@ -209,7 +215,7 @@ function textContent(elems: React.ReactNode | React.ReactNode[]): string {
 
 const tryRequire = (path: string) => {
   try {
-    return require(`raw-loader!../../${path}.md`);
+    return require(`raw-loader!/${path}.md`);
   } catch (err) {
     return null;
   }
