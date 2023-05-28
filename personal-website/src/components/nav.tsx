@@ -14,6 +14,7 @@ import FadeInOnScroll from './fadeInOnScroll';
 import handleClickScroll from '../../lib/clickScroll';
 
 import animations from './loadingAnimation.module.css';
+import { LoadingAnimationPlayingContext } from '@/app/loading-animation-provider';
 
 const topOfPageThreshold = 50;
 
@@ -51,11 +52,10 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
   const pathname = usePathname();
   
   const scrollDirection = useScrollDirection();
+
   const [scrollingDisabled, setScrollingDisabled] = useContext(ScrollingDisabledContext);
 
-  useEffect(() => {
-    scrollingDisabled ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-  }, [scrollingDisabled]);
+  // setting document overflow to hidden handled in scrolling-disabled-provider.tsx
 
   return (
     <>

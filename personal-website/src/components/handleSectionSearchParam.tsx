@@ -2,13 +2,20 @@
 
 import { useSearchParams } from "next/navigation";
 import handleClickScroll from "../../lib/clickScroll";
-import { Suspense } from "react";
+import { useContext, useEffect } from "react";
+import { LoadingAnimationPlayingContext } from "@/app/loading-animation-provider";
 
 
 export default function HandleSectionSearchParam() {
     const searchParams = useSearchParams();
-    if (typeof window !== "undefined" && searchParams.has('section')) {
-        setTimeout(() => { handleClickScroll(searchParams.get('section')!); }, 1000);
-    }
+
+    const [loadingAnimationPlaying,] = useContext(LoadingAnimationPlayingContext);
+
+    useEffect(() => {
+        if (loadingAnimationPlaying === false && searchParams.has('section')) {
+            handleClickScroll(searchParams.get('section')!);
+        }
+    }), [loadingAnimationPlaying];
+
     return (<></>)
 }

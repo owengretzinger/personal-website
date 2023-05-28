@@ -169,33 +169,3 @@
 
 
 
-
-.changeColOnStart {
-  background-color: #fff;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  
-}
-.changeColOnStart.toBg {
-  animation-name: change-col-on-start-to-bg;
-}
-@keyframes change-col-on-start-to-bg {
-  0% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: rgb(var(--color-bg));
-  }
-}
-.changeColOnStart.toWave {
-  animation-name: change-col-on-start-to-wave;
-}
-@keyframes change-col-on-start-to-wave {
-  0% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: rgb(var(--color-wave));
-  }
-}

@@ -1,4 +1,5 @@
 import Article from "@/components/article"
+import ArticleBackground from "@/components/articleBackground";
 import fs, { existsSync } from 'fs';
 import path from 'path'
 
@@ -13,13 +14,11 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
     const pathIfHidden = path.resolve(articleDirectory, "hidden_articles", fileName);
     const pathToArticle = existsSync(pathIfDisplayed) ? pathIfDisplayed : pathIfHidden;
 
-
-
-
-
     return (
-        <main id="articleBackground" className="changeColOnStart toWave">
-            <Article articlePathFromRoot={pathToArticle} />
+        <main>
+            <ArticleBackground>
+                <Article articlePathFromRoot={pathToArticle} />
+            </ArticleBackground>
         </main>
     )
 }
