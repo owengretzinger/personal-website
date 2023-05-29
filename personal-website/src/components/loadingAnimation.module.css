@@ -82,7 +82,7 @@
     width: 300px;
     height: 30ppx;
     animation-name: scale-out;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     /* animation-timing-function: cubic-bezier(0.1, -0.065, 0.860, -0.155); */
     animation-fill-mode: forwards;
     animation-delay: 2.3s;
@@ -92,10 +92,10 @@
     0% {
       /* width: 300px;
       height: 300px; */
-      opacity: 1;
+      scale: 1;
     }
     100% {
-      opacity: 0;
+      scale: 0;
       /* width: 0px;
       height: 0px; */
     }
