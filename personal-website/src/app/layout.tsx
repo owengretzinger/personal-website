@@ -14,7 +14,6 @@ import RevealPage from '@/components/revealPage';
 export const metadata: Metadata = {
     title: 'Owen Gretzinger',
     description: "Owen Gretzinger's Personal Website",
-
 };
 
 const inter = Noto_Sans_Georgian({
@@ -34,9 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
                     <div id="home"></div>
                     <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
                     <LoadingAnimation />
-                    <div>
-                        {children}
-                    </div>
+                    {children}
                 </ScrollingDisabledProvider></LoadingAnimationProvider>
             </body>
         </html>

@@ -10,6 +10,22 @@
   --color-link       : 239 89 34;
 }
 
+@screen print {
+  @page  {
+    margin: 0;
+  }
+
+  .page {
+    padding: theme(spacing.16) theme(spacing.16) !important;
+    height: 100vh !important;
+  }
+
+  .initial {
+    color: transparent !important;
+    text-shadow: 0 0 0 #fff !important;
+  }
+}
+
 @layer base  {
   .fade-in {
     opacity: 0;

@@ -25,9 +25,9 @@ import fs from 'fs';
 import RevealPage from "./revealPage";
 
 
-export default function Article({...props}/*, articleID: string*/) {
+export default function Article({ ...props }/*, articleID: string*/) {
   // const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
-  
+
   // const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
 
   // const [article, setArticle] = useState('')
@@ -49,7 +49,7 @@ export default function Article({...props}/*, articleID: string*/) {
 
   const tableOfContentsData: { id: string, text: string, level: number }[] = [];
   if (articleMatter.data.title)
-    tableOfContentsData.push({ id: "home",  text: articleMatter.data.title, level: 1 });
+    tableOfContentsData.push({ id: "home", text: articleMatter.data.title, level: 1 });
   const addToTOC = ({ children, ...props }: React.PropsWithChildren<HeadingProps>) => {
     const level = Number(props.node.tagName.match(/h(\d)/)?.slice(1));
     if (level && children) {
@@ -86,23 +86,23 @@ export default function Article({...props}/*, articleID: string*/) {
     );
   }
 
-  var date : string = articleMatter.data.dateModified;
+  var date: string = articleMatter.data.dateModified;
   if (date) {
     const dateArray = date.split('-');
-    date = format(new Date(Number(dateArray[0]), Number(dateArray[1])-1, Number(dateArray[2])), 'MMMM d, y');
+    date = format(new Date(Number(dateArray[0]), Number(dateArray[1]) - 1, Number(dateArray[2])), 'MMMM d, y');
   }
   if (articleMatter.data.dateModified > articleMatter.data.dateCreated) {
-     date = "Modified " + date;
+    date = "Modified " + date;
   }
 
   return (
-      <>
+    <>
       <RevealPage />
-        <div className="max-w-full mx-auto bg-blue">
-          <div className="w-full px-4 lg:pl-[21rem]">
-            <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
-              <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
-                <div className="prose mx-auto px-4
+      <div className="max-w-full mx-auto bg-blue">
+        <div className="w-full px-4 lg:pl-[21rem]">
+          <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
+            <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
+              <div className="prose mx-auto px-4
                           font-semibold prose-strong:font-black
                           prose-h1:font-extrabold prose-h2:font-extrabold prose-h3:font-extrabold prose-h4:font-extrabold
                           prose-a:no-underline prose-a:font-semibold
@@ -114,74 +114,63 @@ export default function Article({...props}/*, articleID: string*/) {
                           prose-img:mx-auto
                           lg:prose-img:max-h-[400px] lg:prose-img:w-fit
                           ">
-                  <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
-                  <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
-                  <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> (<TextLink text="Link" href={articleMatter.data.link} />)</>}</p>
-                  
-                  <hr />
-                  
-                  <ReactMarkdown
-                    components={{
-                      h1: addToTOC,
-                      h2: addToTOC,
-                      h3: addToTOC,
-                      h4: addToTOC,
-                      a: ({ ...props }) => {
-                        props.target = "_blank";
-                        for (const section of websiteSections(true)) {
-                          if (props.href && props.href === `/${section}`) {
-                            props.href = `/?section=${section}`;
-                          }
+                <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
+                <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
+                <p className="text-grey not-prose">{articleMatter.data.subtitle}{articleMatter.data.link && <> (<TextLink text="Link" href={articleMatter.data.link} />)</>}</p>
+
+                <hr />
+
+                <ReactMarkdown
+                  components={{
+                    h1: addToTOC,
+                    h2: addToTOC,
+                    h3: addToTOC,
+                    h4: addToTOC,
+                    a: ({ ...props }) => {
+                      props.target = "_blank";
+                      for (const section of websiteSections(true)) {
+                        if (props.href && props.href === `/${section}`) {
+                          props.href = `/?section=${section}`;
                         }
-                        if (props.href && props.href.startsWith("/")) {
-                          props.target = "_self";
-                        }
-                        return (
-                          <TextLinkPassProps {...props}></TextLinkPassProps>
-                          // TextLinkPassProps({children, ...props})
-                        )
                       }
-                      
+                      if (props.href && props.href.startsWith("/")) {
+                        props.target = "_self";
+                      }
+                      return (
+                        <TextLinkPassProps {...props}></TextLinkPassProps>
+                        // TextLinkPassProps({children, ...props})
+                      )
+                    }
 
 
-                    }}
-                    children={`${articleMatter.content}`}
-                  />
-                </div>
-              </FadeInOnScroll>
-            </div>
-          </div>
-          <FadeInOnScroll delay={9} waitForLoad={true} className="hidden lg:flex fixed top-0 left-0 bottom-0 w-80 py-10 pl-4 lg:items-center">
-            <nav className="relative bg-white rounded-[20px] p-4 w-[304px] shadow-xl">
-              <h2 className="text-2xl text-center w-full">Table of Contents</h2>
-              <TableOfContents />
-            </nav>
-          </FadeInOnScroll>
-        </div>
-        
-          
-          <div className="hidden lg:block">
-            <FadeInOnScroll delay={7} waitForLoad={true} className="fixed top-0 left-0">
-            <FixedLogo />
+
+                  }}
+                  children={`${articleMatter.content}`}
+                />
+              </div>
             </FadeInOnScroll>
-            </div>
-          
-          
-        
-        <div className="hidden lg:block">
-          <FadeInOnScroll delay={13} waitForLoad={true} className="fixed top-4 right-10">
-            {/* {ColourPaletteButton(paletteIndex, setPaletteIndex)} */}
-          </FadeInOnScroll>
-        </div>
-
-        <Nav showOnLargeScreens={false} homePage={false}>
-          <div className="text-left relative bg-white p-4 w-full">
-            <TableOfContents />
           </div>
-          {/* {ColourPaletteButton(paletteIndex, setPaletteIndex)} */}
-        </Nav>
-      {/* </Layout> */}
-</>
+        </div>
+        <FadeInOnScroll delay={9} waitForLoad={true} className="hidden lg:flex fixed top-0 left-0 bottom-0 w-80 py-10 pl-4 lg:items-center">
+          <nav className="relative bg-white rounded-[20px] p-4 w-[304px] shadow-xl">
+            <h2 className="text-2xl text-center w-full">Table of Contents</h2>
+            <TableOfContents />
+          </nav>
+        </FadeInOnScroll>
+      </div>
+
+
+      <div className="hidden lg:block">
+        <FadeInOnScroll delay={7} waitForLoad={true} className="fixed top-0 left-0">
+          <FixedLogo />
+        </FadeInOnScroll>
+      </div>
+      <Nav showOnLargeScreens={false} homePage={false}>
+        <div className="text-left relative bg-white p-4 w-full">
+          <TableOfContents />
+        </div>
+      </Nav>
+    </>
   );
 }
 
@@ -214,11 +203,3 @@ function textContent(elems: React.ReactNode | React.ReactNode[]): string {
 
   return content;
 }
-
-const tryRequire = (path: string) => {
-  try {
-    return require(`raw-loader!/${path}.md`);
-  } catch (err) {
-    return null;
-  }
-};

@@ -6,7 +6,25 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      '2xl': "1536px",
+    },
     extend: {
+      screens: {
+        print: { raw: "print" },
+      },
+      maxWidth: {
+        letter: "72rem",
+      },
+      height: {
+        letter: "86.9375rem",
+        // "letter-col": "71.625rem",
+        // "letter-col-full": "77.9375rem",
+      },
       colors: {
         'white': 'rgb(255 255 255 / <alpha-value>)',
         'blue': 'rgb(157 217 243 / <alpha-value>)',

@@ -3,7 +3,7 @@
 import TextLink from '../components/textLink'
 import { FixedLogo } from '@/components/logoSVG';
 
-export default function ErrorPage() {
+export default function NotFound() {
     return (
         <div className="bg-white">
             <div className="flex flex-col items-center justify-center w-screen h-screen space-y-10 text-center p-2">

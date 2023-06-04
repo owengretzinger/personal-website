@@ -2,7 +2,10 @@ import { Metadata } from 'next';
 import { getArticlesData } from '../../lib/getArticlesData';
 
 import Image from 'next/image'
-import pfp from "../../public/images/pfp_standing_outdoors.png";
+// import pfp from "../../public/images/pfp_standing_outdoors.png";
+import pfp from "../../public/images/pfp_standing_outdoors_2.jpeg";
+// import pfp from "../../public/images/mmmmmm.png";
+
 import macLogo from "../../public/images/mcmaster-logo.png";
 import arcticWolf from "../../public/images/arctic-wolf.png";
 import personal1 from "../../public/images/personal-1.png";
@@ -25,7 +28,7 @@ import NavButton from '@/components/navButton';
 import projectInfo, { NameToIcon } from '../../lib/projectInfo';
 import RevealPage from '@/components/revealPage';
 
-const resumeLink = "/resume.pdf";
+// const resumeLink = "/resume.pdf";
 
 export const metadata: Metadata = {
 
@@ -62,7 +65,7 @@ export default async function Page() {
         })}
         <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
           <li key={"Resume"} >
-            <OutlineButton text={"Resume"} href={resumeLink} />
+            <OutlineButton text={"Resume"} href="/resume" />
           </li>
         </FadeInOnScroll>
         {/* <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
@@ -87,8 +90,8 @@ export default async function Page() {
             </div>
             <FadeInOnScroll delay={13} waitForLoad={true}>
               <div className={`flex-1 self-center p-10 lg:py-0`}>
-                <Image src={pfp} alt="Me" priority placeholder='blur'
-                  className={`w-full max-w-[334px] rounded-xl shadow-2xl mx-auto`} />
+                <Image src={pfp} alt="Me" width={334} height={334} priority={true} placeholder='blur'
+                  className={`rounded-xl shadow-2xl mx-auto`} />
               </div>
             </FadeInOnScroll>
           </div>
@@ -109,14 +112,14 @@ export default async function Page() {
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
                     I take computer science at McMaster University, where I’m a Year Representative for the Computer Science Society.
-                    More information can be found on my {<TextLink text="resume" href={resumeLink} />}!
+                    More information can be found on my {<TextLink text="resume" href="/resume" />}!
                   </p>
                 </FadeInOnScroll>
               </div>
 
 
-              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] border-[3px] border-black rounded-[20px] overflow-hidden drop-shadow-xl lg:ml-5 bg-white">
-                <div className="w-full h-full flex">
+              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-xl lg:ml-5 bg-white">
+                <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden flex">
                   <div className="basis-[40%] lg:basis-[30%] min-[1100px]:basis-[40%] border-r-[3px] border-black flex justify-center items-center bg-[#69143B]">
                     <Image src={macLogo} alt="McMaster University Logo"
                       className="w-3/4" />
@@ -156,7 +159,7 @@ export default async function Page() {
                 </FadeInOnScroll>
               </div>
               <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-2xl lg:mr-5 ">
-                <div className="w-full h-full border-[3px] border-black rounded-[20px] overflow-hidden">
+                <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden">
                   <Image src={arcticWolf} alt="Arctic Wolf 'I've joined the pack' Image"
                     className="" />
                 </div>
@@ -181,15 +184,15 @@ export default async function Page() {
               <FadeInOnScroll className="relative basis-1/2 w-full max-w-[500px] aspect-[5/2.22] lg:ml-5 drop-shadow-xl">
                 <div className="absolute w-full h-full flex justify-end items-start rounded-[20px] drop-shadow-xl">
                   <Image src={personal3} alt="Me playing the drums with a band"
-                    className="w-fit h-[83.33%] rounded-[20px] border-[3px] border-black" />
+                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                 </div>
                 <div className="absolute w-full h-full flex justify-center items-center rounded-[20px] drop-shadow-xl">
                   <Image src={personal2} alt="Me getting pied in the face by a youth"
-                    className="w-fit h-[83.33%] rounded-[20px] border-[3px] border-black" />
+                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                 </div>
                 <div className="absolute w-full h-full flex justify-start items-end rounded-[20px] drop-shadow-xl">
                   <Image src={personal1} alt="Me singing and leading youth"
-                    className="w-fit h-[83.33%] rounded-[20px] border-[3px] border-black" />
+                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
                 </div>
               </FadeInOnScroll>
 
@@ -207,14 +210,14 @@ export default async function Page() {
             {projectInfo().map((project, i) =>
               <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
                 <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
-                  <div className={`w-full h-full rounded-[20px] overflow-hidden border-[3px] border-black bg-white flex flex-col lg:flex-row 
+                  <div className={`w-full h-full rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
                     <Link href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
 
                       className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                     <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                       <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
-                        className="absolute w-full h-full object-cover brightness-[80%]" />
+                        className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
                       <Image src={project.icon} alt={`${project.id} icon`}
                         className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
                     </div>
