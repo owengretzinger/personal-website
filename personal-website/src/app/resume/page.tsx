@@ -212,7 +212,7 @@ export default function Resume() {
 
             </FadeInOnScroll>
             <FadeInOnScroll className="lg:hidden print:hidden mt-12 font-extrabold flex justify-center">
-              <OutlineButton text={"Download"} href={resumePDFlink} />
+              <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
             </FadeInOnScroll>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function Resume() {
         </div>
         <div className="hidden lg:flex print:hidden font-extrabold fixed top-4 right-10 h-[42px] bg-white rounded-lg items-center">
           <FadeInOnScroll delay={13} waitForLoad={true} className="">
-            <OutlineButton text={"Download"} href={resumePDFlink} />
+            <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
           </FadeInOnScroll>
         </div>
         <div className="block print:hidden font-extrabold">

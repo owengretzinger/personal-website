@@ -112,7 +112,7 @@ export default async function Page() {
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
                     I take computer science at McMaster University, where I’m a Year Representative for the Computer Science Society.
-                    More information can be found on my {<TextLink text="resume" href="/resume" />}!
+                    More information can be found on my {<TextLink text="resume" href="/resume" newWindow={false} />}!
                   </p>
                 </FadeInOnScroll>
               </div>
