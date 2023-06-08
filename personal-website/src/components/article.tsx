@@ -101,16 +101,13 @@ export default function Article({ ...props }/*, articleID: string*/) {
       <div className="max-w-full mx-auto bg-blue">
         <div className="w-full px-4 lg:pl-[21rem]">
           <div className="max-w-3xl mx-auto xl:max-w-none py-10 xl:ml-0 xl:mr-64 xl:pr-16">
-            <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-[20px] shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
+            <FadeInOnScroll delay={11} waitForLoad={true} className="w-full px-0 bg-white rounded-theme shadow-xl md:max-w-3xl lg:max-w-4xl py-4 lg:py-16 mx-auto mt-20 lg:mt-0">
               <div className="prose mx-auto px-4
                           font-semibold prose-strong:font-black
                           prose-h1:font-extrabold prose-h2:font-extrabold prose-h3:font-extrabold prose-h4:font-extrabold
                           prose-a:no-underline prose-a:font-semibold
                           prose-img:shadow-xl
-                          
-                          prose-img:rounded-[20px]
-                          prose-img:border-[3px]
-                          prose-img:border-black
+                          prose-img:rounded-outline
                           prose-img:mx-auto
                           lg:prose-img:max-h-[400px] lg:prose-img:w-fit
                           ">
@@ -152,7 +149,7 @@ export default function Article({ ...props }/*, articleID: string*/) {
           </div>
         </div>
         <FadeInOnScroll delay={9} waitForLoad={true} className="hidden lg:flex fixed top-0 left-0 bottom-0 w-80 py-10 pl-4 lg:items-center">
-          <nav className="relative bg-white rounded-[20px] p-4 w-[304px] shadow-xl">
+          <nav className="relative bg-white rounded-theme p-4 w-[304px] shadow-xl">
             <h2 className="text-2xl text-center w-full">Table of Contents</h2>
             <TableOfContents />
           </nav>

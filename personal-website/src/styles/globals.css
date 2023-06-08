@@ -8,6 +8,7 @@
   --color-text       : 14 45 49;
   --color-text-light : 93 108 110;
   --color-link       : 239 89 34;
+  /* --color-link       : 210 71 0; */
 }
 
 @screen print {
@@ -26,7 +27,23 @@
   }
 }
 
+
+
+@layer components {
+  .rounded-outline {
+    border: 3px solid rgb(var(--color-text));
+    /* outline-color: rgb(var(--color-text)); */
+    border-radius: 20px;
+    overflow: hidden;
+    border-collapse: separate; 
+  }
+}
+
+
 @layer base  {
+
+  
+
   .fade-in {
     opacity: 0;
     transform: translateY(5vh);

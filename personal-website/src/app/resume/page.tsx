@@ -28,10 +28,10 @@ export default function Resume() {
         <div className="w-full px-4 print:px-0">
           <div className="mx-auto xl:max-w-none py-10 print:py-0">
             <FadeInOnScroll delay={11} waitForLoad={true}
-              className="relative w-full bg-white rounded-[20px] shadow-xl
+              className="relative w-full bg-white rounded-theme shadow-xl
                          sm:max-w-[52rem] lg:aspect-[8.5/11] mx-auto mt-20 lg:mt-0
                          page print:w-[52rem] print:aspect-[8.5/11] print:m-0 print:shadow-none">
-              <div className="w-full h-full border-black border-[3px] rounded-[20px] p-4 md:p-16
+              <div className="w-full h-full rounded-outline p-4 md:p-16
                               print:max-w-letter print:p-0 print:border-none">
                 <div className="w-full h-full flex flex-col">
                   {/* desktop header */}
@@ -200,12 +200,12 @@ export default function Resume() {
               </div>
 
               <div className="absolute print:fixed top-0 left-0 -z-50">
-                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[450px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-[20px] print:rounded-tl-none`}>
+                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[450px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none`}>
                   <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
                 </svg>
               </div>
               <div className="absolute print:fixed -z-50 bottom-0 right-0">
-                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[300px] max-w-[94%] aspect-square -scale-100 max-h-[100vw] fill-blue rounded-tl-[20px] print:rounded-tl-none ml-auto`}>
+                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[300px] max-w-[94%] aspect-square -scale-100 max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none ml-auto`}>
                   <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
                 </svg>
               </div>

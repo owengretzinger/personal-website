@@ -25,8 +25,9 @@ import websiteSections from '../../lib/websiteSections';
 import { BsTag } from 'react-icons/bs'
 import Link from 'next/link';
 import NavButton from '@/components/navButton';
-import projectInfo, { NameToIcon } from '../../lib/projectInfo';
+import projectInfo from '../../lib/projectInfo';
 import RevealPage from '@/components/revealPage';
+import { ProjectLinkIcon } from '@/components/projectIconLink';
 
 // const resumeLink = "/resume.pdf";
 
@@ -39,7 +40,7 @@ function SectionHeader({ ...props }: any) {
     <FadeInOnScroll>
       <div className="relative flex py-5 items-center mt-20" id={props.id.toLowerCase()}>
         <div className="flex-grow border border-grey"></div>
-        <span className="flex-shrink mx-4 text-black text-4xl">{props.title}</span>
+        <span className="flex-shrink mx-4 text-black text-4xl"><h2>{props.title}</h2></span>
         <div className="flex-grow border border-grey"></div>
       </div>
     </FadeInOnScroll>
@@ -74,15 +75,15 @@ export default async function Page() {
       </Nav>
 
       <main className="px-5 lg:px-20 xl:px-40 relative">
-        <section className='min-h-screen w-full flex items-center' id="home">
+        <section className='min-h-screen w-full flex items-center'>
           <div className="w-full flex flex-col lg:flex-row justify-between mt-32 lg:mt-0">
             <div className="lg:w-7/12 max-w-[650px] space-y-6 self-center">
-              <FadeInOnScroll delay={5} waitForLoad={true}><h2 className="text-xl xl:text-2xl">Hi, my name is</h2></FadeInOnScroll>
+              <FadeInOnScroll delay={5} waitForLoad={true}><p className="text-xl xl:text-2xl">Hi, my name is</p></FadeInOnScroll>
               <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
               <FadeInOnScroll delay={9} waitForLoad={true}>
-                <h2 className="text-xl xl:text-2xl">I’m a software developer on a mission
+                <p className="text-xl xl:text-2xl">I’m a software developer on a mission
                   to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
-                  My priority is producing excellent work while communicating with precision and clarity.</h2>
+                  My priority is producing excellent work while communicating with precision and clarity.</p>
               </FadeInOnScroll>
               <FadeInOnScroll delay={11} waitForLoad={true}>
                 <SocialButtons />
@@ -107,7 +108,7 @@ export default async function Page() {
             <div className="flex flex-col lg:flex-row justify-center items-center lg:justify-between show-on-scroll">
               <div className="basis-1/2 max-w-[500px] lg:max-w-full ">
                 <FadeInOnScroll delay={2}>
-                  <h2 className="text-2xl pb-4">Education:</h2>
+                  <h3 className="text-2xl pb-4">Education:</h3>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
@@ -118,23 +119,23 @@ export default async function Page() {
               </div>
 
 
-              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-xl lg:ml-5 bg-white">
-                <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden flex">
+              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-xl lg:ml-5 bg-white">
+                <div className="w-full h-full rounded-outline overflow-hidden flex">
                   <div className="basis-[40%] lg:basis-[30%] min-[1100px]:basis-[40%] border-r-[3px] border-black flex justify-center items-center bg-[#69143B]">
                     <Image src={macLogo} alt="McMaster University Logo"
                       className="w-3/4" />
                   </div>
                   <div className="flex flex-col justify-between basis-[60%] lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
                     <div className="flex flex-col">
-                      <h3 className="text-lg min-[475px]:text-2xl">McMaster University</h3>
+                      <p className="text-lg min-[475px]:text-2xl">McMaster University</p>
                       <p className="text-xs min-[475px]:text-base text-grey">Hamilton, ON</p>
                     </div>
                     <div className="flex flex-col">
-                      <h4 className="text-base min-[475px]:text-lg">Computer Science Co-op</h4>
+                      <p className="text-base min-[475px]:text-lg">Computer Science Co-op</p>
                       <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
                     </div>
                     <div className="flex flex-col">
-                      <h4 className="text-base min-[475px]:text-lg">Level II</h4>
+                      <p className="text-base min-[475px]:text-lg">Level II</p>
                       <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
                     </div>
                   </div>
@@ -149,7 +150,7 @@ export default async function Page() {
             <div className="flex flex-col lg:flex-row-reverse justify-center items-center lg:justify-between show-on-scroll">
               <div className="basis-1/2 max-w-[500px] lg:max-w-full ">
                 <FadeInOnScroll delay={2}>
-                  <h2 className="text-2xl pb-4 lg:text-right">Experience:</h2>
+                  <h3 className="text-2xl pb-4 lg:text-right">Experience:</h3>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb- lg:text-right">
@@ -158,8 +159,8 @@ export default async function Page() {
                   </p>
                 </FadeInOnScroll>
               </div>
-              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-[20px] drop-shadow-2xl lg:mr-5 ">
-                <div className="w-full h-full outline outline-[3px] outline-black rounded-[20px] overflow-hidden">
+              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
+                <div className="w-full h-full rounded-outline overflow-hidden">
                   <Image src={arcticWolf} alt="Arctic Wolf 'I've joined the pack' Image"
                     className="" />
                 </div>
@@ -171,7 +172,7 @@ export default async function Page() {
             <div className="flex flex-col lg:flex-row justify-center items-center lg:justify-between show-on-scroll">
               <div className="basis-1/2 max-w-[500px] lg:max-w-full ">
                 <FadeInOnScroll delay={2}>
-                  <h2 className="text-2xl pb-4">Personal:</h2>
+                  <h3 className="text-2xl pb-4">Personal:</h3>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
@@ -182,17 +183,23 @@ export default async function Page() {
 
 
               <FadeInOnScroll className="relative basis-1/2 w-full max-w-[500px] aspect-[5/2.22] lg:ml-5 drop-shadow-xl">
-                <div className="absolute w-full h-full flex justify-end items-start rounded-[20px] drop-shadow-xl">
-                  <Image src={personal3} alt="Me playing the drums with a band"
-                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
+                <div className="absolute w-full h-full flex justify-end items-start">
+                  <div className="h-[83.33%] aspect-square rounded-outline">
+                    <Image src={personal3} alt="Me playing the drums with a band"
+                      className="w-full h-full" />
+                  </div>
                 </div>
-                <div className="absolute w-full h-full flex justify-center items-center rounded-[20px] drop-shadow-xl">
-                  <Image src={personal2} alt="Me getting pied in the face by a youth"
-                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
+                <div className="absolute w-full h-full flex justify-center items-center">
+                  <div className="h-[83.33%] aspect-square rounded-outline">
+                    <Image src={personal2} alt="Me getting pied in the face by a youth"
+                      className="w-full h-full" />
+                  </div>
                 </div>
-                <div className="absolute w-full h-full flex justify-start items-end rounded-[20px] drop-shadow-xl">
-                  <Image src={personal1} alt="Me singing and leading youth"
-                    className="w-fit h-[83.33%] rounded-[20px] outline outline-[3px] outline-black" />
+                <div className="absolute w-full h-full flex justify-start items-end">
+                  <div className="h-[83.33%] aspect-square rounded-outline">
+                    <Image src={personal1} alt="Me singing and leading youth"
+                      className="w-full h-full" />
+                  </div>
                 </div>
               </FadeInOnScroll>
 
@@ -210,38 +217,38 @@ export default async function Page() {
             {projectInfo().map((project, i) =>
               <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
                 <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
-                  <div className={`w-full h-full rounded-[20px] overflow-hidden outline outline-[3px] outline-black bg-white flex flex-col lg:flex-row 
+                  <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-                    <Link href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
+                    <Link title={`open ${project.title} in new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
 
                       className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                     <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                       <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
-                        className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-[20px] object-cover brightness-[80%]" />
+                        className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-theme object-cover brightness-[80%]" />
                       <Image src={project.icon} alt={`${project.id} icon`}
                         className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
                     </div>
                     <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
                       <div className="flex">
-                        <div className="basis-[91%] flex flex-col">
-                          <h2 className="text-md">
-                            <a className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
+                        <div className="basis-[87%] flex flex-col">
+                          <h3 className="text-md">
+                            <span className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
                                 before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                                 before:bottom-0 before:left-0 before:bg-orange before:origin-top-left 
                                 before:transition before:duration-300 before:ease-in-out before:scale-x-0 group-hover:before:scale-x-100
                                 transition duration-300`}>
                               {project.title}
-                            </a>
-                          </h2>
-                          <h3 className="font-medium text-sm text-grey -mt-1">{project.subtitle}</h3>
+                            </span>
+                          </h3>
+                          <p className="font-medium text-sm text-grey -mt-1">{project.subtitle}</p>
                           <div className="font-normal text-sm my-2 leading-[18px]">
                             {project.description}
                           </div>
                         </div>
-                        <div className="basis-[9%] flex flex-col items-end gap-2 p-2 pl-1">
+                        <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
                           {Object.keys(project.links).map((link) =>
-                            <Link key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
-                              <NameToIcon name={link} />
+                            <Link title={`${project.title} link: ${link}`} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                              <ProjectLinkIcon name={link} />
                             </Link>
                           )}
                         </div>
@@ -271,10 +278,10 @@ export default async function Page() {
                 return (
                   <li key={article.id}>
                     <FadeInOnScroll delay={index * 2 + 2}>
-                      <h2 className="text-2xl">
+                      <p className="text-2xl">
                         <TextLink text={article.title} href={`/articles/${article.id}`} newWindow={false} />
-                      </h2>
-                      <h3 className="text-sm text-grey">{article.subtitle}</h3>
+                      </p>
+                      <p className="text-sm text-grey">{article.subtitle}</p>
                     </FadeInOnScroll>
                   </li>
                 )

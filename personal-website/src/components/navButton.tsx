@@ -6,7 +6,7 @@ import React, { useContext } from 'react';
 import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';
 
 export default function NavButton({ ...props }: any) {
-    const [scrollingDisabled, setScrollingDisabled] = useContext(ScrollingDisabledContext);
+    const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
 
     return (
         <button onClick={() => { handleClickScroll(props.text.toLowerCase()); setScrollingDisabled(false); }} className="group flex">
