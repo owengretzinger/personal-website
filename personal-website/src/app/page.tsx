@@ -224,7 +224,7 @@ export default async function Page() {
                       className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                     <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
                       <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
-                        className="absolute w-full h-full lg:rounded-tr-none lg:rounded-bl-theme object-cover brightness-[80%]" />
+                        className="absolute w-full h-full object-cover brightness-[80%]" />
                       <Image src={project.icon} alt={`${project.id} icon`}
                         className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
                     </div>
