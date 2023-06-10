@@ -15,6 +15,7 @@ import handleClickScroll from '../../lib/clickScroll';
 
 import animations from './loadingAnimation.module.css';
 import { LoadingAnimationPlayingContext } from '@/app/loading-animation-provider';
+import HomeButtonAfterDivider from './homeButton';
 
 const topOfPageThreshold = 50;
 
@@ -88,6 +89,7 @@ export default function Nav({ showOnLargeScreens = true, ...props }) {
             <BsX className="stroke-black stroke-1" size={60} />
           </button>
           {props.children}
+          {pathname !== "/" && <HomeButtonAfterDivider />}
         </ul>
       </div>
     </>

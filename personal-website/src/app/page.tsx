@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import { getArticlesData } from '../../lib/getArticlesData';
-
+import Link from 'next/link';
 import Image from 'next/image'
 // import pfp from "../../public/images/pfp_standing_outdoors.png";
 import pfp from "../../public/images/pfp_standing_outdoors_2.jpeg";
@@ -17,19 +16,16 @@ import TextLink from '../components/textLink';
 import OutlineButton from '../components/outlineButton';
 import SocialButtons from '../components/socialButtons';
 import FadeInOnScroll from '@/components/fadeInOnScroll';
-import ColourPaletteButton from '../components/colourPaletteButton';
 import { Wave1, Wave2, Wave3, Wave4 } from '../components/waves';
+import NavButton from '@/components/navButton';
+import { ProjectLinkIcon } from '@/components/projectIconLink';
+import RevealPage from '@/components/revealPage';
 
 import websiteSections from '../../lib/websiteSections';
+import projectInfo from '../../lib/projectInfo';
+import { getArticlesData } from '../../lib/getArticlesData';
 
 import { BsTag } from 'react-icons/bs'
-import Link from 'next/link';
-import NavButton from '@/components/navButton';
-import projectInfo from '../../lib/projectInfo';
-import RevealPage from '@/components/revealPage';
-import { ProjectLinkIcon } from '@/components/projectIconLink';
-
-// const resumeLink = "/resume.pdf";
 
 export const metadata: Metadata = {
 
@@ -154,8 +150,8 @@ export default async function Page() {
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb- lg:text-right">
-                    I’m currently doing a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I work on the security services "Fast Track" team.
-                    I'm thankful for this opportunity to be at a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords="false" />}! #jointhepack
+                    I’m currently on co-op as a developer at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I take on all kinds of tasks as part of the "Fast Track" team!
+                    I'm thankful for this opportunity to be part of a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords={false} />}. #jointhepack
                   </p>
                 </FadeInOnScroll>
               </div>

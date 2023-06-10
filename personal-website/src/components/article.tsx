@@ -1,50 +1,25 @@
-// import React, { useContext, useEffect, useState } from 'react';
 import { HeadingProps } from "react-markdown/lib/ast-to-react";
 
 import ReactMarkdown from 'react-markdown';
 import matter from 'gray-matter';
 import { format } from 'date-fns'
 
-// import Layout from './old_layout';
 import Nav from "./nav";
 import TextLink, { ButtonLinkScrollOnClick, TextLinkPassProps } from './textLink';
 import { FixedLogo } from './logoSVG';
-import ColourPaletteButton from './colourPaletteButton';
 import FadeInOnScroll from './fadeInOnScroll';
 
-import handleClickScroll from '../../lib/clickScroll';
 import readTime from '../../lib/readTime';
 import websiteSections from '../../lib/websiteSections';
 
-import animations from './loadingAnimation.module.css';
-
-import { PaletteContext } from '@/app/palette-provider';
-import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';
 import React from "react";
 import fs from 'fs';
 import RevealPage from "./revealPage";
+import HomeButtonAfterDivider from "./homeButton";
 
 
-export default function Article({ ...props }/*, articleID: string*/) {
-  // const [, setScrollingDisabled] = useContext(ScrollingDisabledContext);
-
-  // const [paletteIndex, setPaletteIndex] = useContext(PaletteContext);
-
-  // const [article, setArticle] = useState('')
-  // useEffect(() => {
-  //   if (articleID && tryRequire(articlePathFromRoot)) {
-  //     (async () => {
-  //       import(`raw-loader!../../${articlePathFromRoot}.md`)
-  //         .then(res => {
-  //           setArticle(res.default)
-  //         })
-  //     })();
-  //   }
-  // }, [articleID]);
-
-  // const article = tryRequire(articlePathFromRoot);
+export default function Article({ ...props }) {
   const article = fs.readFileSync(props.articlePathFromRoot, 'utf8');
-
   const articleMatter = matter(article);
 
   const tableOfContentsData: { id: string, text: string, level: number }[] = [];
@@ -67,22 +42,13 @@ export default function Article({ ...props }/*, articleID: string*/) {
   };
   function TableOfContents() {
     return (
-      <>
-        <ul className="list-disc">
-          {tableOfContentsData.map(({ level, id, text }) => (
-            <li key={id} className={`${getHeadingClass(level)} ${level === 1 ? "list-none" : ""}`}>
-              <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} />
-              {/* {ButtonLink(text, ()=>{handleClickScroll(id); setScrollingDisabled(false)})} */}
-            </li>
-          ))}
-        </ul>
-        <div className="py-2">
-          <div className="flex-grow border border-grey my-4"></div>
-        </div>
-        {/* {TextLink("Home", "/", false)} */}
-        <TextLink text="Home" href="/" newWindow={false} />
-      </>
-
+      <ul className="list-disc">
+        {tableOfContentsData.map(({ level, id, text }) => (
+          <li key={id} className={`${getHeadingClass(level)} ${level === 1 ? "list-none" : ""}`}>
+            <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} />
+          </li>
+        ))}
+      </ul>
     );
   }
 
@@ -152,6 +118,7 @@ export default function Article({ ...props }/*, articleID: string*/) {
           <nav className="relative bg-white rounded-theme p-4 w-[304px] shadow-xl">
             <h2 className="text-2xl text-center w-full">Table of Contents</h2>
             <TableOfContents />
+            <HomeButtonAfterDivider />
           </nav>
         </FadeInOnScroll>
       </div>

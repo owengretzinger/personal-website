@@ -12,8 +12,9 @@ import { RiTeamFill } from 'react-icons/ri';
 import { MdWork } from 'react-icons/md';
 import { Metadata } from 'next';
 import OutlineButton from '@/components/outlineButton';
+import React from 'react';
 
-const resumePDFlink = "/resume.pdf";
+const resumePDFlink = "/Resume_Owen_Gretzinger.pdf";
 
 export const metadata: Metadata = {
   title: 'Resume - Owen Gretzinger',
@@ -38,7 +39,7 @@ export default function Resume() {
                   <div className="hidden w-full sm:flex print:flex justify-between items-center">
                     <div className=""></div>
                     <h2 className="flex-1 text-4xl font-[1000]">Owen<br />Gretzinger</h2>
-                    <Image src={headshot} alt="Headshot of me" width={128} height={128} className="rounded-full border-[3px] border-black" />
+                    {/* <Image src={headshot} alt="Headshot of me" width={128} height={128} className="rounded-full border-[3px] border-black" /> */}
                     <div className="flex-1 flex sm:justify-end print:justify-end">
                       <div className="flex flex-col w-fit sm:items-end print:items-end gap-[2px]">
                         <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" />
@@ -52,9 +53,9 @@ export default function Resume() {
                   {/* mobile header */}
                   <div className="sm:hidden print:hidden">
                     <div className="flex w-full max-w-full justify-between items-center gap-3">
-                      <h2 className="text-3xl [@media(min-width:400px)]:text-4xl font-[1000]">Owen Gretzinger</h2>
+                      <h2 className="text-3xl [@media(min-width:400px)]:text-4xl font-[1000]">Owen<br />Gretzinger</h2>
                       <div>
-                        <Image src={headshot} alt="Headshot of me" className="w-[128px] max-w-full aspect-square rounded-full border-[3px] border-black" />
+                        {/* <Image src={headshot} alt="Headshot of me" className="w-[128px] max-w-full aspect-square rounded-full border-[3px] border-black" /> */}
                       </div>
                     </div>
                   </div>
@@ -65,7 +66,7 @@ export default function Resume() {
                   <div className="w-full h-full flex flex-col sm:flex-row print:flex-row gap-4">
                     {/* left column */}
                     <div className="flex-1 flex flex-col gap-4">
-                      {/* mobile only links */}
+                      {/* links, shown on mobile only */}
                       <div className="sm:hidden print:hidden">
                         <ResumeSection title="Links" icon={FaLink} className="sm:hidden print:hidden">
                           <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" />
@@ -92,8 +93,10 @@ export default function Resume() {
                           institutionLink='https://arcticwolf.com/'
                           date="May 2023 - Aug 2023"
                           bulletpoints={[
-                            <>Develop features for an internally used chrome extension, allowing hundreds security engineers to triage customer incidents more efficiently.</>,
-                            <>Collaborate with other developers using git in an <strong>Agile</strong> environment, leveraging technologies such as Docker, Harness, and GitHub Actions with programming languages such as JavaScript, Python, and Golang.</>
+                            <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 5-person "Fast Track" team.</>,
+                              <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing hundreds of security engineers to triage customer incidents more efficiently.</div>,
+                              // <div data-indent={true}>Create Cyber Defense Maturity Assessment survery tool allowing Arctic Wolf to more easily identify the security posture of potential clients.</div>,
+                            <><strong>Won the team recognition award</strong> given to one team in R&D (600 people) each quarter in recognition of outstanding performance in terms of speed, quality, and innovation.</>,
                           ]}
                         />
                         <ResumeChunk
@@ -157,13 +160,13 @@ export default function Resume() {
                           title="Binary0101"
                           href="https://cs1xd3.online/ShowModulePublish?modulePublishId=0a6330dc-6e05-447c-820f-293aca08929a&fullscreen=true"
                           projectType="School Project"
-                          description={<>Designed and implemented a web app using Elm while following design principles that teaches the basics of binary.</>}
+                          description={<>Designed and implemented a web app using Elm that teaches the basics of binary while following design principles.</>}
                         />
                         <ResumeProject
                           title="Server Insights"
                           href="https://github.com/owengretzinger/server-insights"
                           projectType="Hackathon & Personal Project"
-                          description={<>Developed a discord bot that <strong>won first place</strong> in a hackathon of 44 participants, which analyzes messages and produces various graphs using Python and MatPlotLib.</>}
+                          description={<>Achieved <strong>first place</strong> in a hackathon of 44 participants by developing a discord bot which analyzes messages and produces various graphs using Python and MatPlotLib.</>}
                         />
                       </ResumeSection>
                       <ResumeSection title="Leadership Experience" icon={RiTeamFill}>
@@ -172,8 +175,8 @@ export default function Resume() {
                           institution="McMaster Computer Science Society"
                           date="Oct 2022 - Present"
                           bulletpoints={[
-                            <>Maintain communication between the second year computer science student body and university officials, increasing student satisfaction.</>,
-                            <>Organize events with society members.</>
+                            <>Facilitate effective communication between the computer science student body and university officials, increasing student satisfaction.</>,
+                            <>Collaborate with society members to plan and execute engaging events.</>
                           ]}
                         />
                         <ResumeChunk
@@ -211,7 +214,7 @@ export default function Resume() {
               </div>
 
             </FadeInOnScroll>
-            <FadeInOnScroll className="lg:hidden print:hidden mt-12 font-extrabold flex justify-center">
+            <FadeInOnScroll className="[@media(min-width:1145px)]:hidden print:hidden mt-12 font-extrabold flex justify-center">
               <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
             </FadeInOnScroll>
           </div>
@@ -221,7 +224,7 @@ export default function Resume() {
             <FixedLogo />
           </FadeInOnScroll>
         </div>
-        <div className="hidden lg:flex print:hidden font-extrabold fixed top-4 right-10 h-[42px] bg-white rounded-lg items-center">
+        <div className="hidden [@media(min-width:1145px)]:flex print:hidden font-extrabold fixed top-4 right-10 h-[42px] rounded-lg items-center">
           <FadeInOnScroll delay={13} waitForLoad={true} className="">
             <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
           </FadeInOnScroll>
@@ -263,7 +266,9 @@ function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }
         {institutionLink ? <ResumeLink text={institution} href={institutionLink} /> : institution}
       </h4>
       <ul className="list-disc list-outside text-xs pl-4">
-        {bulletpoints.map((point, i) => <li key={i}>{point}</li>)}
+        {bulletpoints.map((point, i) => {
+          return React.isValidElement(point) && <li key={i} className={point.props['data-indent'] ? "translate-x-4 pr-4" : ""}>{point}</li>
+        })}
       </ul>
     </div>
   )
