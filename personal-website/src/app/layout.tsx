@@ -16,11 +16,15 @@ export const metadata: Metadata = {
     keywords: 'Owen Gretzinger, computer science, software developer, coding projects, articles, McMaster University, Arctic Wolf, personal website, Triangle Ball, Server Insights, Tempestuous Turrets, Binary 0101, blog, programming',
     authors: [{name: "Owen Gretzinger"}],
     
+
     openGraph: {
         title: 'Owen Gretzinger - Software Developer & CS Student',
         description: "I'm a software developer on a mission to spread love. Learn more about me, view projects I've made, read articles I've written, and get in contact!",
         url: 'https://owengretzinger.com',
-        images: '/icon.ico',
+        images: {
+            url: '/images/opengraph-image.png',
+            alt: 'Card displaying information about Owen Gretzinger: image, logo, name, titles, and links.'
+        },
         locale: 'en_US',
         type: 'website',
     },
