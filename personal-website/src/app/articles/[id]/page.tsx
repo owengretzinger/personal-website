@@ -10,12 +10,10 @@ const articleDirectory = path.join(process.cwd(), 'public/articles');
 
 type Props = {
     params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent?: ResolvingMetadata
+    { params }: Props
   ): Promise<Metadata> {
     
     const fileName = params.id.endsWith(".md") ? params.id : `${params.id}.md`;
