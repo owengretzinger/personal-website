@@ -14,6 +14,7 @@
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "@vercel/analytics": "^1.0.1",
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
     "markdown-it-anchor": "^8.6.7",
