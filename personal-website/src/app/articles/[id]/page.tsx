@@ -13,7 +13,10 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata({ params }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent?: ResolvingMetadata
+  ): Promise<Metadata> {
     
     const fileName = params.id.endsWith(".md") ? params.id : `${params.id}.md`;
 
