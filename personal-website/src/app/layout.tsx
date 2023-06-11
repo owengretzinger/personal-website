@@ -58,18 +58,16 @@ const inter = Noto_Sans_Georgian({
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
     return (
-        <>
-            <html lang="en">
-                <body className={`max-w-full text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative overflow-hidden`}>
-                    <LoadingAnimationProvider><ScrollingDisabledProvider>
-                        <div id="home"></div>
-                        <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
-                        <LoadingAnimation />
-                        {children}
-                    </ScrollingDisabledProvider></LoadingAnimationProvider>
-                </body>
-            </html>
-            <Analytics />
-        </>
+        <html lang="en">
+            <body className={`max-w-full text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative overflow-hidden`}>
+                <LoadingAnimationProvider><ScrollingDisabledProvider>
+                    <div id="home"></div>
+                    <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
+                    <LoadingAnimation />
+                    {children}
+                </ScrollingDisabledProvider></LoadingAnimationProvider>
+                <Analytics />
+            </body>
+        </html>
     );
 }
