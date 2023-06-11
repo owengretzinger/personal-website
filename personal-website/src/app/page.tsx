@@ -274,8 +274,8 @@ export default async function Page() {
                 return (
                   <li key={article.id}>
                     <FadeInOnScroll delay={index * 2 + 2}>
-                      <p className="text-2xl">
-                        <TextLink text={article.title} href={`/articles/${article.id}`} newWindow={false} />
+                      <p className="max-w-full text-2xl">
+                        <TextLink text={article.title} href={`/articles/${article.id}`} newWindow={false} breakWords={true} className="text-2xl" />
                       </p>
                       <p className="text-sm text-grey">{article.subtitle}</p>
                     </FadeInOnScroll>
