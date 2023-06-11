@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Noto_Sans_Georgian } from 'next/font/google';
 
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
     title: 'Owen Gretzinger - Software Developer & CS Student',
     description: "I'm a software developer on a mission to spread love. Learn more about me, view projects I've made, read articles I've written, and get in contact!",
     keywords: 'Owen Gretzinger, computer science, software developer, coding projects, articles, McMaster University, Arctic Wolf, personal website, Triangle Ball, Server Insights, Tempestuous Turrets, Binary 0101, blog, programming',
-    authors: [{name: "Owen Gretzinger"}],
-    
+    authors: [{ name: "Owen Gretzinger" }],
+
 
     openGraph: {
         title: 'Owen Gretzinger - Software Developer & CS Student',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
         locale: 'en_US',
         type: 'website',
     },
-    
+
 
     robots: {
         index: true,
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
         canonical: '/',
     },
 
-    
+
     // icons not needed
 };
 
@@ -56,20 +57,19 @@ const inter = Noto_Sans_Georgian({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
-
-
-
-
     return (
-        <html lang="en">
-            <body className={`max-w-full text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative overflow-hidden`}>
-                <LoadingAnimationProvider><ScrollingDisabledProvider>
-                    <div id="home"></div>
-                    <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
-                    <LoadingAnimation />
-                    {children}
-                </ScrollingDisabledProvider></LoadingAnimationProvider>
-            </body>
-        </html>
+        <>
+            <html lang="en">
+                <body className={`max-w-full text-black bg-white ${inter.variable} font-noto font-extrabold selection:bg-orange/20 relative overflow-hidden`}>
+                    <LoadingAnimationProvider><ScrollingDisabledProvider>
+                        <div id="home"></div>
+                        <Suspense fallback={<></>}><HandleSectionSearchParam /></Suspense>
+                        <LoadingAnimation />
+                        {children}
+                    </ScrollingDisabledProvider></LoadingAnimationProvider>
+                </body>
+            </html>
+            <Analytics />
+        </>
     );
 }
