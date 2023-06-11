@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        print: { raw: "print" },
-      },
       maxWidth: {
         letter: "72rem",
       },

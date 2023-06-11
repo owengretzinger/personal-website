@@ -18,26 +18,21 @@ const resumePDFlink = "/Resume_Owen_Gretzinger.pdf";
 
 export const metadata: Metadata = {
   title: 'Resume - Owen Gretzinger',
-  description: "Owen Gretzinger's Resume",
+  description: "I'm a software developer on a mission to spread love. Check out my resume to see my education, work experience, skills, projects, and leadership experience!",
 }
 
 export default function Resume() {
   return (
     <>
       <RevealPage />
-      <div className="max-w-full min-h-screen bg-blue/30 font-normal">
-        <div className="w-full px-4 print:px-0">
-          <div className="mx-auto xl:max-w-none py-10 print:py-0">
+      <div className="max-w-full min-h-screen bg-blue/30 font-normal px-4 print:px-0 py-10 print:py-0">
             <FadeInOnScroll delay={11} waitForLoad={true}
               className="relative w-full bg-white rounded-theme shadow-xl
                          sm:max-w-[52rem] lg:aspect-[8.5/11] mx-auto mt-20 lg:mt-0
-                         page print:w-[52rem] print:aspect-[8.5/11] print:m-0 print:shadow-none">
-              <div className="w-full h-full rounded-outline p-4 md:p-16
-                              print:max-w-letter print:p-0 print:border-none">
-                <div className="w-full h-full flex flex-col">
+                         print:w-[52rem] print:h-[100vh] print:aspect-[8.5/11] print:m-0 print:shadow-none">
+              <div className="w-full h-full flex flex-col rounded-outline p-4 md:p-16 print:p-16 print:border-none">
                   {/* desktop header */}
                   <div className="hidden w-full sm:flex print:flex justify-between items-center">
-                    <div className=""></div>
                     <h2 className="flex-1 text-4xl font-[1000]">Owen<br />Gretzinger</h2>
                     {/* <Image src={headshot} alt="Headshot of me" width={128} height={128} className="rounded-full border-[3px] border-black" /> */}
                     <div className="flex-1 flex sm:justify-end print:justify-end">
@@ -198,7 +193,6 @@ export default function Resume() {
                         /> */}
                       </ResumeSection>
                     </div>
-                  </div>
                 </div>
               </div>
 
@@ -217,7 +211,6 @@ export default function Resume() {
             <FadeInOnScroll className="[@media(min-width:1145px)]:hidden print:hidden mt-12 font-extrabold flex justify-center">
               <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
             </FadeInOnScroll>
-          </div>
         </div>
         <div className="hidden lg:block print:hidden fixed top-0 left-0">
           <FadeInOnScroll delay={7} waitForLoad={true} className="">
@@ -233,7 +226,6 @@ export default function Resume() {
           <Nav showOnLargeScreens={false} homePage={false} >
             <OutlineButton text={"Download"} href={resumePDFlink} />
           </Nav>
-        </div>
       </div>
     </>
 

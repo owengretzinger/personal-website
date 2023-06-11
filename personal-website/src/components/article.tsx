@@ -45,7 +45,7 @@ export default function Article({ ...props }) {
       <ul className="list-disc">
         {tableOfContentsData.map(({ level, id, text }) => (
           <li key={id} className={`${getHeadingClass(level)} ${level === 1 ? "list-none" : ""}`}>
-            <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} />
+            <ButtonLinkScrollOnClick text={text} scrollTo={id} closeMobileNav={true} breakWords={true} />
           </li>
         ))}
       </ul>
