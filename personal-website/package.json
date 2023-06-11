@@ -27,12 +27,16 @@
     "react-icons": "^4.8.0",
     "react-markdown": "^8.0.7",
     "react-markdown-loader": "^1.1.14",
+    "react-syntax-highlighter": "^15.5.0",
     "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
     "sharp": "^0.32.1",
     "typescript": "5.0.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
+    "@types/debug": "^4.1.8",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
     "raw-loader": "^4.0.2",

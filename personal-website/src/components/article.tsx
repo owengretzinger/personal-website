@@ -1,6 +1,7 @@
 import { HeadingProps } from "react-markdown/lib/ast-to-react";
 
 import ReactMarkdown from 'react-markdown';
+// import remarkGfm from "remark-gfm";
 import matter from 'gray-matter';
 import { format } from 'date-fns'
 
@@ -16,6 +17,8 @@ import React from "react";
 import fs from 'fs';
 import RevealPage from "./revealPage";
 import HomeButtonAfterDivider from "./homeButton";
+import SyntaxHighlightCodeBlock from "./codeBlock";
+
 
 
 export default function Article({ ...props }) {
@@ -76,6 +79,8 @@ export default function Article({ ...props }) {
                           prose-img:rounded-outline
                           prose-img:mx-auto
                           lg:prose-img:max-h-[400px] lg:prose-img:w-fit
+                          prose-code:bg-black/10 prose-code:rounded-md prose-code:px-1
+                          
                           ">
                 <p className="text-grey text-right not-prose">{date} | {readTime(articleMatter.content)} minute read</p>
                 <h1 className="text-4xl -mb-4 not-prose">{articleMatter.data.title}</h1>
@@ -103,7 +108,28 @@ export default function Article({ ...props }) {
                         <TextLinkPassProps {...props}></TextLinkPassProps>
                         // TextLinkPassProps({children, ...props})
                       )
-                    }
+                    },
+                    pre({ node, ...props }) {
+                      return <div className="not-prose">{props.children}</div>
+                    },
+                    code({ node, children, inline, className, ...props }) {
+                      const match = /language-(\w+)/.exec(className || "");
+                      return match ? (
+                        <SyntaxHighlightCodeBlock
+                          language={match[1]}
+                          children={String(children).replace(/\n$/, "")}                      
+                          {...props}
+                        />
+                      ) : (
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                    
+                    
+                    
+                    
 
 
 

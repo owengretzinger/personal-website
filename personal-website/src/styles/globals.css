@@ -11,10 +11,17 @@
   /* --color-link       : 210 71 0; */
 }
 
+/* remove backticks from tailwind prose inline code blocks */
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
 
-/* @page  {
+@page  {
   margin: 0;
-} */
+}
 
 
 @layer components {

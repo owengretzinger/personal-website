@@ -4,12 +4,11 @@ subtitle: 'Mobile-responsive, printable, ATS-friendly, and matches your theme'
 dateCreated: '2023-06-10'
 dateModified: '2023-06-10'
 priority: 99
-link: https://github.com/owengretzinger/html-resume-template
 ---
 
-In this article I show you how to create an awesome resume [like mine](/resume). I use [Tailwind CSS](https://tailwindcss.com/), but the concepts could be applied to other frameworks too. If you'd like to spare yourself from reading the whole thing, you can view the template [here](https://owengretzinger.github.io/html-resume-template/) and get the code on [GitHub](https://github.com/owengretzinger/html-resume-template).
+In this article, I'll show you how to create an awesome web resume that can also be printed and used how you would expect. If you'd like to spare yourself from reading the whole thing, you can get code for the templete on [GitHub](https://github.com/owengretzinger/html-resume-template). ([Here's a preview](https://github.com/owengretzinger/html-resume-template) of the template.)
 
-Here are some pictures of my resume at the time of writing:
+You can also check out [my resume](/resume) to see a finished product. Here are some screenshots from the time of writing:
 
 ![](https://i.imgur.com/xI0cJnb.png)
 ![](https://i.imgur.com/QwEyraE.png)
@@ -17,25 +16,27 @@ Here are some pictures of my resume at the time of writing:
 
 ## Context 
 
-After [creating this website](/articles/personal-website), I realized my resume was a bit outdated so I wanted to create a brand new one that matches my website's theme.
+After [creating this website](/articles/personal-website), I realized my resume was a bit outdated, so I wanted to create a new one that matched my website's theme.
 
-I didn't want to use a document editor like Word because that's way too restricive, I didn't want to use Latex (like I did last time) because that's too annoying and time consuming, and I didn't want to use [Kickresume](https://kickresume.com) (even though all the LinkedIn influencers rave about it) because it still isn't flexible enough (especially the free version).
+I didn't want to use a document editor like Word because that's way too restricive, I didn't want to use Latex (like I did for my last resume) because that's too annoying and time consuming, and I didn't want to use [Kickresume](https://kickresume.com) (even though all the LinkedIn influencers rave about it) because it still isn't flexible enough (especially the free version).
 
 So I thought; if only I could create a resume using HTML, then I could make it however I want...
 
 ## How To Do It 
 
+I use [Tailwind CSS](https://tailwindcss.com/), but the concepts can be applied to other frameworks too. 
+
 The key to this is the existence of print-specific options. In Tailwind CSS, there's a super convenient print modifier ([docs link](https://tailwindcss.com/docs/hover-focus-and-other-states#print-styles)). This way, we can make two column layouts collapse down on mobile, use cool styles (such as rounded edges), and have other things on the screen (such as buttons), then use the modifier to make the page the right size and hide those extra buttons when we print it.
 
-There's another issue, though. Even after trying everything, there's still margins around the outside with these stamps when I go to print the page:
+There's an issue, though. No matter how hard you try to use print modifiers, there are still margins around the outside with these stamps when you try to print the page:
 
 ![](https://i.imgur.com/REL2tUe.png)
 
-Luckily, there are two ways to solve this! If you just want to download your resume, you can open the "More settings" option and select "None" for "Margins".
+Luckily, there are two ways to solve this. When you are printing the page, you can open the "More settings" option and select "None" for "Margins".
 
 ![](https://i.imgur.com/zmhL0aD.png)
 
-For a solution that works by default when you print your resume, you can use the [@page CSS rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@page) (in my case I put this in `globals.css`):
+The other solution works by default without messing with any settings. You can use the [@page CSS rule](https://developer.mozilla.org/en-US/docs/Web/CSS/@page) to remove the margins (in my case I put this in `globals.css`):
 
 ```css
 @page {
@@ -43,11 +44,11 @@ For a solution that works by default when you print your resume, you can use the
 }
 ```
 
-That should get you started, but you can also keep reading and I'll walk you through how I created the template.
+That should get you started on creating your own resume, but you can also keep reading and I'll walk you through how I created the template I linked at the beginning!
 
 ## Template 
 
-You can check out the [code for this website](https://github.com/owengretzinger/personal-website) if you want to see exactly how I created [my resume](/resume), but I used [Next.js](https://nextjs.org/) and my project structure might not make it the easiest to adapt my code to how you want to create your resume. So, I've created a template for a static site using React and Tailwind CSS which you can use! You can find it on [GitHub](https://github.com/owengretzinger/html-resume-template), or follow along with my explanations here.
+You can check out the [code for this website](https://github.com/owengretzinger/personal-website) if you want to see exactly how I created [my resume](/resume), but my project structure and all the code specific to my resume might make it harder to adapt my code for your own purposes. So, I've created a template for a static site using React and Tailwind CSS which you can use! You can find it on [GitHub](https://github.com/owengretzinger/html-resume-template), or follow along with my explanations here.
 
 ### Tutorial 
 
@@ -78,7 +79,7 @@ export default function App() {
 }
 ```
 
-The outer div is the background, and just adds some padding around the edges. The middle div is our actual page. I added some styles so that on big screens the page has an 8.5/11 aspect ratio which closely resembles how the page looks when it's printed, but on smaller screens the page is as long as it needs to be to fit all the content.
+The outer div is the background, and just adds some padding around the edges. The middle div is our actual page. I added some styles so that on big screens the page has an 8.5/11 aspect ratio which closely resembles how the page looks when it's actually printed, but on smaller screens the page is as long as it needs to be to fit all the content.
 
 I also added rounding to the edges, a shadow, etc., but then removed those styles for printing.
 
@@ -127,7 +128,7 @@ Underneath, add the following:
 {/* mobile header --> */}
 ```
 
-This way, on small screens the links will be hidden. We'll add them underneath in the next step:
+The reason I made a separate mobile header is because on small screens, there's too much content to fit it all in a row. Instead, we'll add the links underneath with the rest of the content in the next step:
 
 ```javascript
 {/* body */}
@@ -175,7 +176,7 @@ Lastly, I put `import "./index.css";` at the top of the file and put the followi
 }
 ```
 
-And we're done! Here's the final product (I added red backgrounds to visualize the columns):
+And we're done! Here's the final product (I made the columns red for the picture so that you can visualize them):
 
 ![](https://i.imgur.com/Y2cVHxy.png)
 
@@ -271,4 +272,6 @@ function Link({ ...props }) {
 
 ## Conclusion 
 
-Thanks for reading, I hope this was helpful! If you are interested in how I made other parts of [my website](https://owengretzinger.com), such as the sticky nav bar, turning markdown files into articles, links with cool underline animations, fade-in effects, etc., I would be happy to write articles explaining!
+If you are interested in how I made other parts of [my website](https://owengretzinger.com), such as the sticky nav bar, turning markdown files into articles, links with cool underline animations, fade-in effects, etc., I would be happy to write articles explaining! Otherwise, let me know if you actually end up using my template. I would also be willing to proofread your resume to help you with your job search.
+
+Thanks for reading, I hope this was helpful!
