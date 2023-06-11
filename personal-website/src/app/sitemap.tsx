@@ -1,4 +1,3 @@
-'use client';
 import { MetadataRoute } from 'next'
 import path from 'path';
 import fs from 'fs';

@@ -2,7 +2,7 @@ import Article from "@/components/article"
 import fs, { existsSync } from 'fs';
 import path from 'path'
 
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import matter from "gray-matter";
 
 const articleDirectory = path.join(process.cwd(), 'public/articles');
