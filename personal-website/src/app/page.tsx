@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image'
 // import pfp from "../../public/images/pfp_standing_outdoors.png";
-import pfp from "../../public/images/pfp_standing_outdoors_2.jpeg";
+// import pfp from "../../public/images/pfp_standing_outdoors_2.jpeg";
+import pfp from "../../public/images/headshot.png";
 // import pfp from "../../public/images/mmmmmm.png";
 
 import macLogo from "../../public/images/mcmaster-logo.png";
