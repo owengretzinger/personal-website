@@ -7,11 +7,13 @@ export const LoadingAnimationPlayingContext = createContext([null, () => { }] as
 export default function LoadingAnimationProvider({ children }: any) {
     const [loadingAnimationPlaying, setLoadingAnimationPlaying] = useState<boolean|null>(null);
 
+    const animationDuration = process.env.NODE_ENV ? 0 : 2600;
+
     useEffect(() => {
         setLoadingAnimationPlaying(true);
         setTimeout(() => {
             setLoadingAnimationPlaying(false);
-        }, 2600);
+        }, animationDuration);
     }, []);
 
     return <LoadingAnimationPlayingContext.Provider value={[loadingAnimationPlaying, setLoadingAnimationPlaying]}>{children}</LoadingAnimationPlayingContext.Provider>;
