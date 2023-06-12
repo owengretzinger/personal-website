@@ -37,7 +37,9 @@ function SectionHeader({ ...props }: any) {
     <FadeInOnScroll>
       <div className="relative flex py-5 items-center mt-20" id={props.id.toLowerCase()}>
         <div className="flex-grow border border-grey"></div>
-        <span className="flex-shrink mx-4 text-black text-4xl"><h2>{props.title}</h2></span>
+        <span className="flex-shrink mx-4 text-black text-4xl">
+          <h2 className="whitespace-nowrap">{props.title}</h2>
+        </span>
         <div className="flex-grow border border-grey"></div>
       </div>
     </FadeInOnScroll>
@@ -82,7 +84,7 @@ export default async function Page() {
                   to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
                   My priority is producing excellent work while communicating with precision and clarity.</p>
               </FadeInOnScroll>
-              <FadeInOnScroll delay={11} waitForLoad={true}>
+              <FadeInOnScroll delay={11} waitForLoad={true} className="mx-auto">
                 <SocialButtons />
               </FadeInOnScroll>
             </div>
@@ -124,11 +126,11 @@ export default async function Page() {
                   </div>
                   <div className="flex flex-col justify-between basis-[60%] lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
                     <div className="flex flex-col">
-                      <p className="text-lg min-[475px]:text-2xl">McMaster University</p>
+                      <p className="text-lg min-[475px]:text-2xl whitespace-nowrap">McMaster University</p>
                       <p className="text-xs min-[475px]:text-base text-grey">Hamilton, ON</p>
                     </div>
                     <div className="flex flex-col">
-                      <p className="text-base min-[475px]:text-lg">Computer Science Co-op</p>
+                      <p className="text-base min-[475px]:text-lg whitespace-nowrap">Computer Science Co-op</p>
                       <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
                     </div>
                     <div className="flex flex-col">
@@ -300,15 +302,15 @@ export default async function Page() {
                 </p>
               </FadeInOnScroll>
               <FadeInOnScroll>
-                <div className="min-w-[368px]">
-                  <SocialButtons />
-                </div>
+                <SocialButtons />
               </FadeInOnScroll>
             </div>
 
           </section>
           {/* no fade in bc if moves the bottom lower */}
-          <footer className="text-grey text-center my-10">Designed & Built by Owen Gretzinger</footer>
+          <footer className="text-grey text-center my-10">
+            <Link href="https://github.com/owengretzinger/" target='_blank'>Designed & Built by Owen Gretzinger</Link>
+          </footer>
         </div>
 
       </main>

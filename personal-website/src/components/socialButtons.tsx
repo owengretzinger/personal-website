@@ -18,7 +18,7 @@ const SocialButton = (icon: IconType, link: string) => {
 
 export default function SocialButtons() {
     return (
-        <ul className="flex gap-12 justify-center">
+        <ul className="w-screen max-w-[368px] flex justify-between mx-auto">
             {SocialButton(FiMail, "mailto:owengretzinger@gmail.com")}
             {SocialButton(FaLinkedinIn, "https://www.linkedin.com/in/owengretzinger")}
             {SocialButton(BsInstagram, "https://www.instagram.com/prowengramming")}
