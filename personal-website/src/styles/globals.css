@@ -4,7 +4,8 @@
 
 :root {
   --color-bg         : 255 255 255;
-  --color-wave       : 157 217 243;
+  --color-wave       : 186 234 255;
+  /* --color-wave       : 157 217 243; */
   --color-text       : 14 45 49;
   --color-text-light : 93 108 110;
   --color-link       : 239 89 34;
