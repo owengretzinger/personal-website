@@ -1,8 +1,4 @@
 import TextLink, { ButtonLinkScrollOnClick } from "@/components/textLink"
-import { FaItchIo } from "react-icons/fa"
-import { FiAward, FiExternalLink, FiGithub } from "react-icons/fi"
-import { RiArticleLine } from "react-icons/ri"
-
 
 import personalWebsiteThumbnail from "../public/images/projects-images/personal-website/personal-website-thumbnail.png"
 import educationDataForChangeThumbnail from "../public/images/projects-images/education-data-for-change/education-data-for-change-thumbnail.png"
@@ -129,4 +125,22 @@ export default function projectInfo() {
             "icon": binary0101Icon
         },
     ]
+}
+
+
+export function linkToTitle(link: string, projectName: string) {
+    switch (link) {
+        case "open":
+            return `Open ${projectName} in a new tab`
+        case "article":
+            return `Open an article I wrote about ${projectName}`
+        case "github":
+            return `Open the Github repository for ${projectName} in a new tab`
+        case "award":
+            return `Open the Devpost page for ${projectName} in a new tab`
+        case "itch":
+            return `Open the Itch.io page for ${projectName} in a new tab`
+        default:
+            return `Open ${projectName}`
+    }
 }

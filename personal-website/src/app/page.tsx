@@ -23,7 +23,7 @@ import { ProjectLinkIcon } from '@/components/projectIconLink';
 import RevealPage from '@/components/revealPage';
 
 import websiteSections from '../../lib/websiteSections';
-import projectInfo from '../../lib/projectInfo';
+import projectInfo, { linkToTitle } from '../../lib/projectInfo';
 import { getArticlesData } from '../../lib/getArticlesData';
 
 import { BsTag } from 'react-icons/bs'
@@ -63,11 +63,11 @@ export default async function Page() {
             </li>
           )
         })}
-        <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
-          <li key={"Resume"} >
+        <li>
+          <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
             <OutlineButton text={"Resume"} href="/resume" />
-          </li>
-        </FadeInOnScroll>
+          </FadeInOnScroll>
+        </li>
         {/* <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>
           <li key="Colour Palette">{ColourPaletteButton(paletteIndex, setPaletteIndex)}</li>
         </FadeInOnScroll> */}
@@ -218,7 +218,7 @@ export default async function Page() {
                 <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
                   <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-                    <Link title={`open ${project.title} in new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
+                    <Link title={`Open ${project.title} in a new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
 
                       className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
                     <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
@@ -246,7 +246,7 @@ export default async function Page() {
                         </div>
                         <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
                           {Object.keys(project.links).map((link) =>
-                            <Link title={`${project.title} link: ${link}`} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                            <Link title={linkToTitle(link, project.title)} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
                               <ProjectLinkIcon name={link} />
                             </Link>
                           )}
