@@ -152,10 +152,13 @@ export default async function Page() {
                   <h3 className="text-2xl pb-4 lg:text-right">Experience:</h3>
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
-                  <p className="text-base pb-6 lg:pb- lg:text-right">
+                  <p className="text-base pb-2 lg:text-right">
                     I’m currently on co-op as a developer at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />}, where I take on all kinds of tasks as part of the "Fast Track" team!
                     I'm thankful for this opportunity to be part of a {<TextLink text="top rated workplace" href="https://arcticwolf.com/resources/press-releases/fortune-and-great-place-to-work-rank-arctic-wolf-as-top-10-2022-best-medium-workplaces" breakWords={false} />}. #jointhepack
                   </p>
+                  <p className="text-xs text-grey pb-6 lg:pb-0 lg:text-right"><em>
+                    The views expressed on this site are my own and do not necessarily reflect those of Arctic Wolf.
+                  </em></p>
                 </FadeInOnScroll>
               </div>
               <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
