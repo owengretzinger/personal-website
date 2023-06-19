@@ -76,7 +76,7 @@ export default function Resume() {
                           institution="McMaster University"
                           date="Sep 2021 - Apr 2025 (expected)"
                           bulletpoints={[
-                            <><strong>GPA: 4.0</strong> (awarded Provost's Honour Roll Medal twice for attaining <strong>A+ in all courses  to date</strong>).</>,
+                            <><strong>GPA: 4.0/4.0</strong> (awarded Provost's Honour Roll Medal twice for attaining <strong>A+ in all courses  to date</strong>).</>,
                             <>Includes courses on data structures & algorithms, software development, and databases.</>
                           ]}
                         />
@@ -91,7 +91,7 @@ export default function Resume() {
                             <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 5-person "Fast Track" team.</>,
                               <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing hundreds of security engineers to triage customer incidents more efficiently.</div>,
                               // <div data-indent={true}>Create Cyber Defense Maturity Assessment survery tool allowing Arctic Wolf to more easily identify the security posture of potential clients.</div>,
-                            <><strong>Won the team recognition award</strong> given to one team in R&D (600 people) each quarter in recognition of outstanding performance in terms of speed, quality, and innovation.</>,
+                            <><strong>Won the team recognition award</strong> given to one team in R&D (484 people) each quarter in recognition of outstanding performance in terms of speed, quality, and innovation.</>,
                           ]}
                         />
                         <ResumeChunk
