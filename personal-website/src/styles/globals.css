@@ -3,13 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-bg         : 255 255 255;
-  --color-wave       : 186 234 255;
-  /* --color-wave       : 157 217 243; */
-  --color-text       : 14 45 49;
-  --color-text-light : 93 108 110;
-  --color-link       : 239 89 34;
-  /* --color-link       : 210 71 0; */
+  --color-bg         : 255 255 255; /* #ffffff */
+  --color-wave       : 186 234 255; /* #baeaff */
+  --color-text       : 14 45 49;    /* #0e2d31 */
+  --color-text-light : 93 108 110;  /* #5d6c6e */
+  --color-link       : 239 89 34;   /* #ef5922 */
 }
 
 /* remove backticks from tailwind prose inline code blocks */
