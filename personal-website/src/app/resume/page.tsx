@@ -89,7 +89,7 @@ export default function Resume() {
                           date="May 2023 - Aug 2023"
                           bulletpoints={[
                             <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 6-person "Fast Track" team.</>,
-                              <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing hundreds of security engineers to triage customer incidents more efficiently.</div>,
+                              <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing security engineers to triage customer incidents more efficiently.</div>,
                               // <div data-indent={true}>Create Cyber Defense Maturity Assessment survery tool allowing Arctic Wolf to more easily identify the security posture of potential clients.</div>,
                             <><strong>Won the team recognition award</strong> given to one team in R&D (484 people) each quarter in recognition of outstanding performance in terms of speed, quality, and innovation.</>,
                           ]}
