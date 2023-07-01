@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true,
+  trailingSlash: false,
   async rewrites() {
     return [
       { "source": "/education-data-for-change/", "destination": "https://education-data-for-change.vercel.app/" },
