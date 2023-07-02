@@ -1,18 +1,18 @@
 import TextLink, { ButtonLinkScrollOnClick } from "@/components/textLink"
 
-import personalWebsiteThumbnail from "../public/images/projects-images/personal-website/personal-website-thumbnail.png"
-import educationDataForChangeThumbnail from "../public/images/projects-images/education-data-for-change/education-data-for-change-thumbnail.png"
-import triangleballThumbnail from "../public/images/projects-images/triangle-ball/triangle-ball-thumbnail.png"
-import serverInsightsThumbnail from "../public/images/projects-images/server-insights/server-insights-thumbnail.png"
-import tempesuousTurretsThumbnail from "../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-thumbnail.png"
-import binary0101Thumbnail from "../public/images/projects-images/binary-0101/binary-0101-thumbnail.png"
+import personalWebsiteThumbnail from "../../public/images/projects-images/personal-website/personal-website-thumbnail.png"
+import educationDataForChangeThumbnail from "../../public/images/projects-images/education-data-for-change/education-data-for-change-thumbnail.png"
+import triangleballThumbnail from "../../public/images/projects-images/triangle-ball/triangle-ball-thumbnail.png"
+import serverInsightsThumbnail from "../../public/images/projects-images/server-insights/server-insights-thumbnail.png"
+import tempesuousTurretsThumbnail from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-thumbnail.png"
+import binary0101Thumbnail from "../../public/images/projects-images/binary-0101/binary-0101-thumbnail.png"
 
-import personWebsiteIcon from "../public/images/projects-images/personal-website/personal-website-icon.png"
-import educationDataForChangeIcon from "../public/images/projects-images/education-data-for-change/education-data-for-change-icon.png"
-import triangleballIcon from "../public/images/projects-images/triangle-ball/triangle-ball-icon.png"
-import serverInsightsIcon from "../public/images/projects-images/server-insights/server-insights-icon.png"
-import tempesuousTurretsIcon from "../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-icon.png"
-import binary0101Icon from "../public/images/projects-images/binary-0101/binary-0101-icon.png"
+import personWebsiteIcon from "../../public/images/projects-images/personal-website/personal-website-icon.png"
+import educationDataForChangeIcon from "../../public/images/projects-images/education-data-for-change/education-data-for-change-icon.png"
+import triangleballIcon from "../../public/images/projects-images/triangle-ball/triangle-ball-icon.png"
+import serverInsightsIcon from "../../public/images/projects-images/server-insights/server-insights-icon.png"
+import tempesuousTurretsIcon from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-icon.png"
+import binary0101Icon from "../../public/images/projects-images/binary-0101/binary-0101-icon.png"
 
 
 
