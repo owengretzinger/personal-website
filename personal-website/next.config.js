@@ -11,9 +11,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { "source": "/education-data-for-change", "destination": "/education-data-for-change/" },
-      { "source": "/resume-template", "destination": "/resume-template/" },
-      { "source": "/:match*/", "destination": "/:match*" },
+      { source: "/education-data-for-change", destination: "/education-data-for-change/", permanent: true },
+      { source: "/resume-template", destination: "/resume-template/", permanent: true },
+      { source: "/:match*/", destination: "/:match*", permanent: true },
     ]
   },
 }
