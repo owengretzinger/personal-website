@@ -13,7 +13,6 @@ const nextConfig = {
     return [
       { source: "/education-data-for-change", destination: "/education-data-for-change/", permanent: true },
       { source: "/resume-template", destination: "/resume-template/", permanent: true },
-      { source: "/((?!resume).*)/", destination: "/$1", permanent: true },
     ]
   },
 }
