@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from "next/navigation";
-import handleClickScroll from "../../lib/clickScroll";
+import handleClickScroll from "../lib/clickScroll";
 import { useContext, useEffect } from "react";
 import { LoadingAnimationPlayingContext } from "@/app/loading-animation-provider";
 

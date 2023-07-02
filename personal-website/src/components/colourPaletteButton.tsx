@@ -1,7 +1,7 @@
 'use client';
 
 import { SetStateAction } from "react";
-import { colourPalettes } from "../../lib/colourPalettes";
+import { colourPalettes } from "../lib/colourPalettes";
 
 
 

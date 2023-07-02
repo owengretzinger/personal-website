@@ -1,6 +1,6 @@
 'use client';
 
-import handleClickScroll from "../../lib/clickScroll";
+import handleClickScroll from "../lib/clickScroll";
 
 import React, { useContext } from 'react';
 import { ScrollingDisabledContext } from '@/app/scrolling-disabled-provider';

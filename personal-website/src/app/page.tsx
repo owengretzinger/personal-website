@@ -22,9 +22,9 @@ import NavButton from '@/components/navButton';
 import { ProjectLinkIcon } from '@/components/projectIconLink';
 import RevealPage from '@/components/revealPage';
 
-import websiteSections from '../../lib/websiteSections';
-import projectInfo, { linkToTitle } from '../../lib/projectInfo';
-import { getArticlesData } from '../../lib/getArticlesData';
+import websiteSections from '../lib/websiteSections';
+import projectInfo, { linkToTitle } from '../lib/projectInfo';
+import { getArticlesData } from '../lib/getArticlesData';
 
 import { BsTag } from 'react-icons/bs'
 

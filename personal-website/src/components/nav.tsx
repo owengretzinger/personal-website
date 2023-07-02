@@ -11,7 +11,7 @@ import { BsList, BsX } from 'react-icons/bs'
 import Logo from './logoSVG';
 import FadeInOnScroll from './fadeInOnScroll';
 
-import handleClickScroll from '../../lib/clickScroll';
+import handleClickScroll from '../lib/clickScroll';
 
 import animations from './loadingAnimation.module.css';
 import { LoadingAnimationPlayingContext } from '@/app/loading-animation-provider';

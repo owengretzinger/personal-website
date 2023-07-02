@@ -10,8 +10,8 @@ import TextLink, { ButtonLinkScrollOnClick, TextLinkPassProps } from './textLink
 import { FixedLogo } from './logoSVG';
 import FadeInOnScroll from './fadeInOnScroll';
 
-import readTime from '../../lib/readTime';
-import websiteSections from '../../lib/websiteSections';
+import readTime from '../lib/readTime';
+import websiteSections from '../lib/websiteSections';
 
 import React from "react";
 import fs from 'fs';

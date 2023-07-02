@@ -1,7 +1,7 @@
 'use client';
 import { ScrollingDisabledContext } from "@/app/scrolling-disabled-provider";
 import { useContext } from "react";
-import handleClickScroll from "../../lib/clickScroll";
+import handleClickScroll from "../lib/clickScroll";
 import Link from "next/link";
 import { FaGithub, FaHome, FaLink, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
