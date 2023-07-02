@@ -4,7 +4,7 @@ subtitle: 'Project Overview'
 dateCreated: '2023-05-18'
 dateModified: '2023-05-28'
 priority: -5
-link: https://owengretzinger.github.io/education-data-for-change
+link: https://owengretzinger.com/education-data-for-change
 ---
 
 ![](https://i.imgur.com/BSaxpSe.png)
@@ -35,4 +35,4 @@ The hackathon was a great learning experience because we used many different tec
 
 ![](https://i.imgur.com/DN2K9fg.jpg)
 
-Thanks for reading! You can check out the website [here](https://owengretzinger.github.io/education-data-for-change).
+Thanks for reading! You can check out the website [here](https://owengretzinger.com/education-data-for-change).

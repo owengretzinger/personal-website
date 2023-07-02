@@ -45,7 +45,7 @@ export default function projectInfo() {
                 </p>,
             "tags": ["HTML", "JAVASCRIPT", "SQL"],
             "links": {
-                "open": "https://owengretzinger.github.io/education-data-for-change/",
+                "open": "https://owengretzinger.com/education-data-for-change",
                 "article": "/articles/education-data-for-change",
                 "github": "https://github.com/owengretzinger/education-data-for-change",
             },

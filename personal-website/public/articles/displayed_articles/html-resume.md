@@ -6,7 +6,7 @@ dateModified: '2023-06-14'
 priority: 99
 ---
 
-In this article, I'll show you how to create an awesome web resume that can also be printed and used how you would expect a resume to be used. If you'd like to spare yourself from reading the whole thing, you can get code for the templete on [GitHub](https://github.com/owengretzinger/html-resume-template). ([Here's a preview](https://owengretzinger.github.io/html-resume-template/) of the template.)
+In this article, I'll show you how to create an awesome web resume that can also be printed and used how you would expect a resume to be used. If you'd like to spare yourself from reading the whole thing, you can get code for the templete on [GitHub](https://github.com/owengretzinger/html-resume-template). ([Here's a preview](https://owengretzinger.com/resume-template) of the template.)
 
 You can also check out [my resume](/resume) to see a finished product. Here are some screenshots from the time of writing:
 

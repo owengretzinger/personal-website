@@ -1,7 +1,7 @@
 'use client';
  
 import { SetStateAction, createContext, useEffect, useState } from 'react';
-import { colourPalettes, paletteType } from '../../lib/colourPalettes';
+import { colourPalettes, paletteType } from '../lib/colourPalettes';
  
 export const PaletteContext = createContext([0, () => { }] as [number, (value: SetStateAction<number>) => void]);
  
