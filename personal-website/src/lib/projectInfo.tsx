@@ -31,7 +31,7 @@ export default function projectInfo() {
             "tags": ["REACT", "NEXT.JS", "DECAP CMS"],
             "links": {
                 "open": "https://mattausgretzinger.com",
-                "article": "/articles/mattaus-website",
+                // "article": "/articles/mattaus-website",
                 "github": "https://github.com/owengretzinger/mattaus-website",
             },
             "thumbnail": mattausWebsiteThumbnail,
