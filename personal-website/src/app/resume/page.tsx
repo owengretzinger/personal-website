@@ -14,7 +14,7 @@ import { Metadata } from 'next';
 import OutlineButton from '@/components/outlineButton';
 import React from 'react';
 
-const resumePDFlink = "/Resume_Owen_Gretzinger.pdf";
+const resumePDFlink = "/Resume - Owen Gretzinger.pdf";
 
 export const metadata: Metadata = {
   title: 'Resume - Owen Gretzinger',
@@ -88,10 +88,16 @@ export default function Resume() {
                           institutionLink='https://arcticwolf.com/'
                           date="May 2023 - Aug 2023"
                           bulletpoints={[
-                            <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 6-person "Fast Track" team.</>,
-                              <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing security engineers to triage customer incidents more efficiently.</div>,
+                            //<>Developed software using <strong>Javascript</strong> in an <strong>Agile</strong> environment.</>,
+                            <>Took a primary role in the Agile development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for <strong>150+</strong> security engineers.</>,
+                            //<div data-indent={true}>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> to gain insights into how users interact with the extension.</div>,
+                            //<div data-indent={true}>Communicated directly with users of the extension to catch and fix 4 functionality-breaking bugs.</div>,
+                            //<>Took a primary role in the Agile development of an internal chrome extension which is used by <strong>150+</strong> security engineers to triage customer incidents more efficiently.</>,
+                            //<>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> </>,
+                            <><strong>Won the quarterly team recognition award</strong> as part of the 6-member "Fast Track" team, standing out among 484 people in R&D for exceptional team performance in terms of speed, quality, and innovation.</>,
+                            // <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 6-person "Fast Track" team.</>,
+                              // <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing security engineers to triage customer incidents more efficiently.</div>,
                               // <div data-indent={true}>Create Cyber Defense Maturity Assessment survery tool allowing Arctic Wolf to more easily identify the security posture of potential clients.</div>,
-                            <><strong>Won the team recognition award</strong> given to one team in R&D (484 people) each quarter in recognition of outstanding performance in terms of speed, quality, and innovation.</>,
                           ]}
                         />
                         <ResumeChunk
@@ -111,11 +117,11 @@ export default function Resume() {
                         <div className="flex flex-col gap-1 text-xs">
                           <div className="flex gap-3">
                             <h3 className="w-[84px] shrink-0 font-extrabold text-right">Programming</h3>
-                            <p className=""><strong>Python</strong>, <strong>Java</strong>, <strong>C#</strong>, JavaScript, HTML, CSS, SQL, C, Elm, Haskell</p>
+                            <p className=""><strong>Python</strong>, <strong>Typescript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, SQL, C, Elm, Haskell</p>
                           </div>
                           <div className="flex gap-3">
                             <h3 className="w-[84px] shrink-0 font-extrabold text-right">Technologies</h3>
-                            <p className="">UML, Design Patterns, Jira, SDLC, Latex, Unity Game Engine, Git, Linux</p>
+                            <p className="">Jira, Confluence, UML, Design Patterns, SDLC, AWS, Latex, Unity Game Engine, Git, Linux</p>
                           </div>
                           <div className="flex gap-3">
                             <h3 className="w-[84px] shrink-0 font-extrabold text-right">Soft Skills</h3>
@@ -138,8 +144,14 @@ export default function Resume() {
                           description={<>Developed website using React, Tailwind CSS, and Next.js, featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
                         />
                         <ResumeProject
+                          title="Mattaus Gretzinger Website"
+                          href="https://mattausgretzinger.com"
+                          projectType="Personal Project"
+                          description={<>Designed and built a website for a professional jazz musician using React, Tailwind CSS, Next.js, and Decap CMS.</>}
+                        />
+                        <ResumeProject
                           title="Education Data for Change"
-                          href="https://owengretzinger.github.io/education-data-for-change"
+                          href="https://owengretzinger.com/education-data-for-change"
                           projectType="Hackathon & Personal Project"
                           description={<>Collaborated with team members to create a website that offers insights into the Ontario
                           education system using HTML, CSS, JavaScript, Python and SQL.</>}
@@ -151,12 +163,12 @@ export default function Resume() {
                           description="Wrote 10,000+ lines of code creating a game as a personal project using C# and Unity, featuring highly
                           effective bots that were implemented by applying university level calculus."
                         /> */}
-                        <ResumeProject
+                        {/* <ResumeProject
                           title="Binary0101"
                           href="https://cs1xd3.online/ShowModulePublish?modulePublishId=0a6330dc-6e05-447c-820f-293aca08929a&fullscreen=true"
                           projectType="School Project"
                           description={<>Designed and implemented a web app using Elm that teaches the basics of binary while following design principles.</>}
-                        />
+                        /> */}
                         <ResumeProject
                           title="Server Insights"
                           href="https://github.com/owengretzinger/server-insights"
@@ -179,7 +191,7 @@ export default function Resume() {
                           institution="Church on the Rock, Chartwell Church"
                           date="Sep 2021 - Present, Sep 2017 - Jun 2021"
                           bulletpoints={[
-                            <>Leader on team running weekly youth programs for 20-30 participants which includes
+                            <>Leader on team running weekly youth programs for 20 to 30 participants which includes
                             running games, planning special events, and mentoring participants.</>
                           ]}
                         />
@@ -197,7 +209,7 @@ export default function Resume() {
               </div>
 
               <div className="absolute print:fixed top-0 left-0 -z-50">
-                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[450px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none`}>
+                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[400px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none`}>
                   <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
                 </svg>
               </div>
@@ -236,7 +248,7 @@ export default function Resume() {
 
 function ResumeSection({ ...props }: any) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1">
       <div className="flex items-center gap-2">
         <h2 className="text-xl font-[1000]">{props.title}</h2>
         <props.icon className="text-2xl" />
