@@ -27,6 +27,7 @@ import projectInfo, { linkToTitle } from '../lib/projectInfo';
 import { getArticlesData } from '../lib/getArticlesData';
 
 import { BsTag } from 'react-icons/bs'
+import ProjectsContainer from '@/components/projectExpand';
 
 export const metadata: Metadata = {
 
@@ -111,7 +112,7 @@ export default async function Page() {
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
-                    I take computer science at McMaster University, where I’m a Year Representative for the Computer Science Society.
+                    I take computer science at McMaster University, where I'm a Year Representative for the Computer Science Society.
                     More information can be found on my {<TextLink text="resume" href="/resume" newWindow={false} />}!
                   </p>
                 </FadeInOnScroll>
@@ -214,62 +215,61 @@ export default async function Page() {
 
         <section>
           <SectionHeader title="Projects" id="Projects" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center my-5">
-            {projectInfo().map((project, i) =>
-              <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
-                <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
-                  <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
+            <ProjectsContainer>
+              {projectInfo().map((project, i) =>
+                <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
+                  <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
+                    <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-                    <Link title={`Open ${project.title} in a new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
+                      <Link title={`Open ${project.title} in a new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
 
-                      className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
-                    <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
-                      <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
-                        className="absolute w-full h-full object-cover brightness-[80%]" />
-                      <Image src={project.icon} alt={`${project.id} icon`}
-                        className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
-                    </div>
-                    <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
-                      <div className="flex">
-                        <div className="basis-[87%] flex flex-col">
-                          <h3 className="text-md">
-                            <span className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
+                        className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
+                      <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
+                        <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
+                          className="absolute w-full h-full object-cover brightness-[80%]" />
+                        <Image src={project.icon} alt={`${project.id} icon`}
+                          className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
+                      </div>
+                      <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
+                        <div className="flex">
+                          <div className="basis-[87%] flex flex-col">
+                            <h3 className="text-md">
+                              <span className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
                                 before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                                 before:bottom-0 before:left-0 before:bg-orange before:origin-top-left 
                                 before:transition before:duration-300 before:ease-in-out before:scale-x-0 group-hover:before:scale-x-100
                                 transition duration-300`}>
-                              {project.title}
-                            </span>
-                          </h3>
-                          <p className="font-medium text-sm text-grey -mt-1">{project.subtitle}</p>
-                          <div className="font-normal text-sm my-2 leading-[18px]">
-                            {project.description}
+                                {project.title}
+                              </span>
+                            </h3>
+                            <p className="font-medium text-sm text-grey -mt-1">{project.subtitle}</p>
+                            <div className="font-normal text-sm my-2 leading-[18px]">
+                              {project.description}
+                            </div>
+                          </div>
+                          <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
+                            {Object.keys(project.links).map((link) =>
+                              <Link title={linkToTitle(link, project.title)} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                                <ProjectLinkIcon name={link} />
+                              </Link>
+                            )}
                           </div>
                         </div>
-                        <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
-                          {Object.keys(project.links).map((link) =>
-                            <Link title={linkToTitle(link, project.title)} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
-                              <ProjectLinkIcon name={link} />
-                            </Link>
+
+                        <div className="flex mt-auto space-x-1">
+                          {project.tags.map((tag) =>
+                            <div key={tag} className="flex rounded-full border-2 border-blue items-center">
+                              {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                              <p className="font-bold text-xs text-blue py-0.5 pr-1.5">{tag}</p>
+                            </div>
                           )}
                         </div>
                       </div>
-
-                      <div className="flex mt-auto space-x-1">
-                        {project.tags.map((tag) =>
-                          <div key={tag} className="flex rounded-full border-2 border-blue items-center">
-                            {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
-                            <p className="font-bold text-xs text-blue py-0.5 pr-1.5">{tag}</p>
-                          </div>
-                        )}
-                      </div>
                     </div>
                   </div>
-                </div>
-              </FadeInOnScroll>
-            )}
-          </div>
+                </FadeInOnScroll>
+              )}
+            </ProjectsContainer>
         </section>
 
         <section>

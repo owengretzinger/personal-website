@@ -1,5 +1,6 @@
 import TextLink, { ButtonLinkScrollOnClick } from "@/components/textLink"
 
+import mattausWebsiteThumbnail from "../../public/images/projects-images/mattaus-website/mattaus-website-thumbnail.png"
 import personalWebsiteThumbnail from "../../public/images/projects-images/personal-website/personal-website-thumbnail.png"
 import educationDataForChangeThumbnail from "../../public/images/projects-images/education-data-for-change/education-data-for-change-thumbnail.png"
 import triangleballThumbnail from "../../public/images/projects-images/triangle-ball/triangle-ball-thumbnail.png"
@@ -7,6 +8,7 @@ import serverInsightsThumbnail from "../../public/images/projects-images/server-
 import tempesuousTurretsThumbnail from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-thumbnail.png"
 import binary0101Thumbnail from "../../public/images/projects-images/binary-0101/binary-0101-thumbnail.png"
 
+import mattausWebsiteIcon from "../../public/images/projects-images/mattaus-website/mattaus-website-icon.png"
 import personWebsiteIcon from "../../public/images/projects-images/personal-website/personal-website-icon.png"
 import educationDataForChangeIcon from "../../public/images/projects-images/education-data-for-change/education-data-for-change-icon.png"
 import triangleballIcon from "../../public/images/projects-images/triangle-ball/triangle-ball-icon.png"
@@ -19,12 +21,29 @@ import binary0101Icon from "../../public/images/projects-images/binary-0101/bina
 export default function projectInfo() {
     return [
         {
+            "id": "mattaus-website",
+            "title": "Jazz Musician Website",
+            "subtitle": "Personal Project",
+            "description":
+                <p>
+                    A website I made for my brother, an exceptionally talented jazz musician. Feel free to catch one of his shows in Toronto sometime (his upcoming shows are listed on the website)!
+                </p>,
+            "tags": ["REACT", "NEXT.JS", "DECAP CMS"],
+            "links": {
+                "open": "https://mattausgretzinger.com",
+                "article": "/articles/mattaus-website",
+                "github": "https://github.com/owengretzinger/mattaus-website",
+            },
+            "thumbnail": mattausWebsiteThumbnail,
+            "icon": mattausWebsiteIcon
+        },
+        {
             "id": "personal-website",
             "title": "Personal Website",
             "subtitle": "Personal Project",
             "description":
                 <p>
-                    Glad you’re here! {<ButtonLinkScrollOnClick text="Let me know" scrollTo="contact" />} if anything isn’t working properly.
+                    Glad you're here! {<ButtonLinkScrollOnClick text="Let me know" scrollTo="contact" />} if you have any feedback or run into any issues while using the website.
                 </p>,
             "tags": ["REACT", "NEXT.JS", "TAILWIND"],
             "links": {
@@ -53,6 +72,23 @@ export default function projectInfo() {
             "icon": educationDataForChangeIcon
         },
         {
+            "id": "server-insights",
+            "title": "Server Insights",
+            "subtitle": "Hackathon & Personal Project",
+            "description":
+                <p>
+                    Discord bot that won my high school’s hackathon (2021), then was improved in the following weeks.
+                    Analyzes messages sent in a discord server and creates graphs.
+                </p>,
+            "tags": ["PYTHON"],
+            "links": {
+                "github": "https://github.com/owengretzinger/server-insights",
+                "award": "https://devpost.com/software/server-insights",
+            },
+            "thumbnail": serverInsightsThumbnail,
+            "icon": serverInsightsIcon
+        },
+        {
             "id": "triangle-ball",
             "title": "Triangle Ball",
             "subtitle": "Personal Project",
@@ -70,23 +106,6 @@ export default function projectInfo() {
             },
             "thumbnail": triangleballThumbnail,
             "icon": triangleballIcon
-        },
-        {
-            "id": "server-insights",
-            "title": "Server Insights",
-            "subtitle": "Hackathon & Personal Project",
-            "description":
-                <p>
-                    Discord bot that won my high school’s hackathon (2021), then was improved in the following weeks.
-                    Analyzes messages sent in a discord server and creates graphs.
-                </p>,
-            "tags": ["PYTHON"],
-            "links": {
-                "github": "https://github.com/owengretzinger/server-insights",
-                "award": "https://devpost.com/software/server-insights",
-            },
-            "thumbnail": serverInsightsThumbnail,
-            "icon": serverInsightsIcon
         },
         {
             "id": "tempestuous-turrets",
