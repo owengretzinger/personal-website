@@ -41,7 +41,7 @@ export default function Resume() {
                         <ResumeLink text="owengretzinger@gmail.com" href="mailto:owengretzinger@gmail.com" icon="email" target="_blank" />
                         <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" />
                         <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" />
-                        {/* <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" /> */}
+                        <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" />
                       </div>
                     </div>
                   </div>
@@ -82,6 +82,17 @@ export default function Resume() {
                         />
                       </ResumeSection>
                       <ResumeSection title="Work Experience" icon={MdWork}>
+                      <ResumeChunk
+                          title="Teaching Assistant"
+                          institution="McMaster University"
+                          date="Sep 2023 - Present"
+                          bulletpoints={[
+                            // <>Teaching Assistant for SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice</>,
+                            <>Lead labs for 25+ third year software engineering students, which includes <strong>providing technical expertise on data structures & algorithms</strong> and giving feedback on evaluations (course code SFWRENG 3XB3).</>,
+                            // <>Lead labs and mark evaluations for 25+ third year software engineering students taking "SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice".</>,
+                            // <>Provide technical expertise about data structures & algorithms (sorting algorithms, graph algorithms, dynamic programming) to students.</>
+                          ]}
+                        />
                         <ResumeChunk
                           title="Developer Co-op"
                           institution="Arctic Wolf"
@@ -89,7 +100,7 @@ export default function Resume() {
                           date="May 2023 - Aug 2023"
                           bulletpoints={[
                             //<>Developed software using <strong>Javascript</strong> in an <strong>Agile</strong> environment.</>,
-                            <>Took a primary role in the Agile development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for <strong>150+</strong> security engineers.</>,
+                            <>Took a primary role in the Agile development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for 150+ security engineers.</>,
                             //<div data-indent={true}>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> to gain insights into how users interact with the extension.</div>,
                             //<div data-indent={true}>Communicated directly with users of the extension to catch and fix 4 functionality-breaking bugs.</div>,
                             //<>Took a primary role in the Agile development of an internal chrome extension which is used by <strong>150+</strong> security engineers to triage customer incidents more efficiently.</>,
@@ -104,10 +115,11 @@ export default function Resume() {
                           title="Program Leader"
                           institution="Camp Mini-Yo-We"
                           institutionLink='https://www.miniyowe.com/'
-                          date="May 2022 - Aug 2022, Jul 2021 - Aug 2021"
+                          date="Aug 2023, May 2022 - Aug 2022, Jul 2021 - Aug 2021"
                           bulletpoints={[
-                            <>Planned and delivered quality experiences (games, skits, live music, etc.) to 60-100 children (2022) or 6-12 families (2021) each week which developed leadership, collaboration, and creativity skills.</>,
-                            <>Scheduled and organized other staff members.</>,
+                            <><strong>Led and managed a team of 26 people</strong> in running a staff appreciation week for <strong>200+</strong> people (2023).</>,
+                            <>Planned and delivered quality experiences (games, skits, live music, etc.) to 500+ children (2022) and 60+ families (2021) total, which included organizing other staff members, problem solving to resolve guest issues, and conflict resolution within teams I was part of.</>,
+                            // <>Scheduled and organized other staff members.</>,
                             // "Organized and scheduled other staff members assisting with program activities.",
                             // "Prepared camp for the summer which included leading various operations that developed responsibility, dependability, and communication skills (May 2022 - Jun 2022)."
                           ]}
@@ -144,7 +156,7 @@ export default function Resume() {
                           description={<>Developed website using React, Tailwind CSS, and Next.js, featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
                         />
                         <ResumeProject
-                          title="Mattaus Gretzinger Website"
+                          title="Jazz Musician Website"
                           href="https://mattausgretzinger.com"
                           projectType="Personal Project"
                           description={<>Designed and built a website for a professional jazz musician using React, Tailwind CSS, Next.js, and Decap CMS.</>}
@@ -163,12 +175,12 @@ export default function Resume() {
                           description="Wrote 10,000+ lines of code creating a game as a personal project using C# and Unity, featuring highly
                           effective bots that were implemented by applying university level calculus."
                         /> */}
-                        {/* <ResumeProject
+                        <ResumeProject
                           title="Binary0101"
                           href="https://cs1xd3.online/ShowModulePublish?modulePublishId=0a6330dc-6e05-447c-820f-293aca08929a&fullscreen=true"
                           projectType="School Project"
                           description={<>Designed and implemented a web app using Elm that teaches the basics of binary while following design principles.</>}
-                        /> */}
+                        />
                         <ResumeProject
                           title="Server Insights"
                           href="https://github.com/owengretzinger/server-insights"
@@ -191,7 +203,7 @@ export default function Resume() {
                           institution="Church on the Rock, Chartwell Church"
                           date="Sep 2021 - Present, Sep 2017 - Jun 2021"
                           bulletpoints={[
-                            <>Leader on team running weekly youth programs for 20 to 30 participants which includes
+                            <>Leader on team running weekly youth programs for 20+ participants which includes
                             running games, planning special events, and mentoring participants.</>
                           ]}
                         />
@@ -261,7 +273,7 @@ function ResumeSection({ ...props }: any) {
 function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }: { title: string, institution: string, institutionLink?: string, date?: string, bulletpoints: ReactNode[] }) {
   return (
     <div>
-      {date && <div className="flex items-center gap-1 -mb-1">
+      {date && <div className="flex items-center gap-1 -mb-[6px]">
         <FaCalendar className="text-xs" />
         <p className="text-xs font-light">{date}</p>
       </div>}
