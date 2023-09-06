@@ -41,7 +41,7 @@ export default function Resume() {
                         <ResumeLink text="owengretzinger@gmail.com" href="mailto:owengretzinger@gmail.com" icon="email" target="_blank" />
                         <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" />
                         <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" />
-                        <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" />
+                        {/* <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" /> */}
                       </div>
                     </div>
                   </div>
