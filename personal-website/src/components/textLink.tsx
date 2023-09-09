@@ -65,7 +65,7 @@ export function ResumeLink({ ...props }: any) {
   return (
     <Link className={`${linkClassNames[0]} print:underline flex items-center gap-1 w-fit print:-z-10`} href={props.href} target="_blank">
       {props.icon && <Icon className="w-4 h-4" />}
-      <span className={`${linkClassNames[1]} print:bg-none ${props.icon === "link" ? "text-base font-extrabold" : "text-xs"}`}>
+      <span className={`${linkClassNames[1]} print:bg-none ${props.icon === "link" ? "text-base font-extrabold" : ""}`}>
         {props.text}
       </span>
     </Link>
