@@ -42,7 +42,7 @@ export default function Resume() {
             {/* desktop header */}
             <div className={`hidden w-full sm:flex print:flex justify-between ${isPublic ? "items-center" : "items-start"}`}>
               <div className="flex flex-col gap-1 text-xs">
-                <h2 className="flex-1 text-4xl font-[1000] h-fit">Owen{isPublic && <br />} Gretzinger</h2>
+                <h2 className="flex-1 text-4xl font-[1000] h-fit leading-8">Owen{isPublic && <br />} Gretzinger</h2>
                 <div className="flex gap-6">
                   {!isPublic &&
                     <>
@@ -154,12 +154,12 @@ export default function Resume() {
                     date="May 2023 - Aug 2023"
                     bulletpoints={[
                       //<>Developed software using <strong>Javascript</strong> in an <strong>Agile</strong> environment.</>,
-                      <>Became the main contributor to the development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for 150+ security engineers.</>,
-                      <div data-indent={true}>Implemented and worked with Webpack extensively, resulting in reduced development time and more efficient, bundled code.</div>,
-                      <div data-indent={true}>Redesigned the extension's UI which was received with overwhelmingly positive feedback.</div>,
+                      <>Became the main contributor to the development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for 150+ security analysts.</>,
+                      <>Implemented Webpack and worked with <strong>Node.js</strong> extensively, resulting in reduced development time and more efficient, bundled code.</>,
+                      <>Redesigned the Chrome extension's UI which was received with overwhelmingly positive feedback.</>,
                       // <div data-indent={true}>Resolved 10 security vulnerabilities (XSS, ReDoS, SSRF).</div>,
-                      <div data-indent={true}>Implemented a digital experience platform (FullStory) to acquire usage analytics.</div>,
-                      <><strong>Received 8 recognitions</strong> for reasons including "hard work", "keeping code secure", "dedication", being a "great addition to the team", and "working through head scratching items".</>,
+                      <>Implemented FullStory (a digital experience platform) using its <strong>REST API</strong> to acquire usage analytics and other information crucial in deciding development priorities.</>,
+                      
                       // <>Worked in an Agile development environment.</>,
                       //<div data-indent={true}>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> to gain insights into how users interact with the extension.</div>,
                       //<div data-indent={true}>Communicated directly with users of the extension to catch and fix 4 functionality-breaking bugs.</div>,
@@ -197,13 +197,13 @@ export default function Resume() {
                     title="Personal Website"
                     href="https://owengretzinger.com"
                     projectType="Personal Project"
-                    description={<>Developed a website using React, Tailwind CSS, and NextJS, featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
+                    description={<>Developed a website using React, Tailwind CSS, and Next.js, featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
                   />
                   <ResumeProject
                     title="Jazz Musician Website"
                     href="https://mattausgretzinger.com"
                     projectType="Personal Project"
-                    description={<>Designed and built a website for a professional jazz musician using React, Tailwind CSS, NextJS, and Decap CMS.</>}
+                    description={<>Designed and built a website for a professional jazz musician using React, Tailwind CSS, Next.js, and Decap CMS.</>}
                   />
                   <ResumeProject
                     title="Education Data for Change"
@@ -268,7 +268,7 @@ export default function Resume() {
                     </div>
                     <div className="flex gap-3">
                       <h3 className="w-[84px] shrink-0 font-extrabold text-right">Technologies</h3>
-                      <p className=""><strong>NodeJS</strong>, <strong>Git</strong>, <strong>Jira</strong>, <strong>Confluence</strong>, Linux, Amazon Web Services (AWS), Agile Development, SDLC</p>
+                      <p className=""><strong>Node.js</strong>, <strong>Git</strong>, <strong>Jira</strong>, <strong>Confluence</strong>, Linux, Amazon Web Services (AWS), Agile Development, SDLC</p>
                     </div>
                     {/* <div className="flex gap-3">
                       <h3 className="w-[84px] shrink-0 font-extrabold text-right">Theory</h3>
@@ -343,7 +343,7 @@ function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }
         <FaCalendar className="text-xs" />
         <p className="text-xs font-light">{date}</p>
       </div>}
-      <h3 className="font-extrabold relative">{title}</h3>
+      <h3 className="font-extrabold">{title}</h3>
       <h4 className="text-sm font-extrabold -mt-1">
         {institutionLink ? <ResumeLink text={institution} href={institutionLink} /> : institution}
       </h4>
