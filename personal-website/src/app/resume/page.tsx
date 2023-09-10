@@ -18,7 +18,7 @@ import React from 'react';
 import { BsFillChatFill, BsPersonFill } from 'react-icons/bs';
 import { type } from 'os';
 
-const isPublic = false;
+const isPublic = true;
 type resumeVersion = "front end" | "full stack" | "general";
 const version: resumeVersion = "full stack";
 
