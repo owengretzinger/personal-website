@@ -18,7 +18,7 @@ import React from 'react';
 import { BsFillChatFill, BsPersonFill } from 'react-icons/bs';
 import { type } from 'os';
 
-const isPublic = true;
+const isPublic = false;
 type resumeVersion = "front end" | "full stack" | "general";
 const version: resumeVersion = "full stack";
 
@@ -110,10 +110,10 @@ export default function Resume() {
                   <p className="text-xs">
                     {
                       (version === "front end" && <>
-                        Third year computer science co-op student passionate about front end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
+                        Third year computer science co-op student passionate about front-end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       </>) ||
                       (version === "full stack" && <>
-                        Third year computer science co-op student passionate about full stack development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
+                        Third year computer science co-op student passionate about full-stack development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       </>)
                       // ||
                       // (version === "general" && <>
