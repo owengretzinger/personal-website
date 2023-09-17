@@ -7,6 +7,7 @@ import triangleballThumbnail from "../../public/images/projects-images/triangle-
 import serverInsightsThumbnail from "../../public/images/projects-images/server-insights/server-insights-thumbnail.png"
 import tempesuousTurretsThumbnail from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-thumbnail.png"
 import binary0101Thumbnail from "../../public/images/projects-images/binary-0101/binary-0101-thumbnail.png"
+import simpleTermsThumbnail from "../../public/images/projects-images/simple-terms/simple-terms-thumbnail.png"
 
 import mattausWebsiteIcon from "../../public/images/projects-images/mattaus-website/mattaus-website-icon.png"
 import personWebsiteIcon from "../../public/images/projects-images/personal-website/personal-website-icon.png"
@@ -15,11 +16,28 @@ import triangleballIcon from "../../public/images/projects-images/triangle-ball/
 import serverInsightsIcon from "../../public/images/projects-images/server-insights/server-insights-icon.png"
 import tempesuousTurretsIcon from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-icon.png"
 import binary0101Icon from "../../public/images/projects-images/binary-0101/binary-0101-icon.png"
+import simpleTermsIcon from "../../public/images/projects-images/simple-terms/simple-terms-icon.png"
 
 
 
 export default function projectInfo() {
     return [
+        {
+            "id": "simple-terms",
+            "title": "Simple Terms",
+            "subtitle": "Hackathon Project",
+            "description":
+                <p>
+                    A Chrome extension that uses AI to summarize terms and conditions, presenting only the most concerning details in an easily digestible format. Made for {<TextLink text="Hack the North" href="https://hackthenorth.com" />} 2023.
+                </p>,
+            "tags": ["REACT", "OPENAI"],
+            "links": {
+                "open": "https://devpost.com/software/simple-terms",
+                "github": "https://github.com/owengretzinger/simple-terms",
+            },
+            "thumbnail": simpleTermsThumbnail,
+            "icon": simpleTermsIcon
+        },
         {
             "id": "mattaus-website",
             "title": "Jazz Musician Website",

@@ -18,7 +18,7 @@ import React from 'react';
 import { BsFillChatFill, BsPersonFill } from 'react-icons/bs';
 import { type } from 'os';
 
-const isPublic = true;
+const isPublic = false;
 type resumeVersion = "front end" | "full stack" | "general";
 const version: resumeVersion = "full stack";
 
@@ -33,7 +33,7 @@ export default function Resume() {
   return (
     <>
       <RevealPage />
-      <div className="max-w-full min-h-screen bg-blue/30 font-normal px-4 print:px-0 py-10 print:py-0">
+      <div className="max-w-full min-h-screen bg-blue/30 font-normal px-4 print:px-0 py-10 print:py-0 text-[#000]">
         <FadeInOnScroll delay={11} waitForLoad={true}
           className="relative w-full bg-white rounded-theme shadow-xl
                          sm:max-w-[52rem] lg:aspect-[8.5/11] mx-auto mt-20 lg:mt-0
@@ -66,12 +66,12 @@ export default function Resume() {
               {/* <Image src={headshot} alt="Headshot of me" width={128} height={128} className="rounded-full border-[3px] border-black" /> */}
               <div className="flex-1 flex sm:justify-end print:justify-end">
                 <div className="flex flex-col w-fit sm:items-end print:items-end gap-[2px] text-xs">
-                  <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" />
-                  <ResumeLink text="owengretzinger@gmail.com" href="mailto:owengretzinger@gmail.com" icon="email" target="_blank" />
-                  <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" />
-                  <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" />
+                  <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" isPublic={isPublic} />
+                  <ResumeLink text={isPublic ? "owengretzinger@gmail.com" : "owengretzinger@gmail.com"} href={isPublic ? "mailto:owengretzinger@gmail.com" : "mailto:owengretzinger@gmail.com"} icon="email" target="_blank" isPublic={isPublic} />
+                  <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={isPublic} />
+                  <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={isPublic} />
                   {/* {!isPublic &&
-                    <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" />} */}
+                    <ResumeLink text="+1 (289) 681-9925" href="tel:+12896819925" icon="phone" target="_blank" isPublic={isPublic} />} */}
                   {/* <div className="flex items-center gap-1 w-fit">
                     <MdLocationOn className="w-4 h-4" />
                     <span className="text-xs font-bold">
@@ -91,29 +91,42 @@ export default function Resume() {
               </div>
             </div>
 
-            <span className="w-1/2 min-h-[2px] bg-black my-6 mx-auto [print-color-adjust:exact] [-webkit-print-color-adjust:exact]" />
+            {/* <span className="w-1/2 min-h-[2px] bg-black my-6 mx-auto [print-color-adjust:exact] [-webkit-print-color-adjust:exact]" /> */}
 
             {/* body */}
-            <div className="w-full h-full flex flex-col sm:flex-row print:flex-row gap-4">
+            <div className="w-full h-full flex flex-col sm:flex-row print:flex-row gap-4 mt-8">
               {/* left column */}
               <div className="flex-1 flex flex-col gap-4">
                 {/* links, shown on mobile only */}
                 <div className="sm:hidden print:hidden">
                   <ResumeSection title="Links" className="sm:hidden print:hidden">
-                    <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" />
-                    <ResumeLink text="owengretzinger@gmail.com" href="mailto:owengretzinger@gmail.com" icon="email" target="_blank" />
-                    <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" />
-                    <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" />
+                    <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" isPublic={isPublic} />
+                    <ResumeLink text={isPublic ? "owengretzinger@gmail.com" : "owengretzinger@gmail.com"} href={isPublic ? "mailto:owengretzinger@gmail.com" : "mailto:owengretzinger@gmail.com"} icon="email" target="_blank" isPublic={isPublic} />
+                    <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={isPublic} />
+                    <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={isPublic} />
                   </ResumeSection>
                 </div>
-                <ResumeSection title="Computer Science Student" icon={BsFillChatFill}>
-                  <p className="text-xs">
+                <ResumeSection title="Highlights of Qualification" icon={BsFillChatFill}>
+                  <div className="text-xs">
                     {
                       (version === "front end" && <>
                         Third year computer science co-op student passionate about front-end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       </>) ||
                       (version === "full stack" && <>
-                        Third year computer science co-op student passionate about full-stack development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
+                        <BulletPoints bulletpoints={[
+                          // ---------- DEFAULT ----------
+                          // <>Third year computer science co-op student passionate about full-stack development with significant experience using <strong>Python</strong> and <strong>React</strong>.</>,
+                          // <>Eagerness to learn and commitment to follow through demonstrated by a <strong>4.0/4.0 GPA</strong> and completion of personal projects.</>,
+                          // <>Strong communication and collaboration skills as a result of <strong>previous co-op experience</strong> at Arctic Wolf.</>,
+                          // ---------- CUSTOM ----------
+                          <>Third year computer science co-op student passionate about full-stack development with significant experience using <strong>NodeJS</strong>.</>,
+                          // <>Third year computer science co-op student possessing relevant experience using <strong>Python</strong>, <strong>Java</strong>, and <strong>SQL</strong>.</>,
+                          // <>Third year computer science co-op student passionate about full-stack development possessing relevant experience using <strong>Python</strong>, <strong>Java</strong>, and <strong>SQL</strong>.</>,
+                          // <>Experience writing clean code and working with version control from <strong>previous co-op</strong> at Arctic Wolf.</>,
+                          <>Self-driven analytical thinker evidenced by a 4.0/4.0 GPA and completion of personal projects.</>,
+                          <>Strong communication and teamwork skills as a result of <strong>previous co-op experience</strong> at Arctic Wolf and a variety of leadership experience.</>,
+                          // <>Solid understanding of algorithms and data structures evidenced by a <strong>4.0/4.0 GPA</strong> and becoming a teaching assistant for a practical DSA implementation course.</>,
+                        ]} />
                       </>)
                       // ||
                       // (version === "general" && <>
@@ -122,15 +135,20 @@ export default function Resume() {
                       //   Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       // </>)
                     }
-                  </p>
+                  </div>
                 </ResumeSection>
                 <ResumeSection title="Education" icon={FaGraduationCap}>
                   <ResumeChunk
-                    title="Bachelor of Computer Science"
-                    institution="McMaster University"
-                    date="Sep 2021 - Apr 2025 (expected)"
+                    title="McMaster University"
+                    institution="Bachelor of Computer Science"
+                    date="Sep 2021 - Apr 2025"
                     bulletpoints={[
-                      <><strong>GPA: 4.0/4.0</strong> (awarded Provost's Honour Roll Medal twice for attaining <strong>A+ in all courses  to date</strong>).</>,
+                      <><strong>GPA: 4.0/4.0</strong> (awarded Provost's Honour Roll Medal twice for attaining an <strong>A+ in all courses to date</strong>).</>,
+                      // ---------- DEFAULT ----------
+                      // <>Gained experience related to databases, software design, and algorithms through course work.</>
+                      // ---------- CUSTOM ----------
+                      // <>Gained experience related to Python, Java, databases, and unit testing through course work.</>,
+                      <>Gained experience related to programming languages, databases, and design techniques through course work.</>,
                       // <>Includes courses on data structures & algorithms, software development, and databases.</>
                     ]}
                   />
@@ -142,7 +160,7 @@ export default function Resume() {
                     date="Sep 2023 - Present"
                     bulletpoints={[
                       // <>Teaching Assistant for SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice</>,
-                      <>Leading labs for 42 third year software engineering students, which includes <strong>providing technical expertise on data structures & algorithms</strong> and giving feedback on evaluations (course code SFWRENG 3XB3).</>,
+                      <>Leading labs for 42 third year software engineering students, which includes <strong>providing technical expertise on data structures and algorithms</strong> and giving feedback on evaluations (course code SFWRENG 3XB3).</>,
                       // <>Lead labs and mark evaluations for 25+ third year software engineering students taking "SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice".</>,
                       // <>Provide technical expertise about data structures & algorithms (sorting algorithms, graph algorithms, dynamic programming) to students.</>
                     ]}
@@ -155,11 +173,11 @@ export default function Resume() {
                     bulletpoints={[
                       //<>Developed software using <strong>Javascript</strong> in an <strong>Agile</strong> environment.</>,
                       <>Became the main contributor to the development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for 150+ security analysts.</>,
-                      <>Implemented Webpack and worked with <strong>Node.js</strong> extensively, resulting in reduced development time and more efficient, bundled code.</>,
+                      <>Implemented Webpack and worked with <strong>NodeJS</strong> extensively, resulting in reduced development time and more efficient, bundled code.</>,
                       <>Redesigned the Chrome extension's UI which was received with overwhelmingly positive feedback.</>,
                       // <div data-indent={true}>Resolved 10 security vulnerabilities (XSS, ReDoS, SSRF).</div>,
                       <>Implemented FullStory (a digital experience platform) using its <strong>REST API</strong> to acquire usage analytics and other information crucial in deciding development priorities.</>,
-                      
+
                       // <>Worked in an Agile development environment.</>,
                       //<div data-indent={true}>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> to gain insights into how users interact with the extension.</div>,
                       //<div data-indent={true}>Communicated directly with users of the extension to catch and fix 4 functionality-breaking bugs.</div>,
@@ -175,10 +193,10 @@ export default function Resume() {
                     title="Program Leader"
                     institution="Camp Mini-Yo-We"
                     // institutionLink='https://www.miniyowe.com/'
-                    date="Aug 2023, May 2022 - Aug 2022, Jul 2021 - Aug 2021"
+                    date="May 2022 - Aug 2022"
                     bulletpoints={[
-                      <><strong>Led and managed a team of 26 people</strong> in running a staff appreciation week for <strong>200+ people</strong>  (2023).</>,
-                      <>Worked on teams to create quality experiences for 500+ children (2022) and 60+ families (2021) total, which included organizing other staff, adapting to unexpected situations, and using creativity to problem solve issues.</>,
+                      <>Worked on teams to create quality experiences for 500+ children total, which included organizing other staff, adapting to unexpected situations, and using creativity to problem solve issues.</>,
+                      <><strong>Led and managed a team of 26 people</strong> in running a staff appreciation week for <strong>200+ people</strong> (August 2023).</>,
                       // <>Scheduled and organized other staff members.</>,
                       // "Organized and scheduled other staff members assisting with program activities.",
                       // "Prepared camp for the summer which included leading various operations that developed responsibility, dependability, and communication skills (May 2022 - Jun 2022)."
@@ -197,13 +215,13 @@ export default function Resume() {
                     title="Personal Website"
                     href="https://owengretzinger.com"
                     projectType="Personal Project"
-                    description={<>Developed a website using React, Tailwind CSS, and Next.js, featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
+                    description={<>Developed a website using React featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
                   />
                   <ResumeProject
                     title="Jazz Musician Website"
                     href="https://mattausgretzinger.com"
                     projectType="Personal Project"
-                    description={<>Designed and built a website for a professional jazz musician using React, Tailwind CSS, Next.js, and Decap CMS.</>}
+                    description={<>Designed and built a website for a professional jazz musician using React, including a Content Management System (CMS) so that the musician can maintain the website.</>}
                   />
                   <ResumeProject
                     title="Education Data for Change"
@@ -219,18 +237,42 @@ export default function Resume() {
                           description="Wrote 10,000+ lines of code creating a game as a personal project using C# and Unity, featuring highly
                           effective bots that were implemented by applying university level calculus."
                         /> */}
-                  <ResumeProject
+                  {/* <ResumeProject
                     title="Binary0101"
                     href="https://cs1xd3.online/ShowModulePublish?modulePublishId=0a6330dc-6e05-447c-820f-293aca08929a&fullscreen=true"
                     projectType="School Project"
-                    description={<>Created a web app using Elm that teaches the basics of binary, while following design principles.</>}
-                  />
-                  {/* <ResumeProject
+                    description={<>Created a web app using Elm that teaches the basics of binary, designed to follow design principles.</>}
+                  /> */}
+                  <ResumeProject
                     title="Server Insights"
                     href="https://github.com/owengretzinger/server-insights"
                     projectType="Hackathon & Personal Project"
                     description={<>Achieved <strong>first place</strong> in a hackathon of 44 participants by developing a discord bot which analyzes messages and produces various graphs using Python and MatPlotLib.</>}
-                  /> */}
+                  />
+                </ResumeSection>
+                <ResumeSection title="Skills" icon={FaStar}>
+                  <div className="flex flex-col gap-1 text-xs">
+                    <div className="flex gap-3">
+                      <h3 className="w-[90px] shrink-0 font-extrabold text-right">Languages</h3>
+                      <p className="">
+                        <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, 
+                        SQL, C, Elm, Haskell
+                        {/* <strong>Python</strong>, <strong>Java</strong>, <strong>SQL</strong>, TypeScript, Javascript, C#, HTML, CSS, C, Elm, Haskell */}
+                      </p>
+                    </div>
+                    <div className="flex gap-3">
+                      <h3 className="w-[90px] shrink-0 font-extrabold text-right">Tools</h3>
+                      <p className=""><strong>React</strong>, <strong>NodeJS</strong>, <strong>Figma</strong>, <strong>Git</strong>, NextJS, Jira, Confluence, Linux</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <h3 className="w-[90px] shrink-0 font-extrabold text-right">Methodologies</h3>
+                      <p className="">Agile Development, Design Patterns, Software Development Life Cycle (SDLC), Unified Modeling Language (UML)</p>
+                    </div>
+                    {/* <div className="flex gap-3">
+                      <h3 className="w-[84px] shrink-0 font-extrabold text-right">Soft Skills</h3>
+                      <p className="">Work Ethic, Communication, Leadership, Time Management, Teamwork</p>
+                    </div> */}
+                  </div>
                 </ResumeSection>
                 <ResumeSection title="Leadership Experience" icon={RiTeamFill}>
                   <ResumeChunk
@@ -238,14 +280,14 @@ export default function Resume() {
                     institution="McMaster Computer Science Society"
                     date="Oct 2022 - Present"
                     bulletpoints={[
-                      <>Facilitate effective communication between the computer science student body and university officials, increasing student satisfaction.</>,
+                      <>Communicate with the third year computer science body and university officials to resolve issues.</>,
                       <>Collaborate with society members to plan and execute engaging events.</>
                     ]}
                   />
                   <ResumeChunk
                     title="Youth Leader"
-                    institution="Church on the Rock, Chartwell Church"
-                    date="Sep 2021 - Present, Sep 2017 - Jun 2021"
+                    institution="Church on the Rock"
+                    date="Sep 2021 - Present"
                     bulletpoints={[
                       <>Leader on team running weekly youth programs for 20+ participants which includes
                         running games, planning special events, and mentoring participants.</>
@@ -260,40 +302,24 @@ export default function Resume() {
                           ]}
                         /> */}
                 </ResumeSection>
-                <ResumeSection title="Skills" icon={FaStar}>
-                  <div className="flex flex-col gap-1 text-xs">
-                    <div className="flex gap-3">
-                      <h3 className="w-[84px] shrink-0 font-extrabold text-right">Languages</h3>
-                      <p className=""><strong>Python</strong>, <strong>Typescript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, SQL, C, Elm, Haskell</p>
-                    </div>
-                    <div className="flex gap-3">
-                      <h3 className="w-[84px] shrink-0 font-extrabold text-right">Technologies</h3>
-                      <p className=""><strong>Node.js</strong>, <strong>Git</strong>, <strong>Jira</strong>, <strong>Confluence</strong>, Linux, Amazon Web Services (AWS), Agile Development, SDLC</p>
-                    </div>
-                    {/* <div className="flex gap-3">
-                      <h3 className="w-[84px] shrink-0 font-extrabold text-right">Theory</h3>
-                      <p className="">Agile Development, Design Patterns, Unified Modeling Language (UML)</p>
-                    </div> */}
-                    <div className="flex gap-3">
-                      <h3 className="w-[84px] shrink-0 font-extrabold text-right">Soft Skills</h3>
-                      <p className="">Work Ethic, Communication, Leadership, Time Management, Teamwork</p>
-                    </div>
-                  </div>
-                </ResumeSection>
               </div>
             </div>
           </div>
 
-          <div className="absolute print:fixed top-0 left-0 -z-50">
-            <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[310px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none`}>
-              <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
-            </svg>
-          </div>
-          <div className="absolute print:fixed -z-50 bottom-0 right-0">
-            <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[180px] max-w-[94%] aspect-square -scale-100 max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none ml-auto`}>
-              <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
-            </svg>
-          </div>
+          {isPublic &&
+            <>
+              <div className="absolute print:fixed top-0 left-0 -z-50">
+                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[310px] max-w-[94%] aspect-square max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none`}>
+                  <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
+                </svg>
+              </div>
+              <div className="absolute print:fixed -z-50 bottom-0 right-0">
+                <svg viewBox="0 0 818 818" xmlns="http://www.w3.org/2000/svg" className={`w-[180px] max-w-[94%] aspect-square -scale-100 max-h-[100vw] fill-blue rounded-tl-theme print:rounded-tl-none ml-auto`}>
+                  <path d="M459.887 361.499C736.105 360.358 813.72 120.024 818 0H0V722.999C59.3526 723.379 149.808 650.223 172.636 564.605C195.464 478.987 299.616 362.162 459.887 361.499Z" />
+                </svg>
+              </div>
+            </>
+          }
 
         </FadeInOnScroll>
         <FadeInOnScroll className="[@media(min-width:1145px)]:hidden print:hidden mt-12 font-extrabold flex justify-center">
@@ -327,8 +353,9 @@ function ResumeSection({ ...props }: any) {
     <div className="flex flex-col">
       <div className="flex items-center gap-2">
         <h2 className="text-xl font-[1000]">{props.title}</h2>
-        {props.icon && <props.icon className="text-2xl" />}
+        {/* {props.icon && <props.icon className="text-2xl" />} */}
       </div>
+      <span className="w-full h-[4px] bg-black mb-[6px]" />
       <div className="flex flex-col gap-[6px]">
         {props.children}
       </div>
@@ -339,27 +366,36 @@ function ResumeSection({ ...props }: any) {
 function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }: { title: string, institution: string, institutionLink?: string, date?: string, bulletpoints: ReactNode[] }) {
   return (
     <div>
-      {date && <div className="flex items-center gap-1 -mb-[6px]">
+      {/* {date && <div className="flex items-center gap-1 -mb-[6px]">
         <FaCalendar className="text-xs" />
         <p className="text-xs font-light">{date}</p>
-      </div>}
-      <h3 className="font-extrabold">{title}</h3>
+      </div>} */}
+      <div className="flex items-center justify-between">
+        <h3 className="font-extrabold">{title}</h3>
+        <p className="text-xs font-light">{date}</p>
+      </div>
       <h4 className="text-sm font-extrabold -mt-1">
-        {institutionLink ? <ResumeLink text={institution} href={institutionLink} /> : institution}
+        {institutionLink ? <ResumeLink text={institution} href={institutionLink} isPublic={isPublic} /> : institution}
       </h4>
-      <ul className="list-disc list-outside text-xs pl-4">
-        {bulletpoints.map((point, i) => {
-          return React.isValidElement(point) && <li key={i} className={point.props['data-indent'] ? "translate-x-4 pr-4" : ""}>{point}</li>
-        })}
-      </ul>
+      <BulletPoints bulletpoints={bulletpoints} />
     </div>
+  )
+}
+
+function BulletPoints({ bulletpoints }: { bulletpoints: ReactNode[] }) {
+  return (
+    <ul className="list-disc list-outside text-xs pl-4">
+      {bulletpoints.map((point, i) => {
+        return React.isValidElement(point) && <li key={i} className={point.props['data-indent'] ? "translate-x-4 pr-4" : ""}>{point}</li>
+      })}
+    </ul>
   )
 }
 
 function ResumeProject({ title, href, projectType, description }: { title: string, href: string, projectType: string, description: ReactNode }) {
   return (
     <div>
-      <ResumeLink text={title} href={href} icon="link" target="_blank" />
+      <ResumeLink text={title} href={href} icon="link" target="_blank" isPublic={isPublic} />
       <h4 className="text-sm font-extrabold -mt-1">{projectType}</h4>
       <p className="text-xs">{description}</p>
     </div>

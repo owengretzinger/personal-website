@@ -14,10 +14,10 @@ const linkClassNames = [
 ]
 
 
-export default function TextLink({...props} : any) {
+export default function TextLink({ ...props }: any) {
   return (
     <Link className={`${linkClassNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
-          href={props.href} target={props.newWindow === false ? "_self" : "_blank"}>
+      href={props.href} target={props.newWindow === false ? "_self" : "_blank"}>
       <span className={linkClassNames[1]}>
         {props.text}
       </span>
@@ -30,7 +30,7 @@ export function ButtonLinkScrollOnClick({ ...props }: any) {
 
   return (
     <button className={`${linkClassNames[0]} ${props.breakWords ? "break-words" : "whitespace-nowrap"}`}
-      onClick={() => {handleClickScroll(props.scrollTo); props.closeMobileNav ? setScrollingDisabled(false) : {}}}>
+      onClick={() => { handleClickScroll(props.scrollTo); props.closeMobileNav ? setScrollingDisabled(false) : {} }}>
       <span className={linkClassNames[1]}>
         {props.text}
       </span>
@@ -49,7 +49,7 @@ export function TextLinkPassProps({ ...props }: any) {
 }
 
 // cant pass function from server to client so map string to icon
-const stringToIcon : { [key: string]: IconType } = {
+const stringToIcon: { [key: string]: IconType } = {
   "website": TbWorld,
   "email": FiMail,
   "linkedin": FaLinkedinIn,
@@ -62,14 +62,20 @@ const stringToIcon : { [key: string]: IconType } = {
 export function ResumeLink({ ...props }: any) {
   const Icon = props.icon && stringToIcon[props.icon];
 
-  return (
+  return props.isPublic ?
     <Link className={`${linkClassNames[0]} print:underline print:static flex items-center gap-1 w-fit print:-z-10`} href={props.href} target="_blank">
       {props.icon && <Icon className="w-4 h-4" />}
       <span className={`${linkClassNames[1]} print:bg-none ${props.icon === "link" ? "text-base font-extrabold" : ""}`}>
         {props.text}
       </span>
     </Link>
-  )
+    :
+    <Link className={`font-bold flex items-center gap-1 w-fit underline`} href={props.href} target="_blank">
+      {props.icon && <Icon className="w-4 h-4" />}
+      <span className={`w-fit ${props.icon === "link" ? "text-base font-extrabold" : ""}`}>
+        {props.text}
+      </span>
+    </Link>
 }
 
 
@@ -79,7 +85,7 @@ export function TextLinkWithIcon({ ...props }: any) {
 
   return (
     <Link className={`${linkClassNames[0]} flex items-center gap-1 w-fit`} href={props.href} target={props.target || "_blank"}
-          onClick={() => props.href.startsWith("/") ? setScrollingDisabled(false) : {}}>
+      onClick={() => props.href.startsWith("/") ? setScrollingDisabled(false) : {}}>
       {props.icon && <Icon className="w-4 h-4" />}
       <span className={`${linkClassNames[1]}`}>
         {props.text}
