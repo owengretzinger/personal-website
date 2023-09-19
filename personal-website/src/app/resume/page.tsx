@@ -18,7 +18,7 @@ import React from 'react';
 import { BsFillChatFill, BsPersonFill } from 'react-icons/bs';
 import { type } from 'os';
 
-const isPublic = false;
+const isPublic = true;
 type resumeVersion = "front end" | "full stack" | "general";
 const version: resumeVersion = "full stack";
 
@@ -94,7 +94,7 @@ export default function Resume() {
             {/* <span className="w-1/2 min-h-[2px] bg-black my-6 mx-auto [print-color-adjust:exact] [-webkit-print-color-adjust:exact]" /> */}
 
             {/* body */}
-            <div className="w-full h-full flex flex-col sm:flex-row print:flex-row gap-4 mt-8">
+            <div className="w-full h-full flex flex-col sm:flex-row print:flex-row gap-4 mt-10">
               {/* left column */}
               <div className="flex-1 flex flex-col gap-4">
                 {/* links, shown on mobile only */}
@@ -110,27 +110,34 @@ export default function Resume() {
                   <div className="text-xs">
                     {
                       (version === "front end" && <>
-                        Third year computer science co-op student passionate about front-end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
+                        Third-year computer science co-op student passionate about front-end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       </>) ||
                       (version === "full stack" && <>
                         <BulletPoints bulletpoints={[
                           // ---------- DEFAULT ----------
-                          // <>Third year computer science co-op student passionate about full-stack development with significant experience using <strong>Python</strong> and <strong>React</strong>.</>,
-                          // <>Eagerness to learn and commitment to follow through demonstrated by a <strong>4.0/4.0 GPA</strong> and completion of personal projects.</>,
-                          // <>Strong communication and collaboration skills as a result of <strong>previous co-op experience</strong> at Arctic Wolf.</>,
+                          <>Third-year computer science student proficient in Python and React, with previous technical internship experience.</>,
+                          <>Strong leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
+                          <>Eagerness to learn and commitment to follow through demonstrated by completion of personal projects and top academic performance.</>,
+                          // <>Strong collaboration skills and familiarity with development tools as a result of previous co-op experience at Arctic Wolf.</>,
                           // ---------- CUSTOM ----------
-                          <>Third year computer science co-op student passionate about full-stack development with significant experience using <strong>NodeJS</strong>.</>,
-                          // <>Third year computer science co-op student possessing relevant experience using <strong>Python</strong>, <strong>Java</strong>, and <strong>SQL</strong>.</>,
-                          // <>Third year computer science co-op student passionate about full-stack development possessing relevant experience using <strong>Python</strong>, <strong>Java</strong>, and <strong>SQL</strong>.</>,
-                          // <>Experience writing clean code and working with version control from <strong>previous co-op</strong> at Arctic Wolf.</>,
-                          <>Self-driven analytical thinker evidenced by a 4.0/4.0 GPA and completion of personal projects.</>,
-                          <>Strong communication and teamwork skills as a result of <strong>previous co-op experience</strong> at Arctic Wolf and a variety of leadership experience.</>,
-                          // <>Solid understanding of algorithms and data structures evidenced by a <strong>4.0/4.0 GPA</strong> and becoming a teaching assistant for a practical DSA implementation course.</>,
+                          // <>Third-year computer science student proficient in Python and Java, with previous technical internship experience.</>,
+                          // <>Leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
+                          // <>Third-year computer science co-op student with strong leadership skills and significant experience using Python and Java.</>,
+                          // <></>,
+                          // <>Eagerness to learn and commitment to follow through demonstrated by completion of personal projects and top academic performance.</>,
+                          // <>Strong communication skills and familiarity with development tools as a result of previous co-op experience at Arctic Wolf.</>,
+                          // <>Third-year computer science co-op student passionate about full-stack development with significant experience using NodeJS.</>,
+                          // <>Third-year computer science co-op student possessing relevant experience using Python, Java, and SQL.</>,
+                          // <>Third-year computer science co-op student passionate about full-stack development possessing relevant experience using Python, Java, and SQL.</>,
+                          // <>Experience writing clean code and working with version control from previous co-op at Arctic Wolf.</>,
+                          // <>Self-driven analytical thinker evidenced by a 4.0/4.0 GPA and completion of personal projects.</>,
+                          // <>Strong communication and teamwork skills as a result of previous co-op experience at Arctic Wolf and a variety of leadership experience.</>,
+                          // <>Solid understanding of algorithms and data structures evidenced by a 4.0/4.0 GPA and becoming a teaching assistant for a practical DSA implementation course.</>,
                         ]} />
                       </>)
                       // ||
                       // (version === "general" && <>
-                      //   Third year computer science co-op student passionate about software development with a focus on front end development with significant experience in React.
+                      //   Third-year computer science co-op student passionate about software development with a focus on front end development with significant experience in React.
 
                       //   Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
                       // </>)
@@ -143,12 +150,13 @@ export default function Resume() {
                     institution="Bachelor of Computer Science"
                     date="Sep 2021 - Apr 2025"
                     bulletpoints={[
-                      <><strong>GPA: 4.0/4.0</strong> (awarded Provost's Honour Roll Medal twice for attaining an <strong>A+ in all courses to date</strong>).</>,
+                      <>GPA: 4.0/4.0 (awarded Provost's Honour Roll Medal twice for attaining an A+ in all courses to date).</>,
                       // ---------- DEFAULT ----------
-                      // <>Gained experience related to databases, software design, and algorithms through course work.</>
+                      <>Gained experience related to databases, algorithms, and software design through course work.</>,
                       // ---------- CUSTOM ----------
+                      // <>Gained experience related to databases, object-oriented design, and algorithms through course work.</>,
                       // <>Gained experience related to Python, Java, databases, and unit testing through course work.</>,
-                      <>Gained experience related to programming languages, databases, and design techniques through course work.</>,
+                      // <>Gained experience related to programming languages, databases, and design techniques through course work.</>,
                       // <>Includes courses on data structures & algorithms, software development, and databases.</>
                     ]}
                   />
@@ -160,8 +168,9 @@ export default function Resume() {
                     date="Sep 2023 - Present"
                     bulletpoints={[
                       // <>Teaching Assistant for SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice</>,
-                      <>Leading labs for 42 third year software engineering students, which includes <strong>providing technical expertise on data structures and algorithms</strong> and giving feedback on evaluations (course code SFWRENG 3XB3).</>,
-                      // <>Lead labs and mark evaluations for 25+ third year software engineering students taking "SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice".</>,
+                      <>Leading labs for 40 third-year software engineering students, which includes providing technical expertise on data structures and algorithms.</>,
+                      // <>Leading labs for 40 third-year software engineering students, which includes providing technical expertise on data structures and algorithms and giving feedback on evaluations (course code SFWRENG 3XB3).</>,
+                      // <>Lead labs and mark evaluations for 25+ third-year software engineering students taking "SFWRENG 3XB3 - Software Engineering Practice and Experience: Binding Theory to Practice".</>,
                       // <>Provide technical expertise about data structures & algorithms (sorting algorithms, graph algorithms, dynamic programming) to students.</>
                     ]}
                   />
@@ -171,20 +180,20 @@ export default function Resume() {
                     // institutionLink='https://arcticwolf.com/'
                     date="May 2023 - Aug 2023"
                     bulletpoints={[
-                      //<>Developed software using <strong>Javascript</strong> in an <strong>Agile</strong> environment.</>,
-                      <>Became the main contributor to the development of an internal Chrome extension using <strong>JavaScript</strong>, improving incident triage efficiency for 150+ security analysts.</>,
-                      <>Implemented Webpack and worked with <strong>NodeJS</strong> extensively, resulting in reduced development time and more efficient, bundled code.</>,
-                      <>Redesigned the Chrome extension's UI which was received with overwhelmingly positive feedback.</>,
-                      // <div data-indent={true}>Resolved 10 security vulnerabilities (XSS, ReDoS, SSRF).</div>,
-                      <>Implemented FullStory (a digital experience platform) using its <strong>REST API</strong> to acquire usage analytics and other information crucial in deciding development priorities.</>,
+                      //<>Developed software using Javascript in an Agile environment.</>,
+                      <>Played a leading role in the development of an internal Chrome extension using JavaScript, improving incident triage efficiency for 150+ security analysts.</>,
+                      <>Implemented Webpack and worked with NodeJS extensively, resulting in reduced development time and more efficient, bundled code.</>,
+                      <>Integrated FullStory (a digital experience platform) using its REST API to acquire usage analytics, improving development prioritization.</>,
+                      <>Redesigned the Chrome extension's UI.</>,
+                      <>Resolved 10 security vulnerabilities (XSS, ReDoS, SSRF).</>,
 
                       // <>Worked in an Agile development environment.</>,
                       //<div data-indent={true}>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> to gain insights into how users interact with the extension.</div>,
                       //<div data-indent={true}>Communicated directly with users of the extension to catch and fix 4 functionality-breaking bugs.</div>,
-                      //<>Took a primary role in the Agile development of an internal chrome extension which is used by <strong>150+</strong> security engineers to triage customer incidents more efficiently.</>,
+                      //<>Took a primary role in the Agile development of an internal chrome extension which is used by 150+ security engineers to triage customer incidents more efficiently.</>,
                       //<>Implemented <TextLink text='FullStory' href={'https://www.fullstory.com/'} /> </>,
-                      // <><strong>Won the quarterly team recognition award</strong> as part of the 6-member "Fast Track" team, standing out among 484 people in R&D for exceptional team performance in terms of speed, quality, and innovation.</>,
-                      // <>Take on a variety of projects and responsibilities in an <strong>Agile</strong> environment as a member of the 6-person "Fast Track" team.</>,
+                      // <>Won the quarterly team recognition award as part of the 6-member "Fast Track" team, standing out among 484 people in R&D for exceptional team performance in terms of speed, quality, and innovation.</>,
+                      // <>Take on a variety of projects and responsibilities in an Agile environment as a member of the 6-person "Fast Track" team.</>,
                       // <div data-indent={true}>Develop features for an internally used chrome extension using JavaScript, allowing security engineers to triage customer incidents more efficiently.</div>,
                       // <div data-indent={true}>Create Cyber Defense Maturity Assessment survery tool allowing Arctic Wolf to more easily identify the security posture of potential clients.</div>,
                     ]}
@@ -195,8 +204,12 @@ export default function Resume() {
                     // institutionLink='https://www.miniyowe.com/'
                     date="May 2022 - Aug 2022"
                     bulletpoints={[
-                      <>Worked on teams to create quality experiences for 500+ children total, which included organizing other staff, adapting to unexpected situations, and using creativity to problem solve issues.</>,
-                      <><strong>Led and managed a team of 26 people</strong> in running a staff appreciation week for <strong>200+ people</strong> (August 2023).</>,
+                      // ---------- DEFAULT ----------
+                      <>Created quality experiences for 500 children total which included working with a team, organizing other staff, and using creativity to adapt to unexpected situations.</>,
+                      <>Led and managed a team of 26 people in running a staff appreciation week for 202 people (August 2023).</>,
+                      // ---------- CUSTOM ----------
+                      // <>Created quality experiences for 500 children total which included working with a team, organizing other staff, and using creativity to adapt to unexpected situations.</>,
+                      // <>Led and managed a team of 26 people in running a staff appreciation week for 202 people which required handling ambiguous problems (August 2023).</>,
                       // <>Scheduled and organized other staff members.</>,
                       // "Organized and scheduled other staff members assisting with program activities.",
                       // "Prepared camp for the summer which included leading various operations that developed responsibility, dependability, and communication skills (May 2022 - Jun 2022)."
@@ -215,13 +228,19 @@ export default function Resume() {
                     title="Personal Website"
                     href="https://owengretzinger.com"
                     projectType="Personal Project"
-                    description={<>Developed a website using React featuring a responsive design and fluid animations. (Additional projects and project details can be viewed on the website!)</>}
+                    description={<>Developed a website using React that demonstrates meticulous attention to detail and showcases additional projects.</>}
+                  />
+                  <ResumeProject
+                    title="Simple Terms"
+                    href="https://devpost.com/software/simple-terms"
+                    projectType="Hackathon Project"
+                    description={<>Created a Chrome extension that uses AI to summarize terms and conditions. Made with two other students for Hack the North 2023, using OpenAI's API and React.</>}
                   />
                   <ResumeProject
                     title="Jazz Musician Website"
                     href="https://mattausgretzinger.com"
                     projectType="Personal Project"
-                    description={<>Designed and built a website for a professional jazz musician using React, including a Content Management System (CMS) so that the musician can maintain the website.</>}
+                    description={<>Designed and built a website for a professional jazz musician using React, including a Content Management System (CMS).</>}
                   />
                   <ResumeProject
                     title="Education Data for Change"
@@ -243,26 +262,25 @@ export default function Resume() {
                     projectType="School Project"
                     description={<>Created a web app using Elm that teaches the basics of binary, designed to follow design principles.</>}
                   /> */}
-                  <ResumeProject
+                  {/* <ResumeProject
                     title="Server Insights"
                     href="https://github.com/owengretzinger/server-insights"
                     projectType="Hackathon & Personal Project"
-                    description={<>Achieved <strong>first place</strong> in a hackathon of 44 participants by developing a discord bot which analyzes messages and produces various graphs using Python and MatPlotLib.</>}
-                  />
+                    description={<>Achieved first place in a hackathon of 44 participants by developing a discord bot which analyzes messages and produces various graphs using Python and MatPlotLib.</>}
+                  /> */}
                 </ResumeSection>
                 <ResumeSection title="Skills" icon={FaStar}>
                   <div className="flex flex-col gap-1 text-xs">
                     <div className="flex gap-3">
                       <h3 className="w-[90px] shrink-0 font-extrabold text-right">Languages</h3>
                       <p className="">
-                        <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, 
-                        SQL, C, Elm, Haskell
-                        {/* <strong>Python</strong>, <strong>Java</strong>, <strong>SQL</strong>, TypeScript, Javascript, C#, HTML, CSS, C, Elm, Haskell */}
+                        <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, Haskell, C#, HTML, CSS, SQL, C++, C, Elm
+                        {/* <strong>Python</strong>, <strong>Java</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Haskell, C#, HTML, CSS, SQL, C++, C, Elm */}
                       </p>
                     </div>
                     <div className="flex gap-3">
                       <h3 className="w-[90px] shrink-0 font-extrabold text-right">Tools</h3>
-                      <p className=""><strong>React</strong>, <strong>NodeJS</strong>, <strong>Figma</strong>, <strong>Git</strong>, NextJS, Jira, Confluence, Linux</p>
+                      <p className=""><strong>React</strong>, <strong>NodeJS</strong>, <strong>Git</strong>, NextJS, Jira, Confluence, Linux, Figma</p>
                     </div>
                     <div className="flex gap-3">
                       <h3 className="w-[90px] shrink-0 font-extrabold text-right">Methodologies</h3>
@@ -280,7 +298,7 @@ export default function Resume() {
                     institution="McMaster Computer Science Society"
                     date="Oct 2022 - Present"
                     bulletpoints={[
-                      <>Communicate with the third year computer science body and university officials to resolve issues.</>,
+                      <>Communicate with the third-year computer science body and university officials to resolve issues.</>,
                       <>Collaborate with society members to plan and execute engaging events.</>
                     ]}
                   />
@@ -371,10 +389,10 @@ function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }
         <p className="text-xs font-light">{date}</p>
       </div>} */}
       <div className="flex items-center justify-between">
-        <h3 className="font-extrabold">{title}</h3>
+        <h3 className="text-base font-extrabold">{title}</h3>
         <p className="text-xs font-light">{date}</p>
       </div>
-      <h4 className="text-sm font-extrabold -mt-1">
+      <h4 className="text-xs font-extrabold -mt-1">
         {institutionLink ? <ResumeLink text={institution} href={institutionLink} isPublic={isPublic} /> : institution}
       </h4>
       <BulletPoints bulletpoints={bulletpoints} />
@@ -396,7 +414,7 @@ function ResumeProject({ title, href, projectType, description }: { title: strin
   return (
     <div>
       <ResumeLink text={title} href={href} icon="link" target="_blank" isPublic={isPublic} />
-      <h4 className="text-sm font-extrabold -mt-1">{projectType}</h4>
+      <h4 className="text-xs font-extrabold -mt-1">{projectType}</h4>
       <p className="text-xs">{description}</p>
     </div>
   )
