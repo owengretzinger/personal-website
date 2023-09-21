@@ -274,7 +274,7 @@ export default function Resume() {
                     <div className="flex gap-3">
                       <h3 className="w-[90px] shrink-0 font-extrabold text-right">Languages</h3>
                       <p className="">
-                        <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, Haskell, C#, HTML, CSS, SQL, C++, C, Elm
+                        <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, SQL, Haskell, C++, C, Elm
                         {/* <strong>Python</strong>, <strong>Java</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Haskell, C#, HTML, CSS, SQL, C++, C, Elm */}
                       </p>
                     </div>
