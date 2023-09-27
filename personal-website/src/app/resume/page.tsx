@@ -23,13 +23,11 @@ import CoverLetterContent from '@/components/coverLetter';
 const isPublic = true;
 const showColours = true;
 const isCoverLetter = false;
-type resumeVersion = "front end" | "full stack" | "general";
-const version: resumeVersion = "full stack";
 
 const resumePDFlink = "/Resume - Owen Gretzinger.pdf";
 
 export const metadata: Metadata = {
-  title: 'Resume - Owen Gretzinger',
+  title: isPublic ? 'Resume - Owen Gretzinger' : 'Owen_Gretzinger_Resume',
   description: "I'm a software developer on a mission to spread love. Check out my resume to see my education, work experience, skills, projects, and leadership experience!",
 }
 
@@ -37,7 +35,7 @@ export default function ResumePage() {
   return (
     <>
       <RevealPage />
-      <div className="max-w-full min-h-screen bg-blue/30 font-normal px-4 print:px-0 py-10 print:py-0 text-[#000]">
+      <div className={`max-w-full min-h-screen bg-blue/30 font-normal px-4 print:px-0 py-10 print:py-0 ${showColours ? "text-black" : "text-[#000]"}`}>
         <FadeInOnScroll delay={11} waitForLoad={true}
           className="relative w-full bg-white rounded-theme shadow-xl
                          sm:max-w-[52rem] lg:aspect-[8.5/11] mx-auto mt-20 lg:mt-0
@@ -114,8 +112,8 @@ function Header() {
           <div className="flex flex-col w-fit sm:items-end print:items-end gap-[2px] text-xs">
             <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" isPublic={showColours} />
             <ResumeLink text={"owengretzinger@gmail.com"} href={"mailto:owengretzinger@gmail.com"} icon="email" target="_blank" isPublic={showColours} />
-            <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={showColours} />
-            <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={showColours} />
+            <ResumeLink text="linkedin.com/in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={showColours} />
+            <ResumeLink text="github.com/owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={showColours} />
           </div>
         </div>
       </div>
@@ -148,45 +146,43 @@ function Resume() {
             <ResumeSection title="Links" className="sm:hidden print:hidden">
               <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com" icon="website" target="_blank" isPublic={showColours} />
               <ResumeLink text={"owengretzinger@gmail.com"} href={"mailto:owengretzinger@gmail.com"} icon="email" target="_blank" isPublic={showColours} />
-              <ResumeLink text="in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={showColours} />
-              <ResumeLink text="owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={showColours} />
+              <ResumeLink text="linkedin.com/in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" icon="linkedin" target="_blank" isPublic={showColours} />
+              <ResumeLink text="github.com/owengretzinger" href="https://github.com/owengretzinger" icon="github" target="_blank" isPublic={showColours} />
             </ResumeSection>
           </div>
           <ResumeSection title="Highlights of Qualification" icon={BsFillChatFill}>
             <div className="text-xs">
-              {
-                (version === "front end" && <>
-                  Third-year computer science co-op student passionate about front-end development with significant experience in React. Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
-                </>) ||
-                (version === "full stack" && <>
-                  <BulletPoints bulletpoints={[
-                    // ---------- DEFAULT ----------
-                    <>Third-year computer science student proficient in Python and React, with previous technical internship experience.</>,
-                    <>Strong leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
-                    <>Eagerness to learn and commitment to follow through demonstrated by completion of personal projects and top academic performance.</>,
-                    // ---------- CUSTOM ----------
-                    // <>Third-year computer science student proficient in Python and Java, with previous technical internship experience.</>,
-                    // <>Leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
-                    // <>Third-year computer science co-op student with strong leadership skills and significant experience using Python and Java.</>,
-                    // <></>,
-                    // <>Eagerness to learn and commitment to follow through demonstrated by completion of personal projects and top academic performance.</>,
-                    // <>Strong communication skills and familiarity with development tools as a result of previous co-op experience at Arctic Wolf.</>,
-                    // <>Third-year computer science co-op student passionate about full-stack development with significant experience using NodeJS.</>,
-                    // <>Third-year computer science co-op student possessing relevant experience using Python, Java, and SQL.</>,
-                    // <>Third-year computer science co-op student passionate about full-stack development possessing relevant experience using Python, Java, and SQL.</>,
-                    // <>Experience writing clean code and working with version control from previous co-op at Arctic Wolf.</>,
-                    // <>Self-driven analytical thinker evidenced by a 4.0/4.0 GPA and completion of personal projects.</>,
-                    // <>Strong communication and teamwork skills as a result of previous co-op experience at Arctic Wolf and a variety of leadership experience.</>,
-                    // <>Solid understanding of algorithms and data structures evidenced by a 4.0/4.0 GPA and becoming a teaching assistant for a practical DSA implementation course.</>,
-                  ]} />
-                </>)
-                // ||
-                // (version === "general" && <>
-                //   Third-year computer science co-op student passionate about software development with a focus on front end development with significant experience in React.
-
-                //   Hard worker evidenced by a 4.0/4.0 GPA, with strong communication skills and an eagerness to learn.
-                // </>)
-              }
+              <>
+                <BulletPoints bulletpoints={[
+                  // ---------- DEFAULT ----------
+                  <>Third-year computer science student proficient in Python and React, with previous technical internship experience.</>,
+                  <>Committed and eager to learn, as demonstrated by achieving top academic performance and completing personal projects.</>,
+                  <>Strong understanding of data structures and algorithms (DSA), resulting in a teaching assistant role for a third-year DSA implementation course.</>,
+                  // <>Strong leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
+                  // ---------- CUSTOM ----------
+                  // <>Third-year computer science student proficient in Python and React.js, with previous technical internship experience.</>,
+                  // <>Persistent and eager to learn, demonstrated by top academic performance and completion of personal projects.</>,
+                  // <>Strong CSS skills, and experience creating .</>,
+                  // <>Currently a teaching assistant for a course which focuses on the practical implementation of data structures and algorithms.</>,
+                  // <>Currently a teaching assistant for a course which focuses on the practical implementation of data structures and algorithms.</>,
+                  // <>Third-year computer science student proficient in Python and React, with previous technical internship experience.</>,
+                  // <>Results-oriented and eager to learn demonstrated by completion of personal projects and top academic performance.</>,
+                  // <>Strong leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
+                  // <>Third-year computer science student proficient in Python and Java, with previous technical internship experience.</>,
+                  // <>Leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
+                  // <>Third-year computer science co-op student with strong leadership skills and significant experience using Python and Java.</>,
+                  // <></>,
+                  // <>Eagerness to learn and commitment to follow through demonstrated by completion of personal projects and top academic performance.</>,
+                  // <>Strong communication skills and familiarity with development tools as a result of previous co-op experience at Arctic Wolf.</>,
+                  // <>Third-year computer science co-op student passionate about full-stack development with significant experience using NodeJS.</>,
+                  // <>Third-year computer science co-op student possessing relevant experience using Python, Java, and SQL.</>,
+                  // <>Third-year computer science co-op student passionate about full-stack development possessing relevant experience using Python, Java, and SQL.</>,
+                  // <>Experience writing clean code and working with version control from previous co-op at Arctic Wolf.</>,
+                  // <>Self-driven analytical thinker evidenced by a 4.0/4.0 GPA and completion of personal projects.</>,
+                  // <>Strong communication and teamwork skills as a result of previous co-op experience at Arctic Wolf and a variety of leadership experience.</>,
+                  // <>Solid understanding of algorithms and data structures evidenced by a 4.0/4.0 GPA and becoming a teaching assistant for a practical DSA implementation course.</>,
+                ]} />
+              </>
             </div>
           </ResumeSection>
           <ResumeSection title="Education" icon={FaGraduationCap}>
@@ -199,6 +195,9 @@ function Resume() {
                 // ---------- DEFAULT ----------
                 <>Gained experience related to databases, algorithms, and software design through course work.</>,
                 // ---------- CUSTOM ----------
+                // <>Over two years of computer science courses taken, including Data Structures and Algorithms and Operating Systems.</>,
+                // <>Completed school projects using C and C++.</>,
+                // <>Gained experience related to databases, algorithms, and software design.</>,
                 // <>Gained experience related to databases, object-oriented design, and algorithms through course work.</>,
                 // <>Gained experience related to Python, Java, databases, and unit testing through course work.</>,
                 // <>Gained experience related to programming languages, databases, and design techniques through course work.</>,
@@ -273,13 +272,13 @@ function Resume() {
               title="Personal Website"
               href="https://owengretzinger.com"
               projectType="Personal Project"
-              description={<>Developed a website using React that demonstrates meticulous attention to detail and showcases additional projects.</>}
+              description={<>Developed a personal website using React that demonstrates meticulous attention to detail and showcases additional projects.</>}
             />
             <ResumeProject
               title="Simple Terms"
               href="https://devpost.com/software/simple-terms"
               projectType="Hackathon Project"
-              description={<>Created a Chrome extension that uses AI to summarize terms and conditions. Made with two other students for Hack the North 2023, using OpenAI's API and React.</>}
+              description={<>Created a Chrome extension that uses AI to summarize terms and conditions, made with two other students for Hack the North using OpenAI's API and React.</>}
             />
             <ResumeProject
               title="Jazz Musician Website"
@@ -319,7 +318,8 @@ function Resume() {
               <div className="flex gap-3">
                 <h3 className="w-[90px] shrink-0 font-extrabold text-right">Languages</h3>
                 <p className="">
-                  <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, SQL, Haskell, C++, C, Elm
+                  <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Java, C#, HTML, CSS, SQL, C++, C, Haskell
+                  {/* <strong>Python</strong>, TypeScript, JavaScript, Java, C#, C++, C, HTML, CSS, SQL, Haskell, Elm */}
                   {/* <strong>Python</strong>, <strong>Java</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong>, Haskell, C#, HTML, CSS, SQL, C++, C, Elm */}
                 </p>
               </div>
@@ -378,7 +378,7 @@ function ResumeSection({ ...props }: any) {
         <h2 className="text-xl font-[1000]">{props.title}</h2>
         {/* {props.icon && <props.icon className="text-2xl" />} */}
       </div>
-      <span className="w-full h-[4px] bg-black mb-[6px]" />
+      <span className={`w-full h-[4px] ${showColours ? "bg-black" : "bg-[#000]"} mb-[6px]`} />
       <div className="flex flex-col gap-[6px]">
         {props.children}
       </div>
@@ -393,13 +393,13 @@ function ResumeChunk({ title, institution, institutionLink, date, bulletpoints }
         <FaCalendar className="text-xs" />
         <p className="text-xs font-light">{date}</p>
       </div>} */}
-      <div className="flex items-center justify-between">
-        <h3 className="text-base font-extrabold">{title}</h3>
-        <p className="text-xs font-light">{date}</p>
+      <h3 className="text-base font-extrabold">{title}</h3>
+      <div className="flex items-center justify-between -mt-1">
+        <h4 className="text-xs font-extrabold">
+          {institutionLink ? <ResumeLink text={institution} href={institutionLink} isPublic={showColours} /> : institution}
+        </h4>
+        <p className="text-xs font-light -mt-[30px]">{date}</p>
       </div>
-      <h4 className="text-xs font-extrabold -mt-1">
-        {institutionLink ? <ResumeLink text={institution} href={institutionLink} isPublic={showColours} /> : institution}
-      </h4>
       <BulletPoints bulletpoints={bulletpoints} />
     </div>
   )
