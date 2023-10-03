@@ -29,6 +29,8 @@ import { getArticlesData } from '../lib/getArticlesData';
 import { BsTag } from 'react-icons/bs'
 import ProjectsContainer from '@/components/projectExpand';
 
+const resumePDFlink = "/Resume - Owen Gretzinger.pdf";
+
 export const metadata: Metadata = {
 
 };
@@ -66,7 +68,8 @@ export default async function Page() {
         })}
         <li>
           <FadeInOnScroll delay={12} waitForLoad={true} noDelayOnMobile={true}>
-            <OutlineButton text={"Resume"} href="/resume" />
+            {/* <OutlineButton text={"Resume"} href="/resume" /> */}
+            <OutlineButton text={"Download"} href={resumePDFlink} target="_blank" />
           </FadeInOnScroll>
         </li>
         {/* <FadeInOnScroll delay={13} waitForLoad={true} noDelayOnMobile={true}>

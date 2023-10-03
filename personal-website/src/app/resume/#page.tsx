@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   description: "I'm a software developer on a mission to spread love. Check out my resume to see my education, work experience, skills, projects, and leadership experience!",
 }
 
-export default function ResumePage() {
+export function ResumePage() {
   return (
     <>
       <RevealPage />
@@ -41,7 +41,7 @@ export default function ResumePage() {
                          sm:max-w-[52rem] lg:aspect-[8.5/11] mx-auto mt-20 lg:mt-0
                          print:w-[52rem] print:h-[100vh] print:aspect-[8.5/11] print:m-0 print:shadow-none">
           <div className="w-full h-full flex flex-col rounded-outline p-4 md:p-16 print:p-16 print:border-none">
-            {!isCoverLetter ? <Resume /> : <CoverLetter />}
+            {!isCoverLetter ? <Resume2 /> : <CoverLetter />}
           </div>
           {(showColours) &&
             <>
@@ -130,6 +130,28 @@ function Header() {
   )
 }
 
+function Resume2() {
+
+  return (
+    <>
+      <div>
+        <h2 className="flex-1 text-4xl font-[1000] h-fit leading-8">Owen Gretzinger</h2>
+        <div className="flex">
+          Oakville, Ontario, Canada | +1 (289) 681-9925 |&nbsp;<ResumeLink text={"owengretzinger@gmail.com"} href={"mailto:owengretzinger@gmail.com"} target="_blank" isPublic={showColours} />
+        </div>
+        <div className="flex">
+          <ResumeLink text="owengretzinger.com" href="https://owengretzinger.com"  target="_blank" isPublic={showColours} /> | <ResumeLink text="linkedin.com/in/owengretzinger" href="https://www.linkedin.com/in/owengretzinger" target="_blank" isPublic={showColours} /> | 
+              <ResumeLink text="github.com/owengretzinger" href="https://github.com/owengretzinger" target="_blank" isPublic={showColours} />
+        </div>
+      </div>
+
+
+
+      
+    </>
+  )
+}
+
 function Resume() {
   return (
     <>
@@ -156,10 +178,16 @@ function Resume() {
                 <BulletPoints bulletpoints={[
                   // ---------- DEFAULT ----------
                   <>Third-year computer science student proficient in Python and React, with previous technical internship experience.</>,
-                  <>Committed and eager to learn, as demonstrated by achieving top academic performance and completing personal projects.</>,
+                  <>Great at executing and eager to learn, as demonstrated by achieving top academic performance and completing personal projects.</>,
                   <>Strong understanding of data structures and algorithms (DSA), resulting in a teaching assistant role for a third-year DSA implementation course.</>,
+                  // <>Significant experience with web technologies including JavaScript, TypeScript, React, HTML, and CSS from creating websites.</>,
                   // <>Strong leadership skills gained through roles as a teaching assistant, camp program leader, and involvement in student societies and youth programs.</>,
                   // ---------- CUSTOM ----------
+                  // <>Great at executing and eager to learn, as demonstrated by achieving top academic performance and completing personal projects.</>,
+                  // <>Strong programmer with a focus on clear and effective communication.</>,
+                  // <>Third-year computer science student proficient in Python and JavaScript (ReactJS), with previous technical internship experience working in an Agile environment.</>,
+                  // <>Designed and built multiple websites using ReactJS which demonstrates creative development skills.</>,
+                  // <>Critical thinker and effective problem-solver with a strong understanding of computer science fundamentals.</>,
                   // <>Third-year computer science student proficient in Python and React.js, with previous technical internship experience.</>,
                   // <>Persistent and eager to learn, demonstrated by top academic performance and completion of personal projects.</>,
                   // <>Strong CSS skills, and experience creating .</>,
@@ -195,6 +223,9 @@ function Resume() {
                 // ---------- DEFAULT ----------
                 <>Gained experience related to databases, algorithms, and software design through course work.</>,
                 // ---------- CUSTOM ----------
+                // <>Gained experience using Java and C++ for course projects.</>,
+                // <>Developed strong computer science fundamentals and gained experience using Java.</>,
+                // <>Three electives taken from the innovation department to fuel passion for innovation.</>,
                 // <>Over two years of computer science courses taken, including Data Structures and Algorithms and Operating Systems.</>,
                 // <>Completed school projects using C and C++.</>,
                 // <>Gained experience related to databases, algorithms, and software design.</>,
