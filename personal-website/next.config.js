@@ -11,6 +11,8 @@ const nextConfig = {
       { source: "/media/:path*", destination: "https://education-data-for-change.vercel.app/media/:path*" },
       { source: "/resume-template", destination: "https://html-resume-template-gamma.vercel.app" },
       { source: "/assets/:match*", destination: "https://html-resume-template-gamma.vercel.app/assets/:match*" },
+
+      { source: "/room-booking-system", destination: "https://room-booking-system-owengretzinger.vercel.app" },
     ]
   },
 }
