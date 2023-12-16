@@ -12,7 +12,7 @@ const nextConfig = {
       { source: "/resume-template", destination: "https://html-resume-template-gamma.vercel.app" },
       { source: "/assets/:match*", destination: "https://html-resume-template-gamma.vercel.app/assets/:match*" },
 
-      { source: "/room-booking-system", destination: "https://room-booking-system-owengretzinger.vercel.app" },
+      { source: "/room-booking-system/:path*", destination: "https://room-booking-system-owengretzinger.vercel.app/:path*" },
     ]
   },
 }
