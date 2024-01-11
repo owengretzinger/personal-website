@@ -8,6 +8,7 @@ import serverInsightsThumbnail from "../../public/images/projects-images/server-
 import tempesuousTurretsThumbnail from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-thumbnail.png"
 import binary0101Thumbnail from "../../public/images/projects-images/binary-0101/binary-0101-thumbnail.png"
 import simpleTermsThumbnail from "../../public/images/projects-images/simple-terms/simple-terms-thumbnail.png"
+import roomBookingSystemThumbnail from "../../public/images/projects-images/room-booking-system/room-booking-system-thumbnail.png"
 
 import mattausWebsiteIcon from "../../public/images/projects-images/mattaus-website/mattaus-website-icon.png"
 import personWebsiteIcon from "../../public/images/projects-images/personal-website/personal-website-icon.png"
@@ -17,11 +18,28 @@ import serverInsightsIcon from "../../public/images/projects-images/server-insig
 import tempesuousTurretsIcon from "../../public/images/projects-images/tempestuous-turrets/tempestuous-turrets-icon.png"
 import binary0101Icon from "../../public/images/projects-images/binary-0101/binary-0101-icon.png"
 import simpleTermsIcon from "../../public/images/projects-images/simple-terms/simple-terms-icon.png"
+import roomBookingSystemIcon from "../../public/images/projects-images/room-booking-system/room-booking-system-icon.png"
 
 
 
 export default function projectInfo() {
     return [
+        {
+            "id": "room-booking-system",
+            "title": "Room Booking System",
+            "subtitle": "School Project",
+            "description":
+                <p>
+                    A McMaster room booking system prototype. Created for 4HC3 Human Computer Interfaces.
+                </p>,
+            "tags": ["REACT", "NEXT.JS"],
+            "links": {
+                "open": "https://room-booking-system-blond.vercel.app/",
+                "github": "https://github.com/owengretzinger/room-booking-system",
+            },
+            "thumbnail": roomBookingSystemThumbnail,
+            "icon": roomBookingSystemIcon
+        },
         {
             "id": "simple-terms",
             "title": "Simple Terms",
