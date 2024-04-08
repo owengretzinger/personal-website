@@ -115,7 +115,7 @@ export default async function Page() {
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
                     I take computer science at McMaster University, where I'm a Year Representative for the Computer Science Society.
-                    More information can be found on my {<TextLink text="resume" href="/resume" /*newWindow={false}*/ />}!
+                    More information can be found on my {<TextLink text="resume" href={resumePDFlink} /*newWindow={false}*/ />}!
                   </p>
                 </FadeInOnScroll>
               </div>
@@ -137,7 +137,7 @@ export default async function Page() {
                       <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
                     </div>
                     <div className="flex flex-col">
-                      <p className="text-base min-[475px]:text-lg">Level II</p>
+                      <p className="text-base min-[475px]:text-lg">Level III</p>
                       <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
                     </div>
                   </div>
@@ -156,11 +156,11 @@ export default async function Page() {
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-2 lg:text-right">
-                    I recently finished a co-op as a developer at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />} (#jointhepack), where I worked on an internal Chrome extension that improves incident triage efficiency for 150+ security engineers. I am currently seeking co-op opportunities for summer 2024!
+                    I previously did a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />} (#jointhepack), where I worked as a developer on an internal Chrome extension that improves incident triage efficiency for 150+ security engineers.
                   </p>
                 </FadeInOnScroll>
               </div>
-              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
+              <FadeInOnScroll delay="calculate" className=" basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
                 <div className="w-full h-full rounded-outline overflow-hidden">
                   <Image src={arcticWolf} alt="Arctic Wolf 'I've joined the pack' Image"
                     className="" />
