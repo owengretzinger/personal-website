@@ -82,7 +82,9 @@ export default async function Page() {
               <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
               <FadeInOnScroll delay={9} waitForLoad={true}>
                 <p className="text-xl xl:text-2xl">
-                  I build meaningful software. 
+                  I'm a software developer on a mission
+                  to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
+                  My priority is producing excellent work while communicating with precision and clarity.
                 </p>
               </FadeInOnScroll>
               <FadeInOnScroll delay={11} waitForLoad={true} className="mx-auto">
