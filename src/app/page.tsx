@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image'
-// import pfp from "../../public/images/pfp_standing_outdoors.png";
-// import pfp from "../../public/images/pfp_standing_outdoors_2.jpeg";
 import pfp from "../../public/images/headshot.png";
-// import pfp from "../../public/images/mmmmmm.png";
 
 import macLogo from "../../public/images/mcmaster-logo.png";
 import arcticWolf from "../../public/images/arctic-wolf.png";
@@ -84,9 +81,11 @@ export default async function Page() {
               <FadeInOnScroll delay={5} waitForLoad={true}><p className="text-xl xl:text-2xl">Hi, my name is</p></FadeInOnScroll>
               <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
               <FadeInOnScroll delay={9} waitForLoad={true}>
-                <p className="text-xl xl:text-2xl">I’m a software developer on a mission
+                <p className="text-xl xl:text-2xl">
+                  I'm a software developer on a mission
                   to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
-                  My priority is producing excellent work while communicating with precision and clarity.</p>
+                  My priority is producing excellent work while communicating with precision and clarity.
+                </p>
               </FadeInOnScroll>
               <FadeInOnScroll delay={11} waitForLoad={true} className="mx-auto">
                 <SocialButtons />
@@ -116,7 +115,7 @@ export default async function Page() {
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-6 lg:pb-0">
                     I take computer science at McMaster University, where I'm a Year Representative for the Computer Science Society.
-                    More information can be found on my {<TextLink text="resume" href="/resume" /*newWindow={false}*/ />}!
+                    More information can be found on my {<TextLink text="resume" href={resumePDFlink} /*newWindow={false}*/ />}!
                   </p>
                 </FadeInOnScroll>
               </div>
@@ -138,7 +137,7 @@ export default async function Page() {
                       <p className="text-xs min-[475px]:text-base text-grey">B.A.Sc.</p>
                     </div>
                     <div className="flex flex-col">
-                      <p className="text-base min-[475px]:text-lg">Level II</p>
+                      <p className="text-base min-[475px]:text-lg">Level III</p>
                       <p className="text-xs min-[475px]:text-base text-grey">April 2025 Expected Graduation</p>
                     </div>
                   </div>
@@ -157,11 +156,11 @@ export default async function Page() {
                 </FadeInOnScroll>
                 <FadeInOnScroll delay={3}>
                   <p className="text-base pb-2 lg:text-right">
-                    I recently finished a co-op as a developer at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />} (#jointhepack), where I worked on an internal Chrome extension that improves incident triage efficiency for 150+ security engineers. I am currently seeking co-op opportunities for summer 2024!
+                    I previously did a co-op at {<TextLink text="Arctic Wolf" href="https://arcticwolf.com/" breakWords="false" />} (#jointhepack), where I worked as a developer on an internal Chrome extension that improves incident triage efficiency for 150+ security engineers.
                   </p>
                 </FadeInOnScroll>
               </div>
-              <FadeInOnScroll delay="calculate" className="basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
+              <FadeInOnScroll delay="calculate" className=" basis-1/2 w-full max-w-[500px] aspect-[5/2.22] rounded-theme drop-shadow-2xl lg:mr-5 ">
                 <div className="w-full h-full rounded-outline overflow-hidden">
                   <Image src={arcticWolf} alt="Arctic Wolf 'I've joined the pack' Image"
                     className="" />
@@ -214,61 +213,61 @@ export default async function Page() {
 
         <section>
           <SectionHeader title="Projects" id="Projects" />
-            <ProjectsContainer>
-              {projectInfo().map((project, i) =>
-                <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
-                  <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
-                    <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
+          <ProjectsContainer>
+            {projectInfo().map((project, i) =>
+              <FadeInOnScroll key={project.id} delay={"calculate"} className="relative w-full max-w-[500px] lg:aspect-[5/2.22]">
+                <div className="group relative w-full h-full drop-shadow-[0_4px_3px_rgb(0,0,0,0.5)] lg:hover:-translate-y-2 lg:hover:drop-shadow-[0_12px_3px_rgb(0,0,0,0.5)] lg:transition-[box-shadow,_transform,_filter] lg:duration-300 lg:ease-out">
+                  <div className={`w-full h-full overflow-hidden rounded-outline bg-white flex flex-col lg:flex-row 
                          ${i % 2 == 0 ? "lg:justify-self-end" : "lg:justify-self-start"}`}>
-                      <Link title={`Open ${project.title} in a new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
+                    <Link title={`Open ${project.title} in a new tab`} href={project.links.open ? project.links.open : project.links.github ? project.links.github : "/not-found"} target="_blank"
 
-                        className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
-                      <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
-                        <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
-                          className="absolute w-full h-full object-cover brightness-[80%]" />
-                        <Image src={project.icon} alt={`${project.id} icon`}
-                          className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
-                      </div>
-                      <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
-                        <div className="flex">
-                          <div className="basis-[87%] flex flex-col">
-                            <h3 className="text-md">
-                              <span className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
+                      className="absolute w-full h-full bg-white opacity-0 z-10"></Link>
+                    <div className="lg:basis-[30%] min-[1100px]:basis-[40%] aspect-[3/2] lg:aspect-auto relative border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-black flex justify-center items-center">
+                      <Image src={project.thumbnail} alt={`${project.id} thumbnail`}
+                        className="absolute w-full h-full object-cover brightness-[80%]" />
+                      <Image src={project.icon} alt={`${project.id} icon`}
+                        className="absolute w-5/12 lg:w-1/2 aspect-square rounded-full border-[3px] border-black" />
+                    </div>
+                    <div className="flex flex-col lg:basis-[70%] min-[1100px]:basis-[60%] ml-1 my-1">
+                      <div className="flex">
+                        <div className="basis-[87%] flex flex-col">
+                          <h3 className="text-md">
+                            <span className={`whitespace-nowrap relative  text-decoration:none; text-black group-hover:text-orange
                                 before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
                                 before:bottom-0 before:left-0 before:bg-orange before:origin-top-left 
                                 before:transition before:duration-300 before:ease-in-out before:scale-x-0 group-hover:before:scale-x-100
                                 transition duration-300`}>
-                                {project.title}
-                              </span>
-                            </h3>
-                            <p className="font-medium text-sm text-grey -mt-1">{project.subtitle}</p>
-                            <div className="font-normal text-sm my-2 leading-[18px]">
-                              {project.description}
-                            </div>
-                          </div>
-                          <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
-                            {Object.keys(project.links).map((link) =>
-                              <Link title={linkToTitle(link, project.title)} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
-                                <ProjectLinkIcon name={link} />
-                              </Link>
-                            )}
+                              {project.title}
+                            </span>
+                          </h3>
+                          <p className="font-medium text-sm text-grey -mt-1">{project.subtitle}</p>
+                          <div className="font-normal text-sm my-2 leading-[18px]">
+                            {project.description}
                           </div>
                         </div>
-
-                        <div className="flex mt-auto space-x-1">
-                          {project.tags.map((tag) =>
-                            <div key={tag} className="flex rounded-full border-2 border-blue items-center">
-                              {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
-                              <p className="font-bold text-xs text-blue py-0.5 pr-1.5">{tag}</p>
-                            </div>
+                        <div className="basis-[13%] flex flex-col items-end gap-2 p-2 pl-1">
+                          {Object.keys(project.links).map((link) =>
+                            <Link title={linkToTitle(link, project.title)} key={link} href={project.links[link as keyof typeof project.links]!} target={link === "article" ? "_self" : "_blank"} className="z-20">
+                              <ProjectLinkIcon name={link} />
+                            </Link>
                           )}
                         </div>
                       </div>
+
+                      <div className="flex mt-auto space-x-1">
+                        {project.tags.map((tag) =>
+                          <div key={tag} className="flex rounded-full border-2 border-blue items-center">
+                            {BsTag({ className: "text-blue stroke-[0.5px] w-5 aspect-square pl-1" })}
+                            <p className="font-bold text-xs text-blue py-0.5 pr-1.5">{tag}</p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </FadeInOnScroll>
-              )}
-            </ProjectsContainer>
+                </div>
+              </FadeInOnScroll>
+            )}
+          </ProjectsContainer>
         </section>
 
         <section>

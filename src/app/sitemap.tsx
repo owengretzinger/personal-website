@@ -16,8 +16,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: 'https://owengretzinger.com',
         },
-        {
-            url: 'https://owengretzinger.com/resume',
-        },
     ].concat(allArticlesSiteMap);
 }
