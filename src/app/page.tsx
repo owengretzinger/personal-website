@@ -26,7 +26,7 @@ import { getArticlesData } from '../lib/getArticlesData';
 import { BsTag } from 'react-icons/bs'
 import ProjectsContainer from '@/components/projectExpand';
 
-const resumePDFlink = "/Owen_Gretzinger_Resume.pdf";
+const resumePDFlink = "https://www.owengretzinger.com/resume";
 
 export const metadata: Metadata = {
 
@@ -82,9 +82,7 @@ export default async function Page() {
               <FadeInOnScroll delay={7} waitForLoad={true}><h1 className="text-4xl xl:text-5xl">Owen Gretzinger.</h1></FadeInOnScroll>
               <FadeInOnScroll delay={9} waitForLoad={true}>
                 <p className="text-xl xl:text-2xl">
-                  I'm a software developer on a mission
-                  to {<TextLink text="spread love" href="/articles/a-mission-to-spread-love" newWindow={false} breakWords="false" />}, one line of code at a time.
-                  My priority is producing excellent work while communicating with precision and clarity.
+                  I build software with purpose and create impactful solutions through user-centric design
                 </p>
               </FadeInOnScroll>
               <FadeInOnScroll delay={11} waitForLoad={true} className="mx-auto">
